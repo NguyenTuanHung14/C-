@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MiniStopModelStoreContainer" CdmEntityContainer="MiniStopEntities">
+    <EntitySetMapping Name="Accounts">
+      <EntityTypeMapping TypeName="MiniStopModel.Account">
+        <MappingFragment StoreEntitySet="Account">
+          <ScalarProperty Name="Id_Account" ColumnName="Id_Account" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Date_create" ColumnName="Date_create" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Bills">
+      <EntityTypeMapping TypeName="MiniStopModel.Bill">
+        <MappingFragment StoreEntitySet="Bill">
+          <ScalarProperty Name="Id_Bill" ColumnName="Id_Bill" />
+          <ScalarProperty Name="Date_create" ColumnName="Date_create" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="Id_Employee" ColumnName="Id_Employee" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BillDetails">
+      <EntityTypeMapping TypeName="MiniStopModel.BillDetail">
+        <MappingFragment StoreEntitySet="BillDetail">
+          <ScalarProperty Name="Id_BillDetail" ColumnName="Id_BillDetail" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Id_Bill" ColumnName="Id_Bill" />
+          <ScalarProperty Name="Id_Product" ColumnName="Id_Product" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cards">
+      <EntityTypeMapping TypeName="MiniStopModel.Card">
+        <MappingFragment StoreEntitySet="Card">
+          <ScalarProperty Name="Id_Card" ColumnName="Id_Card" />
+          <ScalarProperty Name="Date_create" ColumnName="Date_create" />
+          <ScalarProperty Name="Score" ColumnName="Score" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="MiniStopModel.Customer">
+        <MappingFragment StoreEntitySet="Customer">
+          <ScalarProperty Name="Id_Customer" ColumnName="Id_Customer" />
+          <ScalarProperty Name="Last_name" ColumnName="Last_name" />
+          <ScalarProperty Name="First_name" ColumnName="First_name" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Id_Card" ColumnName="Id_Card" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DeliveryNoteDetails">
+      <EntityTypeMapping TypeName="MiniStopModel.DeliveryNoteDetail">
+        <MappingFragment StoreEntitySet="DeliveryNoteDetail">
+          <ScalarProperty Name="Id_DeliveryNoteDetail" ColumnName="Id_DeliveryNoteDetail" />
+          <ScalarProperty Name="Id_GoodsDeliveryNote" ColumnName="Id_GoodsDeliveryNote" />
+          <ScalarProperty Name="Id_Product" ColumnName="Id_Product" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="MiniStopModel.Employee">
+        <MappingFragment StoreEntitySet="Employee">
+          <ScalarProperty Name="Id_Employee" ColumnName="Id_Employee" />
+          <ScalarProperty Name="Last_name" ColumnName="Last_name" />
+          <ScalarProperty Name="First_name" ColumnName="First_name" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Birth_day" ColumnName="Birth_day" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Id_Position" ColumnName="Id_Position" />
+          <ScalarProperty Name="Id_Card" ColumnName="Id_Card" />
+          <ScalarProperty Name="Id_Account" ColumnName="Id_Account" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GoodsDeliveryNotes">
+      <EntityTypeMapping TypeName="MiniStopModel.GoodsDeliveryNote">
+        <MappingFragment StoreEntitySet="GoodsDeliveryNote">
+          <ScalarProperty Name="Id_GoodsDeliveryNote" ColumnName="Id_GoodsDeliveryNote" />
+          <ScalarProperty Name="Id_Employee" ColumnName="Id_Employee" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GoodsReceiptNotes">
+      <EntityTypeMapping TypeName="MiniStopModel.GoodsReceiptNote">
+        <MappingFragment StoreEntitySet="GoodsReceiptNote">
+          <ScalarProperty Name="Id_GoodsReceiptNote" ColumnName="Id_GoodsReceiptNote" />
+          <ScalarProperty Name="Date_create" ColumnName="Date_create" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="Id_Supplier" ColumnName="Id_Supplier" />
+          <ScalarProperty Name="Id_Employee" ColumnName="Id_Employee" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Positions">
+      <EntityTypeMapping TypeName="MiniStopModel.Position">
+        <MappingFragment StoreEntitySet="Position">
+          <ScalarProperty Name="Id_Position" ColumnName="Id_Position" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="MiniStopModel.Product">
+        <MappingFragment StoreEntitySet="Product">
+          <ScalarProperty Name="Id_Product" ColumnName="Id_Product" />
+          <ScalarProperty Name="Name_product" ColumnName="Name_product" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="MFG_date" ColumnName="MFG_date" />
+          <ScalarProperty Name="EXP_date" ColumnName="EXP_date" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="Id_ProductType" ColumnName="Id_ProductType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductTypes">
+      <EntityTypeMapping TypeName="MiniStopModel.ProductType">
+        <MappingFragment StoreEntitySet="ProductType">
+          <ScalarProperty Name="Id_ProductType" ColumnName="Id_ProductType" />
+          <ScalarProperty Name="Name_Type" ColumnName="Name_Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReceiptNoteDetails">
+      <EntityTypeMapping TypeName="MiniStopModel.ReceiptNoteDetail">
+        <MappingFragment StoreEntitySet="ReceiptNoteDetail">
+          <ScalarProperty Name="Id_ReceiptNoteDetail" ColumnName="Id_ReceiptNoteDetail" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Id_GoodsReceiptNote" ColumnName="Id_GoodsReceiptNote" />
+          <ScalarProperty Name="Id_Product" ColumnName="Id_Product" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Suppliers">
+      <EntityTypeMapping TypeName="MiniStopModel.Supplier">
+        <MappingFragment StoreEntitySet="Supplier">
+          <ScalarProperty Name="Id_Supplier" ColumnName="Id_Supplier" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WareHouses">
+      <EntityTypeMapping TypeName="MiniStopModel.WareHouse">
+        <MappingFragment StoreEntitySet="WareHouse">
+          <ScalarProperty Name="Id_WareHouse" ColumnName="Id_WareHouse" />
+          <ScalarProperty Name="Inventory" ColumnName="Inventory" />
+          <ScalarProperty Name="Id_Product" ColumnName="Id_Product" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="SP_Delete_Product" FunctionName="MiniStopModel.Store.SP_Delete_Product" />
+    <FunctionImportMapping FunctionImportName="SP_GetAll_Product" FunctionName="MiniStopModel.Store.SP_GetAll_Product">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MiniStopModel.SP_GetAll_Product_Result">
+          <ScalarProperty Name="Id_Product" ColumnName="Id_Product" />
+          <ScalarProperty Name="Name_product" ColumnName="Name_product" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="MFG_date" ColumnName="MFG_date" />
+          <ScalarProperty Name="EXP_date" ColumnName="EXP_date" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="Id_ProductType" ColumnName="Id_ProductType" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_GetByID_Product" FunctionName="MiniStopModel.Store.SP_GetByID_Product">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MiniStopModel.SP_GetByID_Product_Result">
+          <ScalarProperty Name="Id_Product" ColumnName="Id_Product" />
+          <ScalarProperty Name="Name_product" ColumnName="Name_product" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="MFG_date" ColumnName="MFG_date" />
+          <ScalarProperty Name="EXP_date" ColumnName="EXP_date" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="Id_ProductType" ColumnName="Id_ProductType" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_Insert_Product" FunctionName="MiniStopModel.Store.SP_Insert_Product" />
+    <FunctionImportMapping FunctionImportName="SP_Update_Product" FunctionName="MiniStopModel.Store.SP_Update_Product" />
+  </EntityContainerMapping>
+</Mapping>

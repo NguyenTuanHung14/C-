@@ -197,3 +197,7 @@ F:\N3\II\ThietKeAppOOP\ProjectGroup\MiniStopApplication\MiniStopApplication\obj\
 F:\N3\II\ThietKeAppOOP\ProjectGroup\MiniStopApplication\MiniStopApplication\obj\Debug\MiniStopApplication.SplashScreen1.resources
 F:\N3\II\ThietKeAppOOP\ProjectGroup\MiniStopApplication\MiniStopApplication\obj\Debug\MiniStopApplication.exe.licenses
 F:\N3\II\ThietKeAppOOP\ProjectGroup\MiniStopApplication\MiniStopApplication\obj\Debug\MiniStopApplication.csproj.CopyComplete
+F:\N3\II\ThietKeAppOOP\ProjectGroup\MiniStopApplication\MiniStopApplication\bin\Debug\EntityFramework.dll
+F:\N3\II\ThietKeAppOOP\ProjectGroup\MiniStopApplication\MiniStopApplication\bin\Debug\EntityFramework.SqlServer.dll
+F:\N3\II\ThietKeAppOOP\ProjectGroup\MiniStopApplication\MiniStopApplication\bin\Debug\EntityFramework.xml
+F:\N3\II\ThietKeAppOOP\ProjectGroup\MiniStopApplication\MiniStopApplication\bin\Debug\EntityFramework.SqlServer.xml

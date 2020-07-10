@@ -130,7 +130,7 @@
             // 
             // btnViewFood
             // 
-            this.btnViewFood.Caption = "Thực đơn";
+            this.btnViewFood.Caption = "Hàng hóa";
             this.btnViewFood.Id = 4;
             this.btnViewFood.LargeWidth = 75;
             this.btnViewFood.Name = "btnViewFood";
