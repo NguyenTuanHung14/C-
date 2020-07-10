@@ -1,7 +1,7 @@
 	
 IF EXISTS 
    (
-     SELECT name FROM master.dbo.sysdatabases 
+    SELECT name FROM master.dbo.sysdatabases 
     WHERE name = N'MiniStop'
     )
 BEGIN
@@ -10,21 +10,20 @@ END
 ELSE
 BEGIN
     CREATE DATABASE MiniStop
-    SELECT 'New Database is Created'
 END
-go
+GO
 USE MiniStop
 Go
 if not exists (select * from sysobjects where name='Position')
     create table Position (
-		Id_Position int not null,
+		Id_Position int not null IDENTITY(1,1),
         Name varchar(50),
 		Primary Key (Id_Position)
     )
 go
 if not exists (select * from sysobjects where name='Card')
     create table Card (
-		Id_Card int not null,
+		Id_Card int not null IDENTITY(1,1),
         Date_create date,
 		Score int, 
 		Primary Key (Id_Card)
@@ -32,7 +31,7 @@ if not exists (select * from sysobjects where name='Card')
 go
 if not exists (select * from sysobjects where name='Customer')
     create table Customer (
-		Id_Customer int not null,
+		Id_Customer int not null IDENTITY(1,1),
         Last_name nvarchar(50),
 		First_name nvarchar(50),
 		Phone varchar(12),
@@ -43,7 +42,7 @@ if not exists (select * from sysobjects where name='Customer')
 go
 if not exists (select * from sysobjects where name='Account')
     create table Account (
-		Id_Account int not null,
+		Id_Account int not null IDENTITY(1,1),
         Username nvarchar(50),
 		Password nvarchar(50), 
 		Date_create date,
@@ -54,7 +53,7 @@ if not exists (select * from sysobjects where name='Account')
 go
 if not exists (select * from sysobjects where name='Employee')
     create table Employee (
-		Id_Employee int not null,
+		Id_Employee int not null IDENTITY(1,1),
         Last_name nvarchar(50),
 		First_name nvarchar(50),
 		Phone varchar(12),
@@ -72,14 +71,14 @@ if not exists (select * from sysobjects where name='Employee')
 go
 if not exists (select * from sysobjects where name='ProductType')
     create table ProductType (
-		Id_ProductType int not null,
+		Id_ProductType int not null IDENTITY(1,1),
         Name_Type nvarchar(50),
 		Primary Key (Id_ProductType),
     )
 go
 if not exists (select * from sysobjects where name='Product')
     create table Product (
-		Id_Product int not null,
+		Id_Product int not null IDENTITY(1,1),
         Name_product nvarchar(50),
 		Price float,
 		Amount int,
@@ -93,7 +92,7 @@ if not exists (select * from sysobjects where name='Product')
 go
 if not exists (select * from sysobjects where name='WareHouse')
     create table WareHouse (
-		Id_WareHouse int not null,
+		Id_WareHouse int not null IDENTITY(1,1),
         Inventory int,
 		Id_Product int,
 		Primary Key (Id_WareHouse),
@@ -102,7 +101,7 @@ if not exists (select * from sysobjects where name='WareHouse')
 go
 if not exists (select * from sysobjects where name='Supplier')
     create table Supplier (
-		Id_Supplier int not null,
+		Id_Supplier int not null IDENTITY(1,1),
         Name nvarchar(50),
 		Phone varchar(12),
 		Address nvarchar(50),
@@ -111,7 +110,7 @@ if not exists (select * from sysobjects where name='Supplier')
 go
 if not exists (select * from sysobjects where name='GoodsReceiptNote')
     create table GoodsReceiptNote (
-		Id_GoodsReceiptNote int not null,
+		Id_GoodsReceiptNote int not null IDENTITY(1,1),
 		Date_create date,
 		Time time,
 		Total float,
@@ -124,7 +123,7 @@ if not exists (select * from sysobjects where name='GoodsReceiptNote')
 go
 if not exists (select * from sysobjects where name='ReceiptNoteDetail')
     create table ReceiptNoteDetail (
-		Id_ReceiptNoteDetail int not null,
+		Id_ReceiptNoteDetail int not null IDENTITY(1,1),
 		Price float,
 		Amount int,
 		Id_GoodsReceiptNote int,
@@ -136,7 +135,7 @@ if not exists (select * from sysobjects where name='ReceiptNoteDetail')
 go
 if not exists (select * from sysobjects where name='GoodsDeliveryNote')
     create table GoodsDeliveryNote (
-		Id_GoodsDeliveryNote int not null,
+		Id_GoodsDeliveryNote int not null IDENTITY(1,1),
 		Id_Employee int,
 		Primary Key (Id_GoodsDeliveryNote),
 		FOREIGN KEY (Id_Employee) REFERENCES Employee(Id_Employee)
@@ -144,7 +143,7 @@ if not exists (select * from sysobjects where name='GoodsDeliveryNote')
 go
 if not exists (select * from sysobjects where name='DeliveryNoteDetail')
     create table DeliveryNoteDetail (
-		Id_DeliveryNoteDetail int not null,
+		Id_DeliveryNoteDetail int not null IDENTITY(1,1),
 		Id_GoodsDeliveryNote int,
 		Id_Product int,
 		Primary Key (Id_DeliveryNoteDetail),
@@ -154,7 +153,7 @@ if not exists (select * from sysobjects where name='DeliveryNoteDetail')
 go
 if not exists (select * from sysobjects where name='Bill')
     create table Bill (
-		Id_Bill int not null,
+		Id_Bill int not null IDENTITY(1,1),
 		Date_create date,
 		Time time,
 		Total float,
@@ -165,7 +164,7 @@ if not exists (select * from sysobjects where name='Bill')
 go
 if not exists (select * from sysobjects where name='BillDetail')
     create table BillDetail (
-		Id_BillDetail int not null,
+		Id_BillDetail int not null IDENTITY(1,1),
 		Price float,
 		Amount int,
 		Id_Bill int,
