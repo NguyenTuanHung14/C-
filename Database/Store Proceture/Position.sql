@@ -15,7 +15,7 @@ begin
 	else
 		insert into Position values (@Name)	
 end
-
-execute SP_Insert_Position ''
+delete from Position
+execute SP_Insert_Position 'Manage'
 select * from Position
 

@@ -1,4 +1,5 @@
-	
+
+
 IF EXISTS 
    (
     SELECT name FROM master.dbo.sysdatabases 
@@ -21,34 +22,14 @@ if not exists (select * from sysobjects where name='Position')
 		Primary Key (Id_Position)
     )
 go
-if not exists (select * from sysobjects where name='Card')
-    create table Card (
-		Id_Card int not null IDENTITY(1,1),
-        Date_create date,
-		Score int, 
-		Primary Key (Id_Card)
-    )
-go
 if not exists (select * from sysobjects where name='Customer')
     create table Customer (
 		Id_Customer int not null IDENTITY(1,1),
         Last_name nvarchar(50),
 		First_name nvarchar(50),
 		Phone varchar(12),
-		Id_Card int,
+		Email nvarchar(50),
 		Primary Key (Id_Customer),
-		FOREIGN KEY (Id_Card) REFERENCES Card(Id_Card)
-    )
-go
-if not exists (select * from sysobjects where name='Account')
-    create table Account (
-		Id_Account int not null IDENTITY(1,1),
-        Username nvarchar(50),
-		Password nvarchar(50), 
-		Date_create date,
-		Role nvarchar(50),
-		Status nvarchar(50),
-		Primary Key (Id_Account),
     )
 go
 if not exists (select * from sysobjects where name='Employee')
@@ -61,14 +42,39 @@ if not exists (select * from sysobjects where name='Employee')
 		Address nvarchar(50),
 		Email nvarchar(50),
 		Id_Position int,
-		Id_Card int,
-		Id_Account int,
 		Primary Key (Id_Employee),
-		FOREIGN KEY (Id_Position) REFERENCES Position(Id_Position),
-		FOREIGN KEY (Id_Card) REFERENCES Card(Id_Card),
-		FOREIGN KEY (Id_Account) REFERENCES Account(Id_Account)
+		FOREIGN KEY (Id_Position) REFERENCES Position(Id_Position)
+
     )
 go
+if not exists (select * from sysobjects where name='Account')
+    create table Account (
+		Id_Account int not null IDENTITY(1,1),
+        Username nvarchar(50),
+		Password nvarchar(50), 
+		Date_create date,
+		Role nvarchar(50),
+		Status nvarchar(50),
+		Id_Employee int,
+		Primary Key (Id_Account),
+		FOREIGN KEY (Id_Employee) REFERENCES Employee(Id_Employee)
+    )
+go
+
+if not exists (select * from sysobjects where name='Card')
+    create table Card (
+		Id_Card int not null IDENTITY(1,1),
+        Date_create date,
+		Score int, 
+		Id_Customer int,
+		Id_Employee int,
+		Primary Key (Id_Card),
+		FOREIGN KEY (Id_Customer) REFERENCES Customer(Id_Customer),
+		FOREIGN KEY (Id_Employee) REFERENCES Employee(Id_Employee)
+    )
+go
+
+
 if not exists (select * from sysobjects where name='ProductType')
     create table ProductType (
 		Id_ProductType int not null IDENTITY(1,1),
