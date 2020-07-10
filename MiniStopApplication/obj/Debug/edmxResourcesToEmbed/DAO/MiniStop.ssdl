@@ -1,0 +1,446 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MiniStopModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Account">
+    <Key>
+      <PropertyRef Name="Id_Account" />
+    </Key>
+    <Property Name="Id_Account" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="nvarchar" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" />
+    <Property Name="Date_create" Type="date" />
+    <Property Name="Role" Type="nvarchar" MaxLength="50" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Bill">
+    <Key>
+      <PropertyRef Name="Id_Bill" />
+    </Key>
+    <Property Name="Id_Bill" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date_create" Type="date" />
+    <Property Name="Time" Type="time" Precision="7" />
+    <Property Name="Total" Type="float" />
+    <Property Name="Id_Employee" Type="int" />
+  </EntityType>
+  <EntityType Name="BillDetail">
+    <Key>
+      <PropertyRef Name="Id_BillDetail" />
+    </Key>
+    <Property Name="Id_BillDetail" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Price" Type="float" />
+    <Property Name="Amount" Type="int" />
+    <Property Name="Id_Bill" Type="int" />
+    <Property Name="Id_Product" Type="int" />
+  </EntityType>
+  <EntityType Name="Card">
+    <Key>
+      <PropertyRef Name="Id_Card" />
+    </Key>
+    <Property Name="Id_Card" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date_create" Type="date" />
+    <Property Name="Score" Type="int" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="Id_Customer" />
+    </Key>
+    <Property Name="Id_Customer" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Last_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="First_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Phone" Type="varchar" MaxLength="12" />
+    <Property Name="Id_Card" Type="int" />
+  </EntityType>
+  <EntityType Name="DeliveryNoteDetail">
+    <Key>
+      <PropertyRef Name="Id_DeliveryNoteDetail" />
+    </Key>
+    <Property Name="Id_DeliveryNoteDetail" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id_GoodsDeliveryNote" Type="int" />
+    <Property Name="Id_Product" Type="int" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="Id_Employee" />
+    </Key>
+    <Property Name="Id_Employee" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Last_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="First_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Phone" Type="varchar" MaxLength="12" />
+    <Property Name="Birth_day" Type="date" />
+    <Property Name="Address" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Id_Position" Type="int" />
+    <Property Name="Id_Card" Type="int" />
+    <Property Name="Id_Account" Type="int" />
+  </EntityType>
+  <EntityType Name="GoodsDeliveryNote">
+    <Key>
+      <PropertyRef Name="Id_GoodsDeliveryNote" />
+    </Key>
+    <Property Name="Id_GoodsDeliveryNote" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id_Employee" Type="int" />
+  </EntityType>
+  <EntityType Name="GoodsReceiptNote">
+    <Key>
+      <PropertyRef Name="Id_GoodsReceiptNote" />
+    </Key>
+    <Property Name="Id_GoodsReceiptNote" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date_create" Type="date" />
+    <Property Name="Time" Type="time" Precision="7" />
+    <Property Name="Total" Type="float" />
+    <Property Name="Id_Supplier" Type="int" />
+    <Property Name="Id_Employee" Type="int" />
+  </EntityType>
+  <EntityType Name="Position">
+    <Key>
+      <PropertyRef Name="Id_Position" />
+    </Key>
+    <Property Name="Id_Position" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="Id_Product" />
+    </Key>
+    <Property Name="Id_Product" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name_product" Type="nvarchar" MaxLength="50" />
+    <Property Name="Price" Type="float" />
+    <Property Name="Amount" Type="int" />
+    <Property Name="MFG_date" Type="date" />
+    <Property Name="EXP_date" Type="date" />
+    <Property Name="Discount" Type="float" />
+    <Property Name="Id_ProductType" Type="int" />
+  </EntityType>
+  <EntityType Name="ProductType">
+    <Key>
+      <PropertyRef Name="Id_ProductType" />
+    </Key>
+    <Property Name="Id_ProductType" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name_Type" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ReceiptNoteDetail">
+    <Key>
+      <PropertyRef Name="Id_ReceiptNoteDetail" />
+    </Key>
+    <Property Name="Id_ReceiptNoteDetail" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Price" Type="float" />
+    <Property Name="Amount" Type="int" />
+    <Property Name="Id_GoodsReceiptNote" Type="int" />
+    <Property Name="Id_Product" Type="int" />
+  </EntityType>
+  <EntityType Name="Supplier">
+    <Key>
+      <PropertyRef Name="Id_Supplier" />
+    </Key>
+    <Property Name="Id_Supplier" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Phone" Type="varchar" MaxLength="12" />
+    <Property Name="Address" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="WareHouse">
+    <Key>
+      <PropertyRef Name="Id_WareHouse" />
+    </Key>
+    <Property Name="Id_WareHouse" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Inventory" Type="int" />
+    <Property Name="Id_Product" Type="int" />
+  </EntityType>
+  <Association Name="FK__Bill__Id_Employe__48CFD27E">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+    <End Role="Bill" Type="Self.Bill" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Id_Employee" />
+      </Principal>
+      <Dependent Role="Bill">
+        <PropertyRef Name="Id_Employee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BillDetai__Id_Bi__4BAC3F29">
+    <End Role="Bill" Type="Self.Bill" Multiplicity="0..1" />
+    <End Role="BillDetail" Type="Self.BillDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bill">
+        <PropertyRef Name="Id_Bill" />
+      </Principal>
+      <Dependent Role="BillDetail">
+        <PropertyRef Name="Id_Bill" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BillDetai__Id_Pr__4CA06362">
+    <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+    <End Role="BillDetail" Type="Self.BillDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id_Product" />
+      </Principal>
+      <Dependent Role="BillDetail">
+        <PropertyRef Name="Id_Product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Customer__Id_Car__276EDEB3">
+    <End Role="Card" Type="Self.Card" Multiplicity="0..1" />
+    <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Card">
+        <PropertyRef Name="Id_Card" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="Id_Card" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DeliveryN__Id_Go__44FF419A">
+    <End Role="GoodsDeliveryNote" Type="Self.GoodsDeliveryNote" Multiplicity="0..1" />
+    <End Role="DeliveryNoteDetail" Type="Self.DeliveryNoteDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GoodsDeliveryNote">
+        <PropertyRef Name="Id_GoodsDeliveryNote" />
+      </Principal>
+      <Dependent Role="DeliveryNoteDetail">
+        <PropertyRef Name="Id_GoodsDeliveryNote" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DeliveryN__Id_Pr__45F365D3">
+    <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+    <End Role="DeliveryNoteDetail" Type="Self.DeliveryNoteDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id_Product" />
+      </Principal>
+      <Dependent Role="DeliveryNoteDetail">
+        <PropertyRef Name="Id_Product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Employee__Id_Acc__2E1BDC42">
+    <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
+    <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="Id_Account" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="Id_Account" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Employee__Id_Car__2D27B809">
+    <End Role="Card" Type="Self.Card" Multiplicity="0..1" />
+    <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Card">
+        <PropertyRef Name="Id_Card" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="Id_Card" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Employee__Id_Pos__2C3393D0">
+    <End Role="Position" Type="Self.Position" Multiplicity="0..1" />
+    <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Position">
+        <PropertyRef Name="Id_Position" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="Id_Position" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__GoodsDeli__Id_Em__4222D4EF">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+    <End Role="GoodsDeliveryNote" Type="Self.GoodsDeliveryNote" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Id_Employee" />
+      </Principal>
+      <Dependent Role="GoodsDeliveryNote">
+        <PropertyRef Name="Id_Employee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__GoodsRece__Id_Em__3B75D760">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+    <End Role="GoodsReceiptNote" Type="Self.GoodsReceiptNote" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Id_Employee" />
+      </Principal>
+      <Dependent Role="GoodsReceiptNote">
+        <PropertyRef Name="Id_Employee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__GoodsRece__Id_Su__3A81B327">
+    <End Role="Supplier" Type="Self.Supplier" Multiplicity="0..1" />
+    <End Role="GoodsReceiptNote" Type="Self.GoodsReceiptNote" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supplier">
+        <PropertyRef Name="Id_Supplier" />
+      </Principal>
+      <Dependent Role="GoodsReceiptNote">
+        <PropertyRef Name="Id_Supplier" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Product__Id_Prod__32E0915F">
+    <End Role="ProductType" Type="Self.ProductType" Multiplicity="0..1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductType">
+        <PropertyRef Name="Id_ProductType" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="Id_ProductType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ReceiptNo__Id_Go__3E52440B">
+    <End Role="GoodsReceiptNote" Type="Self.GoodsReceiptNote" Multiplicity="0..1" />
+    <End Role="ReceiptNoteDetail" Type="Self.ReceiptNoteDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GoodsReceiptNote">
+        <PropertyRef Name="Id_GoodsReceiptNote" />
+      </Principal>
+      <Dependent Role="ReceiptNoteDetail">
+        <PropertyRef Name="Id_GoodsReceiptNote" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ReceiptNo__Id_Pr__3F466844">
+    <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+    <End Role="ReceiptNoteDetail" Type="Self.ReceiptNoteDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id_Product" />
+      </Principal>
+      <Dependent Role="ReceiptNoteDetail">
+        <PropertyRef Name="Id_Product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__WareHouse__Id_Pr__35BCFE0A">
+    <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+    <End Role="WareHouse" Type="Self.WareHouse" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id_Product" />
+      </Principal>
+      <Dependent Role="WareHouse">
+        <PropertyRef Name="Id_Product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="SP_Delete_Product" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_product" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_GetAll_Product" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_GetByID_Product" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_product" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_Insert_Product" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name_product" Type="nvarchar" Mode="In" />
+    <Parameter Name="Price" Type="float" Mode="In" />
+    <Parameter Name="Amount" Type="int" Mode="In" />
+    <Parameter Name="MFG_date" Type="date" Mode="In" />
+    <Parameter Name="EXP_date" Type="date" Mode="In" />
+    <Parameter Name="Discount" Type="float" Mode="In" />
+    <Parameter Name="Id_ProductType" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_Update_Product" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id_product" Type="int" Mode="In" />
+    <Parameter Name="Name_product" Type="nvarchar" Mode="In" />
+    <Parameter Name="Price" Type="float" Mode="In" />
+    <Parameter Name="Amount" Type="int" Mode="In" />
+    <Parameter Name="MFG_date" Type="date" Mode="In" />
+    <Parameter Name="EXP_date" Type="date" Mode="In" />
+    <Parameter Name="Discount" Type="float" Mode="In" />
+    <Parameter Name="Id_ProductType" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="MiniStopModelStoreContainer">
+    <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Bill" EntityType="Self.Bill" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BillDetail" EntityType="Self.BillDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Card" EntityType="Self.Card" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DeliveryNoteDetail" EntityType="Self.DeliveryNoteDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GoodsDeliveryNote" EntityType="Self.GoodsDeliveryNote" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GoodsReceiptNote" EntityType="Self.GoodsReceiptNote" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Position" EntityType="Self.Position" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductType" EntityType="Self.ProductType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ReceiptNoteDetail" EntityType="Self.ReceiptNoteDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Supplier" EntityType="Self.Supplier" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WareHouse" EntityType="Self.WareHouse" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Bill__Id_Employe__48CFD27E" Association="Self.FK__Bill__Id_Employe__48CFD27E">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="Bill" EntitySet="Bill" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BillDetai__Id_Bi__4BAC3F29" Association="Self.FK__BillDetai__Id_Bi__4BAC3F29">
+      <End Role="Bill" EntitySet="Bill" />
+      <End Role="BillDetail" EntitySet="BillDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BillDetai__Id_Pr__4CA06362" Association="Self.FK__BillDetai__Id_Pr__4CA06362">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="BillDetail" EntitySet="BillDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Customer__Id_Car__276EDEB3" Association="Self.FK__Customer__Id_Car__276EDEB3">
+      <End Role="Card" EntitySet="Card" />
+      <End Role="Customer" EntitySet="Customer" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DeliveryN__Id_Go__44FF419A" Association="Self.FK__DeliveryN__Id_Go__44FF419A">
+      <End Role="GoodsDeliveryNote" EntitySet="GoodsDeliveryNote" />
+      <End Role="DeliveryNoteDetail" EntitySet="DeliveryNoteDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DeliveryN__Id_Pr__45F365D3" Association="Self.FK__DeliveryN__Id_Pr__45F365D3">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="DeliveryNoteDetail" EntitySet="DeliveryNoteDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Employee__Id_Acc__2E1BDC42" Association="Self.FK__Employee__Id_Acc__2E1BDC42">
+      <End Role="Account" EntitySet="Account" />
+      <End Role="Employee" EntitySet="Employee" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Employee__Id_Car__2D27B809" Association="Self.FK__Employee__Id_Car__2D27B809">
+      <End Role="Card" EntitySet="Card" />
+      <End Role="Employee" EntitySet="Employee" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Employee__Id_Pos__2C3393D0" Association="Self.FK__Employee__Id_Pos__2C3393D0">
+      <End Role="Position" EntitySet="Position" />
+      <End Role="Employee" EntitySet="Employee" />
+    </AssociationSet>
+    <AssociationSet Name="FK__GoodsDeli__Id_Em__4222D4EF" Association="Self.FK__GoodsDeli__Id_Em__4222D4EF">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="GoodsDeliveryNote" EntitySet="GoodsDeliveryNote" />
+    </AssociationSet>
+    <AssociationSet Name="FK__GoodsRece__Id_Em__3B75D760" Association="Self.FK__GoodsRece__Id_Em__3B75D760">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="GoodsReceiptNote" EntitySet="GoodsReceiptNote" />
+    </AssociationSet>
+    <AssociationSet Name="FK__GoodsRece__Id_Su__3A81B327" Association="Self.FK__GoodsRece__Id_Su__3A81B327">
+      <End Role="Supplier" EntitySet="Supplier" />
+      <End Role="GoodsReceiptNote" EntitySet="GoodsReceiptNote" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Product__Id_Prod__32E0915F" Association="Self.FK__Product__Id_Prod__32E0915F">
+      <End Role="ProductType" EntitySet="ProductType" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ReceiptNo__Id_Go__3E52440B" Association="Self.FK__ReceiptNo__Id_Go__3E52440B">
+      <End Role="GoodsReceiptNote" EntitySet="GoodsReceiptNote" />
+      <End Role="ReceiptNoteDetail" EntitySet="ReceiptNoteDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ReceiptNo__Id_Pr__3F466844" Association="Self.FK__ReceiptNo__Id_Pr__3F466844">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="ReceiptNoteDetail" EntitySet="ReceiptNoteDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK__WareHouse__Id_Pr__35BCFE0A" Association="Self.FK__WareHouse__Id_Pr__35BCFE0A">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="WareHouse" EntitySet="WareHouse" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
