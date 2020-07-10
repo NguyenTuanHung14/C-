@@ -12,6 +12,7 @@ BEGIN
     CREATE DATABASE MiniStop
     SELECT 'New Database is Created'
 END
+go
 USE MiniStop
 Go
 if not exists (select * from sysobjects where name='Position')
