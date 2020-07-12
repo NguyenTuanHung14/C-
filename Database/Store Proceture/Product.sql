@@ -7,22 +7,23 @@ IF OBJECT_ID ('SP_Insert_Product') IS NOT NULL
 GO
 
 CREATE PROC SP_Insert_Product 
-	(@Name_product NVARCHAR(50),
-	 @Price FLOAT,
-	 @Amount INT,
-	 @MFG_date DATE,
-	 @EXP_date DATE,
-	 @Discount FLOAT,
-	 @Id_ProductType INT)
+	(@name_product NVARCHAR(50),
+	 @price FLOAT,
+	 @amount INT,
+	 @image IMAGE,
+	 @mFG_date DATE,
+	 @eXP_date DATE,
+	 @discount FLOAT,
+	 @id_ProductType INT)
 AS 
-		IF EXISTS (SELECT Id_Product FROM Product WHERE Name_product = @Name_product )
+		IF EXISTS (SELECT Id_Product FROM Product WHERE Name_product = @name_product )
 		THROW 50001, N'Tên Hàng hóa đã tồn tại',1
 		IF @Name_product = ''
 		THROW 50001, N'Tên hàng hóa không được bỏ trống',1
 		BEGIN TRANSACTION
 		BEGIN TRY	
 				INSERT INTO Product
-				VALUES (@Name_product,@Price,@Amount,@MFG_date,@EXP_date,@Discount,@Id_ProductType)
+				VALUES (@name_product,@price,@amount,@image,@mFG_date,@eXP_date,@discount,@id_ProductType)
 				COMMIT
 		END TRY
 		BEGIN CATCH
@@ -47,12 +48,20 @@ AS
 	BEGIN
 		IF NOT EXISTS (SELECT @Id_product FROM Product WHERE Id_Product = @Id_product)
 		THROW 50001, N'Hàng hóa không tồn tại!',1
-		DELETE FROM Product WHERE Id_Product = @Id_product 
+		BEGIN TRY	
+			DELETE FROM Product WHERE Id_Product = @Id_product 
+		END TRY
+		BEGIN CATCH
+			DECLARE @ErrorMessage NVARCHAR(2000)
+			SELECT @ErrorMessage = 'Error: ' + ERROR_MESSAGE()
+			RAISERROR(@ErrorMessage, 16, 1)
+		END CATCH
+		
 	END
 
 SELECT * FROM Product
 
-EXEC SP_Delete_Product 2
+EXEC SP_Delete_Product 4
 
 
 --Update Product
@@ -62,32 +71,34 @@ IF OBJECT_ID ('SP_Update_Product') IS NOT NULL
 GO
 
 CREATE PROC SP_Update_Product 
-	(@Id_product INT,
-	 @Name_product NVARCHAR(50),
-	 @Price FLOAT,
-	 @Amount INT,
-	 @MFG_date DATE,
-	 @EXP_date DATE,
-	 @Discount FLOAT,
-	 @Id_ProductType INT)
+	(@id_product INT,
+	 @name_product NVARCHAR(50),
+	 @price FLOAT,
+	 @amount INT,
+	 @image IMAGE,
+	 @mFG_date DATE,
+	 @eXP_date DATE,
+	 @discount FLOAT,
+	 @id_ProductType INT)
 AS 
 	BEGIN TRANSACTION
 		BEGIN TRY
-			IF NOT EXISTS (SELECT Id_product FROM Product WHERE Id_product = @Id_product)
+			IF NOT EXISTS (SELECT Id_product FROM Product WHERE Id_product = @id_product)
 			THROW 50001, N'Hàng hóa không tồn tại',1
-			IF @Name_product = ''
+			IF @name_product = ''
 			THROW 50001, N'Tên hàng hóa không được bỏ trống',1		
-			IF EXISTS (SELECT Id_product FROM Product WHERE Name_product = @Name_product AND Id_product != @Id_product)
+			IF EXISTS (SELECT Id_product FROM Product WHERE Name_product = @name_product AND Id_product != @id_product)
 			THROW 50001, N'Tên Hàng hóa đã tồn tại',1
 			UPDATE Product
 			SET Name_product = @Name_product,
-				Price = @Price,
-				Amount = @Amount,
-				MFG_date = @MFG_date,
-				EXP_date= @EXP_date,
-				Discount=@Discount,
-				Id_ProductType=@Id_ProductType
-			WHERE Id_product = @Id_product
+				Price = @price,
+				Amount = @amount,
+				Images = @image,
+				MFG_date = @mFG_date,
+				EXP_date= @eXP_date,
+				Discount=@discount,
+				Id_ProductType=@id_ProductType
+			WHERE Id_product = @id_product
 			COMMIT
 		END TRY
 		BEGIN CATCH

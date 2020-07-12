@@ -88,6 +88,7 @@ if not exists (select * from sysobjects where name='Product')
         Name_product nvarchar(50),
 		Price float,
 		Amount int,
+		Images Image,
 		MFG_date date,
 		EXP_date date,
 		Discount float,

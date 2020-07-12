@@ -35,12 +35,12 @@ namespace MiniStopApplication.DAO
         }
 
         public bool InsertProduct(Product product) {
-            string query = string.Format("SP_Insert_Product @name_product , @price , @amount , @mFG_date , @eXP_date , @discount , @id_ProductType");
+            string query = string.Format("SP_Insert_Product @name_product , @price , @amount , @image , @mFG_date , @eXP_date , @discount , @id_ProductType");
             int result;
             try
             {
                 result = DataProvider.Instance.ExecuteNonQuery(query,
-                    new object[] { product.Name_product, product.Price, product.Amount, product.MFG_date, product.EXP_date, product.Discount, product.Id_ProductType });
+                    new object[] { product.Name_product, product.Price, product.Amount, product.Image,product.MFG_date, product.EXP_date, product.Discount, product.Id_ProductType });
             }
             catch (Exception ex)
             {
@@ -57,6 +57,21 @@ namespace MiniStopApplication.DAO
                 result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { Id_product });
             }
             catch (Exception ex) {
+                throw ex;
+            }
+            return result > 0;
+        }
+
+        public bool UpdateProduct(Product product) {
+            string query = string.Format("SP_Update_Product @id_product , @name_product , @price , @amount , @image , @mFG_date , @eXP_date , @discount , @id_ProductType");
+            int result;
+            try
+            {
+                result = DataProvider.Instance.ExecuteNonQuery(query,
+                    new object[] { product.Id_product, product.Name_product, product.Price, product.Amount, product.Image, product.MFG_date, product.EXP_date, product.Discount, product.Id_ProductType });
+            }
+            catch (Exception ex)
+            {
                 throw ex;
             }
             return result > 0;

@@ -150,11 +150,6 @@
     <Compile Include="GUI\WaitForm1.Designer.cs">
       <DependentUpon>WaitForm1.cs</DependentUpon>
     </Compile>
-    <Compile Include="MiniStopDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MiniStopDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="GUI\SplashScreen1.cs">
@@ -212,17 +207,6 @@
     <EmbeddedResource Include="GUI\SplashScreen1.resx">
       <DependentUpon>SplashScreen1.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="MiniStopDataSet.xsc">
-      <DependentUpon>MiniStopDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="MiniStopDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>MiniStopDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="MiniStopDataSet.xss">
-      <DependentUpon>MiniStopDataSet.xsd</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

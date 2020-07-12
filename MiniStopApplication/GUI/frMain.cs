@@ -17,6 +17,7 @@ namespace MiniStopApplication.GUI
         public frMain()
         {
             InitializeComponent();
+            WindowState = FormWindowState.Maximized;
         }
         private Form CheckFormExist(Type fType)
         {

@@ -11,6 +11,7 @@ using DevExpress.XtraEditors;
 using MiniStopApplication.BUS;
 using DevExpress.XtraEditors.Filtering.Templates;
 using MiniStopApplication.DTO;
+using System.IO;
 
 namespace MiniStopApplication.GUI
 {
@@ -25,7 +26,8 @@ namespace MiniStopApplication.GUI
         {
             LoadAllProduct();
         }
-
+        int id_product = 0,id_productType = 0;
+    
         private void LoadAllProduct() {
             try
             {
@@ -34,11 +36,13 @@ namespace MiniStopApplication.GUI
                 gvProduct.Columns[1].Caption = "Tên hàng hóa";
                 gvProduct.Columns[2].Caption = "Gía cả";
                 gvProduct.Columns[3].Caption = "Số lượng trên kệ";
-                gvProduct.Columns[4].Caption = "Ngày sản xuất";
-                gvProduct.Columns[5].Caption = "Ngày hết hạn";
-                gvProduct.Columns[6].Caption = "Khuyến mãi";
-                gvProduct.Columns[7].Caption = "Mã loại hàng hóa";
+                gvProduct.Columns[4].Caption = "Hình ảnh";
+                gvProduct.Columns[5].Caption = "Ngày sản xuất";
+                gvProduct.Columns[6].Caption = "Ngày hết hạn";
+                gvProduct.Columns[7].Caption = "Khuyến mãi";
+                gvProduct.Columns[8].Caption = "Mã loại hàng hóa";
 
+                gvProduct.RowHeight = 100;
                 txtSoLuong.Enabled = false;
                 dpkNgayHetHan.Enabled = false;
                 dpkNgaySanXuat.Enabled = false;
@@ -56,15 +60,12 @@ namespace MiniStopApplication.GUI
             try
             {
                 string name_product = txtTenHangHoa.Text;
-                //float price = float.Parse(txtGia.Text);
-                //int amount = int.Parse(txtSoLuong.Text);
-                //DateTime mfg_date = Convert.ToDateTime(dpkNgaySanXuat.Value);
-                //DateTime exp_date = Convert.ToDateTime(dpkNgayHetHan.Value);
-                //float discount = float.Parse(txtGiamGia.Text);
+              
                 Product product = new Product(
                     name_product,
                     0,
                     0,
+                   toArray(),    
                     DateTime.Now,
                     DateTime.Now,
                     0,
@@ -72,12 +73,128 @@ namespace MiniStopApplication.GUI
                 );
                 ProductBus.Instance.InsertProduct(product);
                 LoadAllProduct();
+                ResetInput();
             }
             catch (Exception ex) {
                 XtraMessageBox.Show("Error: " + ex.Message);
             }
         }
 
-       
+        private void btnXem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Bạn có muốn cập nhật sản phẩm!", "Cập nhật sản phẩm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialogResult == DialogResult.Yes)
+            {
+                try
+                {
+                    string name_product = txtTenHangHoa.Text;
+                    float price = float.Parse(txtGia.Text);
+                    int amount = int.Parse(txtSoLuong.Text);
+                    DateTime mfg_date = Convert.ToDateTime(dpkNgaySanXuat.Value);
+                    DateTime exp_date = Convert.ToDateTime(dpkNgayHetHan.Value);
+                    float discount = float.Parse(txtGiamGia.Text);
+                    Product product = new Product(
+                        id_product,
+                        name_product,
+                        price,
+                        amount,
+                        toArray(),
+                        mfg_date,
+                        exp_date,
+                        discount,
+                        id_productType
+                    );
+                    ProductBus.Instance.UpdateProduct(product);
+                    XtraMessageBox.Show("Cập nhật sản phẩm thành công!", "Cập nhật sản phẩm");
+                    LoadAllProduct();
+                    ResetInput();
+                }
+                catch (Exception ex)
+                {
+                    XtraMessageBox.Show("Error: " + ex.Message);
+                }
+               
+            }
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Bạn có muốn xóa sản phẩm này chứ!", "Xóa sản phẩm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialogResult == DialogResult.Yes)
+            {
+                try
+                {
+                    ProductBus.Instance.DeleteProduct(id_product);
+                    XtraMessageBox.Show("Xóa sản phẩm thành công!", "Xóa sản phẩm");
+                    LoadAllProduct();
+                    ResetInput();
+                }
+                catch (Exception ex)
+                {
+                    XtraMessageBox.Show("Error: " + ex.Message);
+                }
+            }
+        }
+        private Array toArray()
+        {
+            MemoryStream pic = new MemoryStream();
+            picImage.Image.Save(pic, picImage.Image.RawFormat);
+            return pic.ToArray();
+        }
+        private void toImage(byte[] val) {
+            MemoryStream picture = new MemoryStream(val);
+            picImage.Image = Image.FromStream(picture);
+        }
+        private void gvProduct_Click(object sender, EventArgs e)
+        {
+            if (gvProduct.RowCount > 0)
+            {
+                id_product = int.Parse(gvProduct.GetRowCellValue(gvProduct.FocusedRowHandle, gvProduct.Columns[0]).ToString());
+                txtTenHangHoa.Text = gvProduct.GetRowCellValue(gvProduct.FocusedRowHandle, gvProduct.Columns[1]).ToString();
+                txtGia.Text = (gvProduct.GetRowCellValue(gvProduct.FocusedRowHandle, gvProduct.Columns[2]).ToString());
+                txtSoLuong.Text = (gvProduct.GetRowCellValue(gvProduct.FocusedRowHandle, gvProduct.Columns[3]).ToString());
+                dpkNgaySanXuat.Value = DateTime.Parse(gvProduct.GetRowCellValue(gvProduct.FocusedRowHandle, gvProduct.Columns[5]).ToString());
+                dpkNgayHetHan.Value = DateTime.Parse(gvProduct.GetRowCellValue(gvProduct.FocusedRowHandle, gvProduct.Columns[6]).ToString());
+                txtGiamGia.Text =(gvProduct.GetRowCellValue(gvProduct.FocusedRowHandle, gvProduct.Columns[7]).ToString());
+                id_productType = int.Parse(gvProduct.GetRowCellValue(gvProduct.FocusedRowHandle, gvProduct.Columns[8]).ToString());
+                byte[] pic;
+                pic = (byte[])gvProduct.GetRowCellValue(gvProduct.FocusedRowHandle, gvProduct.Columns[4]);
+                MemoryStream picture = new MemoryStream(pic);
+                toImage(pic);
+
+                dpkNgayHetHan.Enabled = true;
+                dpkNgaySanXuat.Enabled = true;
+                txtGia.Enabled = true;
+                txtGiamGia.Enabled = true;
+                txtSoLuong.Enabled = true;
+            }
+        }
+
+        private void btnUpload_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog OPF = new OpenFileDialog();
+            OPF.Filter = "Select Image(*.jpg;*.png;*.gif)|*.jpg;*.png;*.gif";
+            if ((OPF.ShowDialog() == DialogResult.OK))
+            {
+                picImage.Image = Image.FromFile(OPF.FileName);
+            }
+        }
+
+        private void ResetInput() {
+            txtTenHangHoa.Text = null;
+            txtGia.Text = null;
+            txtSoLuong.Text = null;
+            txtSoLuong.Text = null;
+            dpkNgayHetHan.Value = DateTime.Now;
+            dpkNgaySanXuat.Value = DateTime.Now;
+            txtGiamGia.Text = null;
+            id_product = 0;
+            id_productType = 0;
+        }
     }
 }

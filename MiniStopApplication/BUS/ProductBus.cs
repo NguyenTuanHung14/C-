@@ -4,6 +4,7 @@ using MiniStopApplication.DTO;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -45,6 +46,26 @@ namespace MiniStopApplication.BUS
             }
             catch (Exception ex)
             {
+                throw ex;
+            }
+        }
+
+        public bool UpdateProduct(Product product) {
+            try
+            {
+                return ProcessProduct.Instance.UpdateProduct(product);
+            }
+            catch (Exception ex) {
+                throw ex;
+            }
+        }
+
+        public bool DeleteProduct(int id_product) {
+            try
+            {
+                return ProcessProduct.Instance.DeleteProduct(id_product);
+            }
+            catch (Exception ex) {
                 throw ex;
             }
         }

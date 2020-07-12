@@ -61,6 +61,8 @@
             this.txtSearchCategory = new DevExpress.XtraEditors.TextEdit();
             this.btnSearch = new DevExpress.XtraEditors.SimpleButton();
             this.radioXemTatCa = new System.Windows.Forms.RadioButton();
+            this.picImage = new System.Windows.Forms.PictureBox();
+            this.btnUpload = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.txtGiamGia12)).BeginInit();
             this.txtGiamGia12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cbDanhMuc.Properties)).BeginInit();
@@ -73,6 +75,7 @@
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cbTimKiem.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSearchCategory.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picImage)).BeginInit();
             this.SuspendLayout();
             // 
             // label3
@@ -99,6 +102,8 @@
             // 
             this.txtGiamGia12.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtGiamGia12.Controls.Add(this.btnUpload);
+            this.txtGiamGia12.Controls.Add(this.picImage);
             this.txtGiamGia12.Controls.Add(this.dpkNgayHetHan);
             this.txtGiamGia12.Controls.Add(this.dpkNgaySanXuat);
             this.txtGiamGia12.Controls.Add(this.label8);
@@ -119,7 +124,7 @@
             this.txtGiamGia12.Controls.Add(this.txtTenHangHoa);
             this.txtGiamGia12.Location = new System.Drawing.Point(8, 148);
             this.txtGiamGia12.Name = "txtGiamGia12";
-            this.txtGiamGia12.Size = new System.Drawing.Size(306, 549);
+            this.txtGiamGia12.Size = new System.Drawing.Size(306, 683);
             this.txtGiamGia12.TabIndex = 72;
             // 
             // dpkNgayHetHan
@@ -193,25 +198,27 @@
             // btnSua
             // 
             this.btnSua.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSua.ImageOptions.Image")));
-            this.btnSua.Location = new System.Drawing.Point(168, 300);
+            this.btnSua.Location = new System.Drawing.Point(182, 568);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(109, 44);
             this.btnSua.TabIndex = 9;
             this.btnSua.Text = "Sửa";
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnXoa
             // 
             this.btnXoa.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnXoa.ImageOptions.Image")));
-            this.btnXoa.Location = new System.Drawing.Point(35, 372);
+            this.btnXoa.Location = new System.Drawing.Point(35, 618);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(109, 44);
             this.btnXoa.TabIndex = 8;
             this.btnXoa.Text = "Xóa";
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnThoat
             // 
             this.btnThoat.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnThoat.ImageOptions.Image")));
-            this.btnThoat.Location = new System.Drawing.Point(164, 372);
+            this.btnThoat.Location = new System.Drawing.Point(182, 618);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(109, 44);
             this.btnThoat.TabIndex = 7;
@@ -220,7 +227,7 @@
             // btnThem
             // 
             this.btnThem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnThem.ImageOptions.Image")));
-            this.btnThem.Location = new System.Drawing.Point(40, 300);
+            this.btnThem.Location = new System.Drawing.Point(35, 568);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(109, 44);
             this.btnThem.TabIndex = 6;
@@ -289,7 +296,7 @@
             this.panelControl2.Controls.Add(this.gcProduct);
             this.panelControl2.Location = new System.Drawing.Point(320, 32);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(853, 665);
+            this.panelControl2.Size = new System.Drawing.Size(853, 799);
             this.panelControl2.TabIndex = 74;
             // 
             // gcProduct
@@ -301,7 +308,7 @@
             this.gcProduct.Location = new System.Drawing.Point(5, 16);
             this.gcProduct.MainView = this.gvProduct;
             this.gcProduct.Name = "gcProduct";
-            this.gcProduct.Size = new System.Drawing.Size(843, 644);
+            this.gcProduct.Size = new System.Drawing.Size(843, 778);
             this.gcProduct.TabIndex = 27;
             this.gcProduct.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvProduct,
@@ -312,6 +319,7 @@
             this.gvProduct.GridControl = this.gcProduct;
             this.gvProduct.Name = "gvProduct";
             this.gvProduct.OptionsView.ShowGroupPanel = false;
+            this.gvProduct.Click += new System.EventHandler(this.gvProduct_Click);
             // 
             // gridView2
             // 
@@ -355,6 +363,7 @@
             this.btnXem.Size = new System.Drawing.Size(85, 35);
             this.btnXem.TabIndex = 31;
             this.btnXem.Text = "Xem";
+            this.btnXem.Click += new System.EventHandler(this.btnXem_Click);
             // 
             // radioXemTheoDanhMuc
             // 
@@ -409,11 +418,31 @@
             this.radioXemTatCa.Text = "Xem tất cả";
             this.radioXemTatCa.UseVisualStyleBackColor = true;
             // 
+            // picImage
+            // 
+            this.picImage.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.picImage.Location = new System.Drawing.Point(35, 301);
+            this.picImage.Name = "picImage";
+            this.picImage.Size = new System.Drawing.Size(256, 211);
+            this.picImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picImage.TabIndex = 23;
+            this.picImage.TabStop = false;
+            // 
+            // btnUpload
+            // 
+            this.btnUpload.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.btnUpload.Location = new System.Drawing.Point(111, 518);
+            this.btnUpload.Name = "btnUpload";
+            this.btnUpload.Size = new System.Drawing.Size(109, 44);
+            this.btnUpload.TabIndex = 24;
+            this.btnUpload.Text = "Upload";
+            this.btnUpload.Click += new System.EventHandler(this.btnUpload_Click);
+            // 
             // frProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1185, 709);
+            this.ClientSize = new System.Drawing.Size(1185, 843);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtGiamGia12);
@@ -436,6 +465,7 @@
             this.panelControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cbTimKiem.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSearchCategory.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -475,5 +505,7 @@
         private System.Windows.Forms.TextBox txtSoLuong;
         private System.Windows.Forms.DateTimePicker dpkNgayHetHan;
         private System.Windows.Forms.DateTimePicker dpkNgaySanXuat;
+        private DevExpress.XtraEditors.SimpleButton btnUpload;
+        private System.Windows.Forms.PictureBox picImage;
     }
 }
