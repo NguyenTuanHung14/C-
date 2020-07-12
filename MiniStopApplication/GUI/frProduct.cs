@@ -42,7 +42,7 @@ namespace MiniStopApplication.GUI
                 gvProduct.Columns[7].Caption = "Khuyến mãi";
                 gvProduct.Columns[8].Caption = "Mã loại hàng hóa";
 
-                gvProduct.RowHeight = 100;
+                gvProduct.RowHeight = 120;
                 txtSoLuong.Enabled = false;
                 dpkNgayHetHan.Enabled = false;
                 dpkNgaySanXuat.Enabled = false;
@@ -73,11 +73,12 @@ namespace MiniStopApplication.GUI
                 );
                 ProductBus.Instance.InsertProduct(product);
                 LoadAllProduct();
-                ResetInput();
+               
             }
             catch (Exception ex) {
                 XtraMessageBox.Show("Error: " + ex.Message);
             }
+            ResetInput();
         }
 
         private void btnXem_Click(object sender, EventArgs e)
@@ -112,13 +113,13 @@ namespace MiniStopApplication.GUI
                     ProductBus.Instance.UpdateProduct(product);
                     XtraMessageBox.Show("Cập nhật sản phẩm thành công!", "Cập nhật sản phẩm");
                     LoadAllProduct();
-                    ResetInput();
+                 
                 }
                 catch (Exception ex)
                 {
                     XtraMessageBox.Show("Error: " + ex.Message);
                 }
-               
+                ResetInput();
             }
         }
 
@@ -132,12 +133,13 @@ namespace MiniStopApplication.GUI
                     ProductBus.Instance.DeleteProduct(id_product);
                     XtraMessageBox.Show("Xóa sản phẩm thành công!", "Xóa sản phẩm");
                     LoadAllProduct();
-                    ResetInput();
+                  
                 }
                 catch (Exception ex)
                 {
                     XtraMessageBox.Show("Error: " + ex.Message);
                 }
+                ResetInput();
             }
         }
         private Array toArray()
@@ -193,6 +195,7 @@ namespace MiniStopApplication.GUI
             dpkNgayHetHan.Value = DateTime.Now;
             dpkNgaySanXuat.Value = DateTime.Now;
             txtGiamGia.Text = null;
+            picImage.Image = null;
             id_product = 0;
             id_productType = 0;
         }
