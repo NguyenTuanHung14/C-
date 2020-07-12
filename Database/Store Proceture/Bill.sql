@@ -4,11 +4,9 @@ go
 DROP PROCEDURE IF EXISTS SP_Insert_Bill;
 go
 create proc SP_Insert_Bill
-@Date_create date,
-@Time time,
 @Total float,
 @Id_Employee int
 as
 begin
-	insert into Bill values(@Date_create,@Time,@Total,@Id_Employee)
+	insert into Bill values(CONVERT(date, GETDATE()),CONVERT(time, GETDATE()),@Total,@Id_Employee)
 end

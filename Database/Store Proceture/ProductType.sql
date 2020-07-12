@@ -9,7 +9,7 @@ create proc SP_Insert_ProductType
 as
 begin 
 	if(@Name='')
-		THROW 50001, N'Nhập thông tin',1
+		THROW 50001, N'Vui lòng nhập thông tin',1
 	else
 		insert into ProductType values(@Name)
 end 
@@ -23,5 +23,31 @@ begin try
 	delete from ProductType where Id_ProductType=@Id_ProductType
 end try
 begin catch
-	THROW 50001, N'Xóa bị lõi',1
+	THROW 50001, N'Loại sản phẩm không tồn tại!',1
 end catch
+
+
+-----------
+DROP PROCEDURE IF EXISTS SP_GetAll_ProductType;
+go
+create proc SP_GetAll_ProductType
+as
+	SELECT * from ProductType
+
+
+------------
+DROP PROCEDURE IF EXISTS SP_GetByID_ProductType;
+go
+create proc SP_GetByID_ProductType
+@Id_ProductType int
+as
+begin try 
+	Select * from ProductType where Id_ProductType=@Id_ProductType
+end try
+begin catch
+	THROW 50001, N'Loại sản phẩm không tồn tại!',1
+end catch
+
+
+select * from ProductType
+exec SP_Delete_ProductType 1

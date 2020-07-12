@@ -187,6 +187,11 @@ namespace MiniStopApplication.GUI
             }
         }
 
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         private void ResetInput() {
             txtTenHangHoa.Text = null;
             txtGia.Text = null;

@@ -75,7 +75,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BUS\CategoryBus.cs" />
+    <Compile Include="DAO\ProcessCategories.cs" />
     <Compile Include="DAO\ProcessProduct.cs" />
+    <Compile Include="DTO\Categories.cs" />
     <Compile Include="DTO\Product.cs" />
     <Compile Include="GUI\CheckoutReport.cs">
       <SubType>Component</SubType>

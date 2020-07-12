@@ -41,7 +41,7 @@
             this.btnSearch = new DevExpress.XtraEditors.SimpleButton();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gcCategory = new DevExpress.XtraGrid.GridControl();
-            this.gvProduct = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gvCategory = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.txtTen = new System.Windows.Forms.TextBox();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.label1 = new System.Windows.Forms.Label();
@@ -53,7 +53,7 @@
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcCategory)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvProduct)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvCategory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             this.panelControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
@@ -104,6 +104,7 @@
             this.btnXoa.Size = new System.Drawing.Size(117, 44);
             this.btnXoa.TabIndex = 8;
             this.btnXoa.Text = "Xóa";
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnThoat
             // 
@@ -113,6 +114,7 @@
             this.btnThoat.Size = new System.Drawing.Size(120, 44);
             this.btnThoat.TabIndex = 7;
             this.btnThoat.Text = "Thoát";
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // btnThem
             // 
@@ -122,6 +124,7 @@
             this.btnThem.Size = new System.Drawing.Size(117, 44);
             this.btnThem.TabIndex = 6;
             this.btnThem.Text = "Thêm";
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // t
             // 
@@ -183,19 +186,20 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gcCategory.Font = new System.Drawing.Font("Tahoma", 10F);
             this.gcCategory.Location = new System.Drawing.Point(5, 16);
-            this.gcCategory.MainView = this.gvProduct;
+            this.gcCategory.MainView = this.gvCategory;
             this.gcCategory.Name = "gcCategory";
             this.gcCategory.Size = new System.Drawing.Size(624, 491);
             this.gcCategory.TabIndex = 27;
             this.gcCategory.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gvProduct,
+            this.gvCategory,
             this.gridView2});
+            this.gcCategory.Click += new System.EventHandler(this.gcCategory_Click);
             // 
-            // gvProduct
+            // gvCategory
             // 
-            this.gvProduct.GridControl = this.gcCategory;
-            this.gvProduct.Name = "gvProduct";
-            this.gvProduct.OptionsView.ShowGroupPanel = false;
+            this.gvCategory.GridControl = this.gcCategory;
+            this.gvCategory.Name = "gvCategory";
+            this.gvCategory.OptionsView.ShowGroupPanel = false;
             // 
             // txtTen
             // 
@@ -250,7 +254,7 @@
             this.panelControl2.Size = new System.Drawing.Size(634, 512);
             this.panelControl2.TabIndex = 78;
             // 
-            // Category
+            // frCategory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -260,7 +264,7 @@
             this.Controls.Add(this.panelControl3);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.panelControl2);
-            this.Name = "Category";
+            this.Name = "frCategory";
             this.Text = "Category";
             ((System.ComponentModel.ISupportInitialize)(this.txtSearchCategory.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbTimKiem.Properties)).EndInit();
@@ -268,7 +272,7 @@
             this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcCategory)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvProduct)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvCategory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             this.panelControl3.ResumeLayout(false);
             this.panelControl3.PerformLayout();
@@ -293,7 +297,7 @@
         private DevExpress.XtraEditors.SimpleButton btnSearch;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
         private DevExpress.XtraGrid.GridControl gcCategory;
-        private DevExpress.XtraGrid.Views.Grid.GridView gvProduct;
+        private DevExpress.XtraGrid.Views.Grid.GridView gvCategory;
         private System.Windows.Forms.TextBox txtTen;
         private DevExpress.XtraEditors.PanelControl panelControl3;
         private System.Windows.Forms.Label label1;
