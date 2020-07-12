@@ -7,7 +7,6 @@ go
 create proc SP_Insert_Account
 @Username nvarchar(50),
 @Password nvarchar(50),
-@Date_create date,
 @Role nvarchar(50),
 @Status nvarchar(50),
 @Id_Employee int
@@ -19,7 +18,7 @@ begin
 		THROW 50001, N'Username đã tồn tại',2
 	else
 		begin
-			insert into Account values (@Username,@Password,@Date_create,@Role,@Status,@Id_Employee)
+			insert into Account values (@Username,@Password,CONVERT(date, GETDATE()),@Role,@Status,@Id_Employee)
 		end
 end
 execute SP_Insert_Account 'nhan','nhan123','2020/07/11','insert, update, delete','enable',2

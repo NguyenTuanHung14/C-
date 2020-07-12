@@ -5,24 +5,22 @@ go
 DROP PROCEDURE IF EXISTS SP_Insert_Card;
 go
 Create Proc SP_Insert_Card
-@Date_create date,
 @Score int
 as
 begin
 	if (@Score='')
 		THROW 50001, N'Nhập thông tin',1
 	else
-		insert into Card values (@Date_create,@Score)	
+		insert into Card values (CONVERT(date, GETDATE()),@Score)	
 end
 
-execute SP_Insert_Card '2020/10/20', 10
+execute SP_Insert_Card 10
 select *from card
 -------------------
 DROP PROCEDURE IF EXISTS SP_Update_Card;
 go
 create proc SP_Update_Card
 @Id_Card int,
-@Date_create date,
 @Score int
 as
 begin
@@ -30,10 +28,10 @@ begin
 		THROW 50001, N'Nhập thông tin',1
 	else
 		update Card 
-		set Date_create=@Date_create, Score=@Score
+		set Score=@Score
 		where Id_Card=@Id_Card
 end
 
-execute SP_Update_Card 1, '2020/10/10',8
+execute SP_Update_Card 1,8
 select *from card
 
