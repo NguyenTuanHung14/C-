@@ -201,3 +201,30 @@ F:\N3\II\ThietKeAppOOP\ProjectGroup\MiniStopApplication\MiniStopApplication\bin\
 F:\N3\II\ThietKeAppOOP\ProjectGroup\MiniStopApplication\MiniStopApplication\bin\Debug\EntityFramework.SqlServer.dll
 F:\N3\II\ThietKeAppOOP\ProjectGroup\MiniStopApplication\MiniStopApplication\bin\Debug\EntityFramework.xml
 F:\N3\II\ThietKeAppOOP\ProjectGroup\MiniStopApplication\MiniStopApplication\bin\Debug\EntityFramework.SqlServer.xml
+D:\Thiết kế phần mền hướng đối tượng\Đồ án\MinistopApplication\MiniStopApplication\bin\Debug\MiniStopApplication.exe.config
+D:\Thiết kế phần mền hướng đối tượng\Đồ án\MinistopApplication\MiniStopApplication\bin\Debug\MiniStopApplication.exe
+D:\Thiết kế phần mền hướng đối tượng\Đồ án\MinistopApplication\MiniStopApplication\bin\Debug\MiniStopApplication.pdb
+D:\Thiết kế phần mền hướng đối tượng\Đồ án\MinistopApplication\MiniStopApplication\bin\Debug\EntityFramework.dll
+D:\Thiết kế phần mền hướng đối tượng\Đồ án\MinistopApplication\MiniStopApplication\bin\Debug\EntityFramework.SqlServer.dll
+D:\Thiết kế phần mền hướng đối tượng\Đồ án\MinistopApplication\MiniStopApplication\bin\Debug\EntityFramework.xml
+D:\Thiết kế phần mền hướng đối tượng\Đồ án\MinistopApplication\MiniStopApplication\bin\Debug\EntityFramework.SqlServer.xml
+D:\Thiết kế phần mền hướng đối tượng\Đồ án\MinistopApplication\MiniStopApplication\obj\Debug\MiniStopApplication.csprojAssemblyReference.cache
+D:\Thiết kế phần mền hướng đối tượng\Đồ án\MinistopApplication\MiniStopApplication\obj\Debug\MiniStopApplication.GUI.CheckoutReport.resources
+D:\Thiết kế phần mền hướng đối tượng\Đồ án\MinistopApplication\MiniStopApplication\obj\Debug\MiniStopApplication.GUI.ExportWareHourseReport.resources
+D:\Thiết kế phần mền hướng đối tượng\Đồ án\MinistopApplication\MiniStopApplication\obj\Debug\MiniStopApplication.GUI.frCategory.resources
+D:\Thiết kế phần mền hướng đối tượng\Đồ án\MinistopApplication\MiniStopApplication\obj\Debug\MiniStopApplication.GUI.frExportWareHouse.resources
+D:\Thiết kế phần mền hướng đối tượng\Đồ án\MinistopApplication\MiniStopApplication\obj\Debug\MiniStopApplication.GUI.frCheckOut.resources
+D:\Thiết kế phần mền hướng đối tượng\Đồ án\MinistopApplication\MiniStopApplication\obj\Debug\MiniStopApplication.GUI.frLogin.resources
+D:\Thiết kế phần mền hướng đối tượng\Đồ án\MinistopApplication\MiniStopApplication\obj\Debug\MiniStopApplication.GUI.frMain.resources
+D:\Thiết kế phần mền hướng đối tượng\Đồ án\MinistopApplication\MiniStopApplication\obj\Debug\MiniStopApplication.GUI.frProduct.resources
+D:\Thiết kế phần mền hướng đối tượng\Đồ án\MinistopApplication\MiniStopApplication\obj\Debug\MiniStopApplication.GUI.frStaff.resources
+D:\Thiết kế phần mền hướng đối tượng\Đồ án\MinistopApplication\MiniStopApplication\obj\Debug\MiniStopApplication.GUI.frImportWareHouse.resources
+D:\Thiết kế phần mền hướng đối tượng\Đồ án\MinistopApplication\MiniStopApplication\obj\Debug\MiniStopApplication.GUI.ImportWareHorseReport.resources
+D:\Thiết kế phần mền hướng đối tượng\Đồ án\MinistopApplication\MiniStopApplication\obj\Debug\MiniStopApplication.GUI.WaitForm1.resources
+D:\Thiết kế phần mền hướng đối tượng\Đồ án\MinistopApplication\MiniStopApplication\obj\Debug\MiniStopApplication.Properties.Resources.resources
+D:\Thiết kế phần mền hướng đối tượng\Đồ án\MinistopApplication\MiniStopApplication\obj\Debug\MiniStopApplication.SplashScreen1.resources
+D:\Thiết kế phần mền hướng đối tượng\Đồ án\MinistopApplication\MiniStopApplication\obj\Debug\MiniStopApplication.csproj.GenerateResource.cache
+D:\Thiết kế phần mền hướng đối tượng\Đồ án\MinistopApplication\MiniStopApplication\obj\Debug\MiniStopApplication.exe.licenses
+D:\Thiết kế phần mền hướng đối tượng\Đồ án\MinistopApplication\MiniStopApplication\obj\Debug\MiniStopApplication.csproj.CopyComplete
+D:\Thiết kế phần mền hướng đối tượng\Đồ án\MinistopApplication\MiniStopApplication\obj\Debug\MiniStopApplication.exe
+D:\Thiết kế phần mền hướng đối tượng\Đồ án\MinistopApplication\MiniStopApplication\obj\Debug\MiniStopApplication.pdb

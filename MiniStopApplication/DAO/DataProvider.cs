@@ -20,7 +20,7 @@ namespace MiniStopApplication.DAO
 
         private DataProvider() { }
 
-        private string connectionString = @"Data Source=ASUSX510UR;Initial Catalog=MiniStop;Integrated Security=True";
+        private string connectionString = @"Data Source=DESKTOP-QJ09JBJ;Initial Catalog=MiniStop;Integrated Security=True";
 
         public DataTable ExecuteQuery(string query, object[] parameter = null)
         {
