@@ -69,7 +69,7 @@ namespace MiniStopApplication.GUI
                     DateTime.Now,
                     DateTime.Now,
                     0,
-                    1
+                    2
                 );
                 ProductBus.Instance.InsertProduct(product);
                 LoadAllProduct();

@@ -80,8 +80,10 @@
     <Compile Include="DAO\ProcessCategories.cs" />
     <Compile Include="DAO\ProcessProduct.cs" />
     <Compile Include="DTO\Categories.cs" />
+    <Compile Include="DTO\DeliveryNoteDetail.cs" />
     <Compile Include="DTO\Product.cs" />
     <Compile Include="DTO\ProductType.cs" />
+    <Compile Include="DTO\WareHourse.cs" />
     <Compile Include="GUI\CheckoutReport.cs">
       <SubType>Component</SubType>
     </Compile>

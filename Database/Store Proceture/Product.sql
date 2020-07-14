@@ -20,14 +20,12 @@ AS
 		THROW 50001, N'Tên Hàng hóa đã tồn tại',1
 		IF @Name_product = ''
 		THROW 50001, N'Tên hàng hóa không được bỏ trống',1
-		BEGIN TRANSACTION
 		BEGIN TRY	
 				INSERT INTO Product
 				VALUES (@name_product,@price,@amount,@image,@mFG_date,@eXP_date,@discount,@id_ProductType)
 				COMMIT
 		END TRY
 		BEGIN CATCH
-			ROLLBACK TRANSACTION
 			DECLARE @ErrorMessage NVARCHAR(2000)
 			SELECT @ErrorMessage = 'Error: ' + ERROR_MESSAGE()
 			RAISERROR(@ErrorMessage, 16, 1)

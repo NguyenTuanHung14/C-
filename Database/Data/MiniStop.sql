@@ -135,6 +135,8 @@ if not exists (select * from sysobjects where name='ReceiptNoteDetail')
 		Amount int,
 		Id_GoodsReceiptNote int,
 		Id_Product int,
+		MFG_date date,
+		EXP_date date,
 		Primary Key (Id_ReceiptNoteDetail),
 		FOREIGN KEY (Id_GoodsReceiptNote) REFERENCES GoodsReceiptNote(Id_GoodsReceiptNote),
 		FOREIGN KEY (Id_Product) REFERENCES Product(Id_Product)
