@@ -192,6 +192,7 @@
             this.btnLuuLai.Size = new System.Drawing.Size(107, 45);
             this.btnLuuLai.TabIndex = 15;
             this.btnLuuLai.Text = "Lưu lại";
+            this.btnLuuLai.Click += new System.EventHandler(this.btnLuuLai_Click);
             // 
             // cbTenHangHoa
             // 
@@ -202,6 +203,7 @@
             this.cbTenHangHoa.Properties.NullText = "";
             this.cbTenHangHoa.Size = new System.Drawing.Size(164, 22);
             this.cbTenHangHoa.TabIndex = 18;
+            this.cbTenHangHoa.EditValueChanged += new System.EventHandler(this.cbTenHangHoa_EditValueChanged);
             // 
             // btnThoat
             // 
@@ -384,7 +386,7 @@
             this.label1.TabIndex = 21;
             this.label1.Text = "Tác vụ";
             // 
-            // exportWareHouse
+            // frExportWareHouse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -397,7 +399,7 @@
             this.Controls.Add(this.panelControl2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "exportWareHouse";
+            this.Name = "frExportWareHouse";
             this.Text = "exportWareHouse";
             ((System.ComponentModel.ISupportInitialize)(this.gvXuatKhoTrongNgay)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcXuatKhoTrongNgay)).EndInit();

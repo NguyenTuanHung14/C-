@@ -143,5 +143,24 @@ namespace MiniStopApplication.GUI
             }
             SplashScreenManager.CloseForm();
         }
+
+        private void barButtonItem6_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            SplashScreenManager.ShowForm(typeof(WaitForm1));
+
+            Form frm = this.CheckFormExist(typeof(frSupplier));
+            if (frm != null)
+            {
+
+                frm.Activate();
+            }
+            else
+            {
+                frSupplier f = new frSupplier();
+                f.MdiParent = this;
+                f.Show();
+            }
+            SplashScreenManager.CloseForm();
+        }
     }
 }

@@ -119,12 +119,9 @@ if not exists (select * from sysobjects where name='GoodsReceiptNote')
     create table GoodsReceiptNote (
 		Id_GoodsReceiptNote int not null IDENTITY(1,1),
 		Date_create date,
-		Time time,
 		Total float,
-		Id_Supplier int,
 		Id_Employee int,
 		Primary Key (Id_GoodsReceiptNote),
-		FOREIGN KEY (Id_Supplier) REFERENCES Supplier(Id_Supplier),
 		FOREIGN KEY (Id_Employee) REFERENCES Employee(Id_Employee)
     )
 go
@@ -135,18 +132,20 @@ if not exists (select * from sysobjects where name='ReceiptNoteDetail')
 		Amount int,
 		Id_GoodsReceiptNote int,
 		Id_Product int,
+		Time time,
 		MFG_date date,
 		EXP_date date,
+		Id_Supplier int,
 		Primary Key (Id_ReceiptNoteDetail),
 		FOREIGN KEY (Id_GoodsReceiptNote) REFERENCES GoodsReceiptNote(Id_GoodsReceiptNote),
-		FOREIGN KEY (Id_Product) REFERENCES Product(Id_Product)
+		FOREIGN KEY (Id_Product) REFERENCES Product(Id_Product),
+		FOREIGN KEY (Id_Supplier) REFERENCES Supplier(Id_Supplier)
     )
 go
 if not exists (select * from sysobjects where name='GoodsDeliveryNote')
     create table GoodsDeliveryNote (
 		Id_GoodsDeliveryNote int not null IDENTITY(1,1),
 		Date_create date,
-		Time time,
 		Total float,
 		Id_Employee int,
 		Primary Key (Id_GoodsDeliveryNote),
@@ -158,7 +157,8 @@ if not exists (select * from sysobjects where name='DeliveryNoteDetail')
 		Id_DeliveryNoteDetail int not null IDENTITY(1,1),
 		Amount int,
 		Id_GoodsDeliveryNote int,
-		Id_Product int
+		Time time,
+		Id_Product int,
 		Primary Key (Id_DeliveryNoteDetail),
 		FOREIGN KEY (Id_GoodsDeliveryNote) REFERENCES GoodsDeliveryNote(Id_GoodsDeliveryNote),
 		FOREIGN KEY (Id_Product) REFERENCES Product(Id_Product)

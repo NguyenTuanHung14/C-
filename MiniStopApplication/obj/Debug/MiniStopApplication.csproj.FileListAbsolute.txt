@@ -228,3 +228,4 @@ D:\Thiết kế phần mền hướng đối tượng\Đồ án\MinistopApplicat
 D:\Thiết kế phần mền hướng đối tượng\Đồ án\MinistopApplication\MiniStopApplication\obj\Debug\MiniStopApplication.csproj.CopyComplete
 D:\Thiết kế phần mền hướng đối tượng\Đồ án\MinistopApplication\MiniStopApplication\obj\Debug\MiniStopApplication.exe
 D:\Thiết kế phần mền hướng đối tượng\Đồ án\MinistopApplication\MiniStopApplication\obj\Debug\MiniStopApplication.pdb
+F:\N3\II\ThietKeAppOOP\ProjectGroup\MiniStopApplication\MiniStopApplication\obj\Debug\MiniStopApplication.GUI.frSupplier.resources

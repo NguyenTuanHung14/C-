@@ -33,7 +33,7 @@ namespace MiniStopApplication.DAO
                 throw ex;
             }
         }
-
+  
         public bool InsertProduct(Product product) {
             string query = string.Format("SP_Insert_Product @name_product , @price , @amount , @image , @mFG_date , @eXP_date , @discount , @id_ProductType");
             int result;

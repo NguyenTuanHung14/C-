@@ -44,7 +44,7 @@ GO
 CREATE PROC SP_Delete_Product (@Id_product int)
 AS 
 	BEGIN
-		IF NOT EXISTS (SELECT @Id_product FROM Product WHERE Id_Product = @Id_product)
+		IF NOT EXISTS (SELECT Id_Product FROM Product WHERE Id_Product = @Id_product)
 		THROW 50001, N'Hàng hóa không tồn tại!',1
 		BEGIN TRY	
 			DELETE FROM Product WHERE Id_Product = @Id_product 
@@ -95,7 +95,7 @@ AS
 				MFG_date = @mFG_date,
 				EXP_date= @eXP_date,
 				Discount=@discount,
-				Id_ProductType=@id_ProductType
+				Id_ProductType= @id_ProductType
 			WHERE Id_product = @id_product
 			COMMIT
 		END TRY
@@ -138,3 +138,23 @@ BEGIN
 	WHERE Id_product=@Id_product
 END
 EXEC SP_GetByID_Product 3
+
+
+--Get product theo name
+
+IF OBJECT_ID ('SP_GetByName_Product') IS NOT NULL
+	DROP PROC SP_GetByName_Product
+GO
+CREATE PROC  SP_GetByName_Product
+(@name_product NVARCHAR(20))
+AS
+BEGIN
+	IF NOT EXISTS (SELECT Id_Product FROM Product WHERE Name_product = @name_product) or @name_product=''
+	THROW 50001, N'Hàng hóa không tồn tại',1
+	SELECT *
+	FROM  Product 
+	WHERE Name_product=@name_product
+END
+
+select * from Product
+EXEC SP_GetByName_Product N'Thịt bò'
