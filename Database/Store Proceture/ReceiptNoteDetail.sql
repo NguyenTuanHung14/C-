@@ -78,7 +78,7 @@ AS
 		THROW 50001, N'Hôm nay chưa tạo phiếu nhập',1
 BEGIN TRY
 	SELECT ReceiptNoteDetail.Id_ReceiptNoteDetail, Product.Name_product, ReceiptNoteDetail.Amount, ReceiptNoteDetail.Price,ReceiptNoteDetail.MFG_date,ReceiptNoteDetail.EXP_date,
-	GoodsReceiptNote.Date_create, GoodsReceiptNote.Time, Employee.First_name,Employee.Id_Employee,GoodsReceiptNote.Id_GoodsReceiptNote
+	GoodsReceiptNote.Date_create, ReceiptNoteDetail.Time, Employee.First_name,Employee.Id_Employee,GoodsReceiptNote.Id_GoodsReceiptNote
 	FROM ReceiptNoteDetail,GoodsReceiptNote, Product , Employee WHERE ReceiptNoteDetail.Id_GoodsReceiptNote = @Id
 	AND GoodsReceiptNote.Id_GoodsReceiptNote = ReceiptNoteDetail.Id_GoodsReceiptNote 
 	AND GoodsReceiptNote.Id_Employee = Employee.Id_Employee AND

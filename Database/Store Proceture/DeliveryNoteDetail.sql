@@ -8,9 +8,7 @@ go
 create proc SP_Insert_DeliveryNoteDetail
 @Id_GoodsDeliveryNote int,
 @Id_Product int,
-@Amount int,
-@MFG_date date,
-@EXP_date date
+@Amount int
 as 
 begin try
 	if(@Amount='')
@@ -96,4 +94,4 @@ BEGIN CATCH
 	RAISERROR(@ErrorMessage, 16, 1)
 END CATCH
 
-exec SP_GetAllByID_DeliveryNoteDetail 2
+exec SP_GetAllByID_DeliveryNoteDetail 1

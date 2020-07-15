@@ -12,7 +12,7 @@ as
 	IF @Id_Employee = ''
 		THROW 50001, N'Vui lòng nhập đầy đủ thông tin',1
 	begin try
-		insert into GoodsReceiptNote values( CONVERT(date, GETDATE()), CONVERT(time, GETDATE()),0,@Id_Employee)
+		insert into GoodsReceiptNote values( CONVERT(date, GETDATE()),0,@Id_Employee)
 	end try
 	begin catch
 		DECLARE @ErrorMessage NVARCHAR(2000)

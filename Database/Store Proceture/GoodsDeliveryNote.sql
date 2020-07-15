@@ -11,7 +11,7 @@ as
 	if( @Id_Employee='')
 		THROW 50001, N'Vui lòng nhập đầy đủ thông tin.', 1
 begin try
-	insert into GoodsDeliveryNote values (CONVERT(date, GETDATE()),CONVERT(time, GETDATE()),0,@Id_Employee)
+	insert into GoodsDeliveryNote values (CONVERT(date, GETDATE()),0,@Id_Employee)
 end try
 begin catch
 	DECLARE @ErrorMessage NVARCHAR(2000)
@@ -28,3 +28,7 @@ AS
 select * from GoodsDeliveryNote
 exec SP_Insert_GoodsDeliveryNote 1
 EXEC SP_Get_GoodsDeliveryNote
+
+
+ALTER TABLE Product
+ADD COLUMN 
