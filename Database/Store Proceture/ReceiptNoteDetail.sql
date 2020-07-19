@@ -66,7 +66,11 @@ DROP PROCEDURE IF EXISTS SP_GetAll_ReceiptNoteDetail;
 go
 create proc SP_GetAll_ReceiptNoteDetail
 AS 
-	SELECT * FROM ReceiptNoteDetail
+	SELECT ReceiptNoteDetail.Id_ReceiptNoteDetail, Product.Name_product, ReceiptNoteDetail.Amount, ReceiptNoteDetail.Price,ReceiptNoteDetail.MFG_date,ReceiptNoteDetail.EXP_date,
+	GoodsReceiptNote.Date_create, ReceiptNoteDetail.Time, Employee.Last_name,Employee.Id_Employee,GoodsReceiptNote.Id_GoodsReceiptNote
+	FROM ReceiptNoteDetail,GoodsReceiptNote, Product , Employee WHERE GoodsReceiptNote.Id_GoodsReceiptNote = ReceiptNoteDetail.Id_GoodsReceiptNote 
+	AND GoodsReceiptNote.Id_Employee = Employee.Id_Employee AND
+	Product.Id_Product = ReceiptNoteDetail.Id_Product
 
 --Get by Phieu nhap
 DROP PROCEDURE IF EXISTS SP_GetAllByID_ReceiptNoteDetail;

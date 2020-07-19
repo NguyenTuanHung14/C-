@@ -35,10 +35,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.btnXem = new DevExpress.XtraEditors.SimpleButton();
-            this.radioXemTheoDanhMuc = new System.Windows.Forms.RadioButton();
+            this.rdHetHang = new System.Windows.Forms.RadioButton();
             this.txtSearchCategory = new DevExpress.XtraEditors.TextEdit();
             this.btnSearch = new DevExpress.XtraEditors.SimpleButton();
-            this.radioXemTatCa = new System.Windows.Forms.RadioButton();
+            this.rdAll = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gcWare)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvWare)).BeginInit();
@@ -89,10 +89,10 @@
             this.panelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelControl1.Controls.Add(this.btnXem);
-            this.panelControl1.Controls.Add(this.radioXemTheoDanhMuc);
+            this.panelControl1.Controls.Add(this.rdHetHang);
             this.panelControl1.Controls.Add(this.txtSearchCategory);
             this.panelControl1.Controls.Add(this.btnSearch);
-            this.panelControl1.Controls.Add(this.radioXemTatCa);
+            this.panelControl1.Controls.Add(this.rdAll);
             this.panelControl1.Location = new System.Drawing.Point(12, 20);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(1027, 78);
@@ -109,19 +109,20 @@
             this.btnXem.Size = new System.Drawing.Size(85, 35);
             this.btnXem.TabIndex = 31;
             this.btnXem.Text = "Xem";
+            this.btnXem.Click += new System.EventHandler(this.btnXem_Click);
             // 
-            // radioXemTheoDanhMuc
+            // rdHetHang
             // 
-            this.radioXemTheoDanhMuc.AutoSize = true;
-            this.radioXemTheoDanhMuc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioXemTheoDanhMuc.Location = new System.Drawing.Point(779, 16);
-            this.radioXemTheoDanhMuc.Name = "radioXemTheoDanhMuc";
-            this.radioXemTheoDanhMuc.Size = new System.Drawing.Size(217, 22);
-            this.radioXemTheoDanhMuc.TabIndex = 30;
-            this.radioXemTheoDanhMuc.TabStop = true;
-            this.radioXemTheoDanhMuc.Text = "Xem hàng hóa sắp hết hàng ";
-            this.radioXemTheoDanhMuc.UseVisualStyleBackColor = true;
-            this.radioXemTheoDanhMuc.CheckedChanged += new System.EventHandler(this.radioXemTheoDanhMuc_CheckedChanged);
+            this.rdHetHang.AutoSize = true;
+            this.rdHetHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdHetHang.Location = new System.Drawing.Point(779, 16);
+            this.rdHetHang.Name = "rdHetHang";
+            this.rdHetHang.Size = new System.Drawing.Size(217, 22);
+            this.rdHetHang.TabIndex = 30;
+            this.rdHetHang.TabStop = true;
+            this.rdHetHang.Text = "Xem hàng hóa sắp hết hàng ";
+            this.rdHetHang.UseVisualStyleBackColor = true;
+            this.rdHetHang.CheckedChanged += new System.EventHandler(this.radioXemTheoDanhMuc_CheckedChanged);
             // 
             // txtSearchCategory
             // 
@@ -149,18 +150,19 @@
             this.btnSearch.Size = new System.Drawing.Size(85, 33);
             this.btnSearch.TabIndex = 28;
             this.btnSearch.Text = "Tìm";
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
-            // radioXemTatCa
+            // rdAll
             // 
-            this.radioXemTatCa.AutoSize = true;
-            this.radioXemTatCa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioXemTatCa.Location = new System.Drawing.Point(779, 44);
-            this.radioXemTatCa.Name = "radioXemTatCa";
-            this.radioXemTatCa.Size = new System.Drawing.Size(100, 22);
-            this.radioXemTatCa.TabIndex = 29;
-            this.radioXemTatCa.TabStop = true;
-            this.radioXemTatCa.Text = "Xem tất cả";
-            this.radioXemTatCa.UseVisualStyleBackColor = true;
+            this.rdAll.AutoSize = true;
+            this.rdAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdAll.Location = new System.Drawing.Point(779, 44);
+            this.rdAll.Name = "rdAll";
+            this.rdAll.Size = new System.Drawing.Size(100, 22);
+            this.rdAll.TabIndex = 29;
+            this.rdAll.TabStop = true;
+            this.rdAll.Text = "Xem tất cả";
+            this.rdAll.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -182,7 +184,7 @@
             this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.gcWare);
             this.Name = "frWareHourse";
-            this.Text = "frWareHourse";
+            this.Text = "Trang quản lý kho";
             ((System.ComponentModel.ISupportInitialize)(this.gcWare)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvWare)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
@@ -203,10 +205,10 @@
         private System.Windows.Forms.Label label3;
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraEditors.SimpleButton btnXem;
-        private System.Windows.Forms.RadioButton radioXemTheoDanhMuc;
+        private System.Windows.Forms.RadioButton rdHetHang;
         private DevExpress.XtraEditors.TextEdit txtSearchCategory;
         private DevExpress.XtraEditors.SimpleButton btnSearch;
-        private System.Windows.Forms.RadioButton radioXemTatCa;
+        private System.Windows.Forms.RadioButton rdAll;
         private System.Windows.Forms.Label label1;
     }
 }

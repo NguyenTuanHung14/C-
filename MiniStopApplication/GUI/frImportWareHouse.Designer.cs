@@ -178,6 +178,7 @@
             this.cbTenHangHoa.Size = new System.Drawing.Size(164, 22);
             this.cbTenHangHoa.TabIndex = 20;
             this.cbTenHangHoa.EditValueChanged += new System.EventHandler(this.cbTenHangHoa_EditValueChanged);
+            this.cbTenHangHoa.MouseHover += new System.EventHandler(this.cbTenHangHoa_MouseHover);
             // 
             // label11
             // 
@@ -367,6 +368,7 @@
             this.cbNhaCungCap.Properties.NullText = "";
             this.cbNhaCungCap.Size = new System.Drawing.Size(164, 22);
             this.cbNhaCungCap.TabIndex = 30;
+            this.cbNhaCungCap.MouseHover += new System.EventHandler(this.cbNhaCungCap_MouseHover);
             // 
             // label12
             // 

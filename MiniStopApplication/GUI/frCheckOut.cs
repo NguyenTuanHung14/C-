@@ -14,6 +14,7 @@ using System.Globalization;
 using DevExpress.XtraReports.UI;
 using DevExpress.XtraEditors.Filtering.Templates;
 using MiniStopApplication.BUS.StrategyPattern;
+using DevExpress.XtraSplashScreen;
 
 namespace MiniStopApplication.GUI
 {
@@ -26,12 +27,13 @@ namespace MiniStopApplication.GUI
             load_cbDanhMuc();
             loadListProduct();
             ShowBill();
-
-
+            btnThanhToan.Enabled = false;
+            rdTieuChuan.Checked = true;
         }
         int id_product = 0;
         int id_hoadon = 0;
         float price_product = 0;
+        int id_member = 0;
         CultureInfo culture = new CultureInfo("vi-VN");
         float thanhtien = 0, totalPrice = 0, finalPrice = 0;
         private void load_cbDanhMuc() {
@@ -70,7 +72,8 @@ namespace MiniStopApplication.GUI
             gvProduct.Columns[0].Visible = false;
             gvProduct.Columns[4].Visible = false;
             gvProduct.Columns[9].Visible = false;
-
+            rdMember.Enabled = false;
+           
             txtNgayBan.Text = DateTime.Now.Day + "";
         }
         private void loadListProductByType(int id) {
@@ -100,15 +103,7 @@ namespace MiniStopApplication.GUI
           
         }
 
-        private void textEdit1_EditValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textEdit2_EditValueChanged(object sender, EventArgs e)
-        {
-
-        }
+ 
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
@@ -161,29 +156,28 @@ namespace MiniStopApplication.GUI
             gvBill.Columns[5].Caption = "Thành tiền";
             if (gvBill.RowCount > 0)
             {
+                btnThanhToan.Enabled = true;
                 thanhtien = 0;
                 for (int i = 0; i < gvBill.RowCount; i++)
                 {
                     DataRow row = gvBill.GetDataRow(i);
                     thanhtien += float.Parse(row["Total"].ToString());
                 }
-                txtThanhTien.Text = thanhtien.ToString("c", culture);
-                finalPrice = thanhtien - (thanhtien / 100) * ((int)spDiscount.Value);
-                txtTongCong.Text = finalPrice.ToString("c", culture);
+                calCheckOut();
             }
            
         }
-        private void label11_Click(object sender, EventArgs e)
-        {
-
+        private void calCheckOut() {
+            txtThanhTien.Text = thanhtien.ToString("c", culture);
+            finalPrice = thanhtien - (thanhtien / 100) * ((int)spDiscount.Value);
+            txtTongCong.Text = finalPrice.ToString("c", culture);
         }
-
         private void gcProduct_Click(object sender, EventArgs e)
         {
             if (gvProduct.RowCount > 0)
             {
                 id_product = int.Parse(gvProduct.GetRowCellValue(gvProduct.FocusedRowHandle, gvProduct.Columns[0]).ToString());
-
+               
             }
         }
 
@@ -201,7 +195,7 @@ namespace MiniStopApplication.GUI
             try
             {
                 int discount = (int)spDiscount.Value;
-                if (gvProduct.RowCount == 0)
+                if (gvProduct.RowCount <= 0)
                 {
                     XtraMessageBox.Show("Vui lòng chọn món để thanh toán!");
                     return;
@@ -209,14 +203,26 @@ namespace MiniStopApplication.GUI
                 if (XtraMessageBox.Show(string.Format("Bạn có chắc thanh toán hóa đơn này chứ?"),
                         "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
-
                     CheckOutContext checkOutContext = new CheckOutContext();
-                    checkOutContext.SetStrategy(new StandardCheckOut());
-                    checkOutContext.CheckOut(discount, finalPrice, id_hoadon);
+                    if (rdTieuChuan.Checked == true) {
+                        checkOutContext.SetStrategy(new StandardCheckOut());
+                    }
+                    else {
+                        if (int.Parse(txtDiem.Text) >= 1000 && finalPrice>=100000)
+                        {
+                            spDiscount.Value = 10;
+                            discount = 10;
+                        }
+                        else { XtraMessageBox.Show("Không đủ điểm để thanh toán");
+                            return;
+                        }
+                        calCheckOut();
+                        checkOutContext.SetStrategy(new MemberCheckOut());
+                    }
+                    checkOutContext.CheckOut(discount, finalPrice, id_hoadon,1000, id_member);
                     BillBus.Instance.UpdateBill(id_hoadon);
                     Refesh();
                 }
-      
             }
             catch (Exception ex) {
                 XtraMessageBox.Show("Error: " + ex.Message);
@@ -249,41 +255,32 @@ namespace MiniStopApplication.GUI
             Refesh();
         }
 
-        private void txtSoLuong_TextChanged(object sender, EventArgs e)
-        {
+   
 
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            SplashScreenManager.ShowForm(typeof(WaitForm1));
+                frAddMember f = new frAddMember();
+                f.Show();
+            SplashScreenManager.CloseForm();
         }
 
-        private void frCheckOut_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnSuDungDiem_Click(object sender, EventArgs e)
+        private void btnSearchMember_Click(object sender, EventArgs e)
         {
             try
             {
-                if (gvProduct.RowCount == 0)
-                {
-                    XtraMessageBox.Show("Vui lòng chọn món để thanh toán!");
-                    return;
-                }
-                int discount = (int)spDiscount.Value;
-                int id_member = (int)cbMember.EditValue;
-                int usingPoint = int.Parse(txtDiem.Text);
-                if (XtraMessageBox.Show(string.Format("Bạn có chắc thanh toán hóa đơn này chứ?"),
-                        "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
-                {
-                    CheckOutContext checkOutContext = new CheckOutContext();
-                    checkOutContext.SetStrategy(new MemberCheckOut());
-                    checkOutContext.CheckOut(discount, finalPrice, id_hoadon,usingPoint,id_member);
-                    BillBus.Instance.UpdateBill(id_hoadon);
-                    Refesh();
-                }
+                string email = txtEmail.Text;
+                DataTable dt = MemberBus.Instance.getMember(email);
+                DataRow dr = dt.Rows[0];
+                txtDiem.Text = dr["Score"].ToString();
+                txtTenKhachHang.Text = dr["First_name"].ToString();
+                txtMaTheTichDiem.Text = dr["Id_card"].ToString();
+                id_member =int.Parse( dr["Id_Customer"].ToString());
 
+                rdMember.Enabled = true;
             }
-            catch (Exception ex)
-            {
+            catch(Exception ex) {
                 XtraMessageBox.Show("Error: " + ex.Message);
             }
         }
@@ -294,6 +291,12 @@ namespace MiniStopApplication.GUI
             txtThanhTien.Text = null;
             spDiscount.Text = null;
             txtTongCong.Text = null;
+            txtDiem.Text = null;
+            txtTenKhachHang.Text = null;
+            txtMaTheTichDiem.Text = null;
+            rdMember.Enabled = false ;
+            btnThanhToan.Enabled = false;
+            id_member = 0;
             taoHoaDon();
             ShowBill();
             loadListProduct();

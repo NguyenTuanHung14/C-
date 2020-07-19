@@ -24,7 +24,6 @@ namespace MiniStopApplication.BUS.BuilderPattern
         public abstract PersonBuilder BuildBirthDate(DateTime birthDate);
         public abstract PersonBuilder BuildAddress(string Address);
         public abstract PersonBuilder BuildEamil(string email);
-        public abstract PersonBuilder BuildPosition(int position);
 
         public abstract Person getPerson();
     }

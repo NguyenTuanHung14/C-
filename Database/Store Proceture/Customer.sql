@@ -2,49 +2,76 @@
 use MiniStop
 go
 --Customer
+ALTER TABLE Customer
+drop column Last_name
 DROP PROCEDURE IF EXISTS SP_Insert_Customer;
 go
 Create Proc SP_Insert_Customer
-@Last_name nvarchar(50),
 @First_name nvarchar(50),
 @Phone varchar(12),
 @Email nvarchar(50)
 as
 begin
-	if (@Last_name='' or @First_name='' or @Phone='' or @Email='')
+	if (@First_name='' or @Phone='' or @Email='')
 		THROW 50001, N'Nhập đầu đủ thông tin thông tin',1
 	if exists ( select Email from Customer where Email=@Email)
 		THROW 50001, N'Email đã tồn tại',2
 	else
-		insert into Customer values (@Last_name,@First_name,@Phone,@Email)	
+		insert into Customer values (@First_name,@Phone,@Email)	
 end
 
-execute SP_Insert_Customer 'Nguyen Thanh', 'Nhan', '1234567','nhan@gmail.com'
-delete from Customer
+execute SP_Insert_Customer 'Nhan', '1234567','nhaffn@gmail.com'
+SELECT * from Card
 select *from Customer
 -----------------------
-DROP PROCEDURE IF EXISTS SP_Update_Customer;
+
+
+IF OBJECT_ID ('TG_Insert_Card') IS NOT NULL
+	DROP TRIGGER TG_Insert_Card
+GO
+
+CREATE TRIGGER TG_Insert_Card
+ON Customer
+FOR INSERT
+AS 
+BEGIN
+	DECLARE @Id_cus int
+	SELECT @Id_cus = inserted.Id_Customer FROM inserted
+	INSERT INTO  Card VALUES (CONVERT(DATE,GETDATE()),0,@Id_cus)
+END
+
+
+----Get Member by Email
+
+DROP PROCEDURE IF EXISTS SP_GetByEmail_Member;
 go
-Create Proc SP_Update_Customer
-@Id_Customer int,
-@Last_name nvarchar(50),
-@First_name nvarchar(50),
-@Phone varchar(12),
+Create Proc SP_GetByEmail_Member
 @Email nvarchar(50)
 as
 begin
-	if (@Last_name='' or @First_name='' or @Phone='' or @Email='')
-		THROW 50001, N'Nhập đầu đủ thông tin thông tin',1
-	if not exists ( select Id_Customer from Customer where Id_Customer=@Id_Customer)
-		THROW 50001, N'không tìm thấy khách hàng cần sửa',2
+	if not exists ( select Email from Customer where Email=@Email) or @Email=''
+		THROW 50001, N'Email chưa đăng ký thành viên',2
 	else
-		begin
-			update Customer
-			set Last_name=@Last_name,First_name=@First_name,Phone=@Phone,Email=@Email
-			where Id_Customer=@Id_Customer
-		end	
+		select Customer.Id_Customer , Customer.First_name, Card.Id_Card,Card.Score
+		 FROM Customer,Card WHERE Customer.Id_Customer = Card.Id_Customer 
+		 AND Customer.Email = @Email
+end
+exec SP_GetByEmail_Member '123@gmail.com'
+
+
+--Update diem
+DROP PROCEDURE IF EXISTS SP_UpdateScore_Card;
+go
+Create Proc SP_UpdateScore_Card
+@Id_member nvarchar(50),
+@score int
+as
+begin
+	DECLARE @ID_CARD INT
+	SELECT @ID_CARD= Id_Card FROM Card,Customer WHERE Card.Id_Customer = Customer.Id_Customer
+		update Card
+		set Score = Score+@score
+		where Id_Card = @ID_CARD
 end
 
-execute SP_Update_Customer 2, 'Nguyen Thanh', 'Nhan', '01234567','thanhnhan@gmail.com'
-delete from Customer
-select *from Customer
+exec SP_UpdateScore_Card 3, 1000

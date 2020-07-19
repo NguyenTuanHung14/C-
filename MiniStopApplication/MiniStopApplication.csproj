@@ -80,7 +80,9 @@
     <Compile Include="BUS\BillBus.cs" />
     <Compile Include="BUS\BillDetailBus.cs" />
     <Compile Include="BUS\BuilderPattern\PersionDirector.cs" />
-    <Compile Include="BUS\BuilderPattern\Person.cs" />
+    <Compile Include="DAO\ProccessMember.cs" />
+    <Compile Include="DTO\Member.cs" />
+    <Compile Include="DTO\Person.cs" />
     <Compile Include="BUS\BuilderPattern\PersonBuilder.cs" />
     <Compile Include="BUS\CategoryBus.cs" />
     <Compile Include="BUS\DeliveryNoteDetailBus.cs" />
@@ -94,6 +96,11 @@
     <Compile Include="BUS\StrategyPattern\IStrategy.cs" />
     <Compile Include="BUS\StrategyPattern\MemberCheckOut.cs" />
     <Compile Include="BUS\StrategyPattern\StandardCheckOut.cs" />
+    <Compile Include="BUS\StrategyPattern\StatisticalByDate.cs" />
+    <Compile Include="BUS\StrategyPattern\StatisticalByMonth.cs" />
+    <Compile Include="BUS\StrategyPattern\StatisticalByProduct.cs" />
+    <Compile Include="BUS\StrategyPattern\StatisticalByProductType.cs" />
+    <Compile Include="BUS\StrategyPattern\StatisticalContext.cs" />
     <Compile Include="BUS\SupplierBus.cs" />
     <Compile Include="BUS\WareHourseBus.cs" />
     <Compile Include="Component1.cs">
@@ -108,6 +115,7 @@
     <Compile Include="DAO\ProccessGoodsDeliveryNote.cs" />
     <Compile Include="DAO\ProccessPerson.cs" />
     <Compile Include="DAO\ProccessReceiptNoteDetail.cs" />
+    <Compile Include="DAO\ProccessStatistical.cs" />
     <Compile Include="DAO\ProccessWareHourse.cs" />
     <Compile Include="DAO\ProcessCategories.cs" />
     <Compile Include="DAO\ProcessGoodReceiptNote.cs" />
@@ -137,6 +145,12 @@
     <Compile Include="GUI\ExportWareHourseReport.Designer.cs">
       <DependentUpon>ExportWareHourseReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\frAddMember.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frAddMember.Designer.cs">
+      <DependentUpon>frAddMember.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\frCategory.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -149,12 +163,6 @@
     <Compile Include="GUI\frChoiceProduct.Designer.cs">
       <DependentUpon>frChoiceProduct.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\frDoanhThu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\frDoanhThu.Designer.cs">
-      <DependentUpon>frDoanhThu.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUI\frExportWareHouse.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,6 +174,12 @@
     </Compile>
     <Compile Include="GUI\frCheckOut.Designer.cs">
       <DependentUpon>frCheckOut.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frListBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frListBill.Designer.cs">
+      <DependentUpon>frListBill.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\frMain.cs">
       <SubType>Form</SubType>
@@ -202,6 +216,12 @@
     </Compile>
     <Compile Include="GUI\frLogin.Designer.cs">
       <DependentUpon>frLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frStatistical.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frStatistical.Designer.cs">
+      <DependentUpon>frStatistical.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\frSupplier.cs">
       <SubType>Form</SubType>
@@ -247,20 +267,23 @@
     <EmbeddedResource Include="GUI\ExportWareHourseReport.resx">
       <DependentUpon>ExportWareHourseReport.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frAddMember.resx">
+      <DependentUpon>frAddMember.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\frCategory.resx">
       <DependentUpon>frCategory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frChoiceProduct.resx">
       <DependentUpon>frChoiceProduct.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\frDoanhThu.resx">
-      <DependentUpon>frDoanhThu.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="GUI\frExportWareHouse.resx">
       <DependentUpon>frExportWareHouse.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frCheckOut.resx">
       <DependentUpon>frCheckOut.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frListBill.resx">
+      <DependentUpon>frListBill.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frLogin.resx">
       <DependentUpon>frLogin.cs</DependentUpon>
@@ -279,6 +302,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frImportWareHouse.resx">
       <DependentUpon>frImportWareHouse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frStatistical.resx">
+      <DependentUpon>frStatistical.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\frSupplier.resx">
       <DependentUpon>frSupplier.cs</DependentUpon>

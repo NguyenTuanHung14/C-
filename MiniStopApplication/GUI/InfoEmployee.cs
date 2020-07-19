@@ -16,6 +16,7 @@ namespace MiniStopApplication.GUI
         public InfoEmployee()
         {
             InitializeComponent();
+            StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void txtHoTen_EditValueChanged(object sender, EventArgs e)

@@ -3,8 +3,12 @@ use MiniStop
 go
 --Employee
 
+
+
 ALTER TABLE Employee
-ADD TinhTrang nvarchar(20)
+ADD Tinhtrang nvarchar(20)
+
+
 
 ALTER TABLE Employee
 DROP COLUMN  First_name
@@ -58,7 +62,7 @@ begin
 		end
 end
 execute SP_Update_Employee 1,'tuan','hung','12345678','2020/07/11','tan lap 2','hung@gmail.com',4
-select*from Position
+select*from Employee
 ---------------------
 DROP PROCEDURE IF EXISTS SP_Delete_Employee;
 go
@@ -79,7 +83,63 @@ AS
 BEGIN
 	SELECT e.Id_Employee, e.Last_name, e.Phone, e.Birth_day, e.Address,e.Email, p.Name,e.Tinhtrang
 	FROM  Employee e join Position p on e.Id_Position= p.Id_Position
+	WHERE e.Tinhtrang != N'Không hoạt động'
+END
+select * from Employee
+
+
+----TRIGGER INSERT ACCOUNT
+IF OBJECT_ID ('TG_Insert_Account') IS NOT NULL
+	DROP TRIGGER TG_Insert_Account
+GO
+
+CREATE TRIGGER TG_Insert_Account 
+ON Employee
+AFTER INSERT, UPDATE
+AS 
+BEGIN
+	IF EXISTS (SELECT * FROM Account, inserted WHERE Account.Id_Employee = inserted.Id_Employee)
+		BEGIN
+			 UPDATE Account 
+			 SET Password = inserted.Phone
+			 FROM Account, inserted WHERE Account.Id_Employee = inserted.Id_Employee
+		END 
+	ELSE
+		BEGIN
+			DECLARE @username NVARCHAR(20)
+			DECLARE @password NVARCHAR(20)
+			DECLARE @position NVARCHAR(20)
+			DECLARE @id_employee int
+			SELECT @username=Email, @password = Phone, @position = Position.Name, @id_employee = inserted.Id_Employee
+			FROM inserted, Position 
+			WHERE inserted.Id_Position = Position.Id_Position
+			INSERT Account VALUES (@username,@password, CONVERT(date,GETDATE()),@position, N'Đang hoạt động', @id_employee)
+		END
 END
 
+---Get account By employee
+DROP PROCEDURE IF EXISTS SP_GetByEmp_Account;
+go
+create proc SP_GetByEmp_Account
+@Id_Employee int
+as
+begin
+	if not exists (select * from Employee where Id_Employee=@Id_Employee)
+		THROW 50001, N'Nhân viên không tồn tại',2
+	else
+		begin
+			select Username, Password,Role from Account, Employee WHERE Employee.Id_Employee = Account.Id_Employee
+			AND @Id_Employee = Employee.Id_Employee
+		end
+end
 
+---Get Position
 
+DROP PROCEDURE IF EXISTS SP_GetAll_Position
+go
+create proc SP_GetAll_Position
+as
+begin
+	SELECT Id_Position AS MaChucVu, Name as TenChucVu FROM Position
+end
+exec SP_GetAll_Employee

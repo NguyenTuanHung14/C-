@@ -31,6 +31,27 @@ namespace MiniStopApplication.DAO
                 throw ex;
             }
         }
-
+        public DataTable GetAllByName_WarehouseProduct(string name)
+        {
+            try
+            {
+                return DataProvider.Instance.ExecuteQuery("SP_GetAllByName_WarehouseProduct @Name", new object[] { name} );
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public DataTable GetAllExpire_WarehouseProduct()
+        {
+            try
+            {
+                return DataProvider.Instance.ExecuteQuery("SP_GetAllExpire_WarehouseProduct");
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

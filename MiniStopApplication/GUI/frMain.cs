@@ -196,7 +196,7 @@ namespace MiniStopApplication.GUI
         {
             SplashScreenManager.ShowForm(typeof(WaitForm1));
 
-            Form frm = this.CheckFormExist(typeof(frDoanhThu));
+            Form frm = this.CheckFormExist(typeof(frListBill));
             if (frm != null)
             {
 
@@ -204,7 +204,26 @@ namespace MiniStopApplication.GUI
             }
             else
             {
-                frDoanhThu f = new frDoanhThu();
+                frListBill f = new frListBill();
+                f.MdiParent = this;
+                f.Show();
+            }
+            SplashScreenManager.CloseForm();
+        }
+
+        private void btnStatistic_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            SplashScreenManager.ShowForm(typeof(WaitForm1));
+
+            Form frm = this.CheckFormExist(typeof(frStatistical));
+            if (frm != null)
+            {
+
+                frm.Activate();
+            }
+            else
+            {
+                frStatistical f = new frStatistical();
                 f.MdiParent = this;
                 f.Show();
             }

@@ -1,4 +1,6 @@
-﻿using DevExpress.XtraReports.UI;
+﻿using DevExpress.XtraGrid;
+using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraReports.UI;
 using MiniStopApplication.GUI;
 using System;
 using System.Collections.Generic;
@@ -19,6 +21,12 @@ namespace MiniStopApplication.BUS.StrategyPattern
             report.Parameters["TotalPrice"].Value = finalPrice;
             ReportPrintTool tool = new ReportPrintTool(report);
             tool.ShowPreview();
+        }
+
+
+        public void Statistical(GridControl gc, GridView gv)
+        {
+            throw new NotImplementedException();
         }
     }
 }

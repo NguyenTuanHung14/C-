@@ -63,6 +63,35 @@ namespace MiniStopApplication.DAO
                 throw ex;
             }
         }
+        public DataTable getAllBill()
+        {
+            string query = string.Format("SP_GetAll_Bill");
+
+            try
+            {
+                return DataProvider.Instance.ExecuteQuery(query);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+        public DataTable getAllBillByDate(DateTime fromDate, DateTime toDate)
+        {
+            string query = string.Format("SP_GetAllByDate_Bill @fromDate , @toDate");
+
+            try
+            {
+                return DataProvider.Instance.ExecuteQuery(query, new object[] { fromDate, toDate });
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
 
     }
 }

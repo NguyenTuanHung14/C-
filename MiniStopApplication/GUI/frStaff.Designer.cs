@@ -40,14 +40,12 @@
             this.label7 = new System.Windows.Forms.Label();
             this.pnlTaiKhoan = new DevExpress.XtraEditors.PanelControl();
             this.label10 = new System.Windows.Forms.Label();
-            this.cbLoaiTaiKhoan = new DevExpress.XtraEditors.ComboBoxEdit();
             this.label11 = new System.Windows.Forms.Label();
             this.txtTenTaiKhoan = new DevExpress.XtraEditors.TextEdit();
             this.label12 = new System.Windows.Forms.Label();
             this.txtMatKhau = new DevExpress.XtraEditors.TextEdit();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.txtEmail = new DevExpress.XtraEditors.TextEdit();
-            this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -55,34 +53,33 @@
             this.dtpNgaySinh = new System.Windows.Forms.DateTimePicker();
             this.lbNgayVaoLam = new System.Windows.Forms.Label();
             this.lbNgaySinh = new System.Windows.Forms.Label();
-            this.txtCMND = new DevExpress.XtraEditors.TextEdit();
             this.txtSDT = new DevExpress.XtraEditors.TextEdit();
             this.txtQueQuan = new DevExpress.XtraEditors.TextEdit();
             this.txtHoTen = new DevExpress.XtraEditors.TextEdit();
-            this.txtChucVu = new DevExpress.XtraEditors.ComboBoxEdit();
             this.gcNhanVien = new DevExpress.XtraGrid.GridControl();
             this.gvNhanVien = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.label9 = new System.Windows.Forms.Label();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.cbChucVu = new DevExpress.XtraEditors.LookUpEdit();
+            this.txtRole = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             this.panelControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pnlTaiKhoan)).BeginInit();
             this.pnlTaiKhoan.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cbLoaiTaiKhoan.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenTaiKhoan.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMatKhau.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtEmail.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCMND.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSDT.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtQueQuan.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtHoTen.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtChucVu.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcNhanVien)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvNhanVien)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbChucVu.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRole.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // label13
@@ -107,14 +104,15 @@
             this.panelControl3.Controls.Add(this.btnSua);
             this.panelControl3.Location = new System.Drawing.Point(328, 13);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(106, 528);
+            this.panelControl3.Size = new System.Drawing.Size(106, 538);
             this.panelControl3.TabIndex = 38;
             // 
             // btnThemTK
             // 
             this.btnThemTK.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnThemTK.Enabled = false;
             this.btnThemTK.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnThemTK.ImageOptions.Image")));
-            this.btnThemTK.Location = new System.Drawing.Point(7, 292);
+            this.btnThemTK.Location = new System.Drawing.Point(7, 267);
             this.btnThemTK.Name = "btnThemTK";
             this.btnThemTK.Size = new System.Drawing.Size(94, 48);
             this.btnThemTK.TabIndex = 27;
@@ -123,8 +121,9 @@
             // btnSuaTK
             // 
             this.btnSuaTK.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnSuaTK.Enabled = false;
             this.btnSuaTK.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSuaTK.ImageOptions.Image")));
-            this.btnSuaTK.Location = new System.Drawing.Point(7, 242);
+            this.btnSuaTK.Location = new System.Drawing.Point(7, 217);
             this.btnSuaTK.Name = "btnSuaTK";
             this.btnSuaTK.Size = new System.Drawing.Size(94, 48);
             this.btnSuaTK.TabIndex = 29;
@@ -139,6 +138,7 @@
             this.btnXoa.Size = new System.Drawing.Size(94, 48);
             this.btnXoa.TabIndex = 4;
             this.btnXoa.Text = "Xóa";
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click_1);
             // 
             // btnThem
             // 
@@ -160,13 +160,14 @@
             this.btnSua.Size = new System.Drawing.Size(94, 48);
             this.btnSua.TabIndex = 5;
             this.btnSua.Text = "Sửa";
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click_1);
             // 
             // label8
             // 
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(11, 240);
+            this.label8.Location = new System.Drawing.Point(11, 218);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(127, 17);
             this.label8.TabIndex = 36;
@@ -185,37 +186,25 @@
             // 
             this.pnlTaiKhoan.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.pnlTaiKhoan.Controls.Add(this.txtRole);
             this.pnlTaiKhoan.Controls.Add(this.label10);
-            this.pnlTaiKhoan.Controls.Add(this.cbLoaiTaiKhoan);
             this.pnlTaiKhoan.Controls.Add(this.label11);
             this.pnlTaiKhoan.Controls.Add(this.txtTenTaiKhoan);
             this.pnlTaiKhoan.Controls.Add(this.label12);
             this.pnlTaiKhoan.Controls.Add(this.txtMatKhau);
-            this.pnlTaiKhoan.Location = new System.Drawing.Point(3, 251);
+            this.pnlTaiKhoan.Location = new System.Drawing.Point(3, 229);
             this.pnlTaiKhoan.Name = "pnlTaiKhoan";
-            this.pnlTaiKhoan.Size = new System.Drawing.Size(309, 290);
+            this.pnlTaiKhoan.Size = new System.Drawing.Size(319, 322);
             this.pnlTaiKhoan.TabIndex = 34;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(24, 67);
+            this.label10.Location = new System.Drawing.Point(24, 71);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(101, 17);
             this.label10.TabIndex = 34;
             this.label10.Text = "Loại tài khoản: ";
-            // 
-            // cbLoaiTaiKhoan
-            // 
-            this.cbLoaiTaiKhoan.Location = new System.Drawing.Point(131, 70);
-            this.cbLoaiTaiKhoan.Name = "cbLoaiTaiKhoan";
-            this.cbLoaiTaiKhoan.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbLoaiTaiKhoan.Properties.Items.AddRange(new object[] {
-            "Nhân viên",
-            "Quản lý"});
-            this.cbLoaiTaiKhoan.Size = new System.Drawing.Size(166, 22);
-            this.cbLoaiTaiKhoan.TabIndex = 30;
             // 
             // label11
             // 
@@ -228,6 +217,7 @@
             // 
             // txtTenTaiKhoan
             // 
+            this.txtTenTaiKhoan.Enabled = false;
             this.txtTenTaiKhoan.Location = new System.Drawing.Point(131, 14);
             this.txtTenTaiKhoan.Name = "txtTenTaiKhoan";
             this.txtTenTaiKhoan.Size = new System.Drawing.Size(166, 22);
@@ -244,6 +234,7 @@
             // 
             // txtMatKhau
             // 
+            this.txtMatKhau.Enabled = false;
             this.txtMatKhau.Location = new System.Drawing.Point(131, 42);
             this.txtMatKhau.Name = "txtMatKhau";
             this.txtMatKhau.Size = new System.Drawing.Size(166, 22);
@@ -251,8 +242,8 @@
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.cbChucVu);
             this.panelControl1.Controls.Add(this.txtEmail);
-            this.panelControl1.Controls.Add(this.label5);
             this.panelControl1.Controls.Add(this.label4);
             this.panelControl1.Controls.Add(this.label3);
             this.panelControl1.Controls.Add(this.label2);
@@ -260,36 +251,25 @@
             this.panelControl1.Controls.Add(this.dtpNgaySinh);
             this.panelControl1.Controls.Add(this.lbNgayVaoLam);
             this.panelControl1.Controls.Add(this.lbNgaySinh);
-            this.panelControl1.Controls.Add(this.txtCMND);
             this.panelControl1.Controls.Add(this.txtSDT);
             this.panelControl1.Controls.Add(this.txtQueQuan);
             this.panelControl1.Controls.Add(this.txtHoTen);
-            this.panelControl1.Controls.Add(this.txtChucVu);
             this.panelControl1.Location = new System.Drawing.Point(3, 12);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(319, 225);
+            this.panelControl1.Size = new System.Drawing.Size(319, 203);
             this.panelControl1.TabIndex = 32;
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(110, 182);
+            this.txtEmail.Location = new System.Drawing.Point(110, 161);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(187, 22);
             this.txtEmail.TabIndex = 28;
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(53, 128);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(51, 17);
-            this.label5.TabIndex = 27;
-            this.label5.Text = "CMND:";
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 100);
+            this.label4.Location = new System.Drawing.Point(12, 103);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(92, 17);
             this.label4.TabIndex = 26;
@@ -324,7 +304,7 @@
             // 
             // dtpNgaySinh
             // 
-            this.dtpNgaySinh.Location = new System.Drawing.Point(111, 153);
+            this.dtpNgaySinh.Location = new System.Drawing.Point(111, 132);
             this.dtpNgaySinh.Name = "dtpNgaySinh";
             this.dtpNgaySinh.Size = new System.Drawing.Size(186, 23);
             this.dtpNgaySinh.TabIndex = 20;
@@ -332,7 +312,7 @@
             // lbNgayVaoLam
             // 
             this.lbNgayVaoLam.AutoSize = true;
-            this.lbNgayVaoLam.Location = new System.Drawing.Point(8, 182);
+            this.lbNgayVaoLam.Location = new System.Drawing.Point(8, 161);
             this.lbNgayVaoLam.Name = "lbNgayVaoLam";
             this.lbNgayVaoLam.Size = new System.Drawing.Size(44, 17);
             this.lbNgayVaoLam.TabIndex = 19;
@@ -341,22 +321,15 @@
             // lbNgaySinh
             // 
             this.lbNgaySinh.AutoSize = true;
-            this.lbNgaySinh.Location = new System.Drawing.Point(32, 153);
+            this.lbNgaySinh.Location = new System.Drawing.Point(32, 132);
             this.lbNgaySinh.Name = "lbNgaySinh";
             this.lbNgaySinh.Size = new System.Drawing.Size(73, 17);
             this.lbNgaySinh.TabIndex = 18;
             this.lbNgaySinh.Text = "Ngày sinh:";
             // 
-            // txtCMND
-            // 
-            this.txtCMND.Location = new System.Drawing.Point(110, 125);
-            this.txtCMND.Name = "txtCMND";
-            this.txtCMND.Size = new System.Drawing.Size(187, 22);
-            this.txtCMND.TabIndex = 4;
-            // 
             // txtSDT
             // 
-            this.txtSDT.Location = new System.Drawing.Point(110, 97);
+            this.txtSDT.Location = new System.Drawing.Point(110, 100);
             this.txtSDT.Name = "txtSDT";
             this.txtSDT.Size = new System.Drawing.Size(125, 22);
             this.txtSDT.TabIndex = 3;
@@ -375,18 +348,6 @@
             this.txtHoTen.Size = new System.Drawing.Size(125, 22);
             this.txtHoTen.TabIndex = 0;
             // 
-            // txtChucVu
-            // 
-            this.txtChucVu.Location = new System.Drawing.Point(110, 69);
-            this.txtChucVu.Name = "txtChucVu";
-            this.txtChucVu.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.txtChucVu.Properties.Items.AddRange(new object[] {
-            "Nhân viên",
-            "Quản lý"});
-            this.txtChucVu.Size = new System.Drawing.Size(125, 22);
-            this.txtChucVu.TabIndex = 1;
-            // 
             // gcNhanVien
             // 
             this.gcNhanVien.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -396,7 +357,7 @@
             this.gcNhanVien.Location = new System.Drawing.Point(5, 10);
             this.gcNhanVien.MainView = this.gvNhanVien;
             this.gcNhanVien.Name = "gcNhanVien";
-            this.gcNhanVien.Size = new System.Drawing.Size(687, 510);
+            this.gcNhanVien.Size = new System.Drawing.Size(550, 520);
             this.gcNhanVien.TabIndex = 0;
             this.gcNhanVien.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvNhanVien});
@@ -407,6 +368,7 @@
             this.gvNhanVien.DetailHeight = 700;
             this.gvNhanVien.GridControl = this.gcNhanVien;
             this.gvNhanVien.Name = "gvNhanVien";
+            this.gvNhanVien.OptionsBehavior.Editable = false;
             this.gvNhanVien.OptionsView.ShowGroupPanel = false;
             // 
             // label9
@@ -429,14 +391,32 @@
             this.panelControl2.Controls.Add(this.gcNhanVien);
             this.panelControl2.Location = new System.Drawing.Point(440, 13);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(697, 528);
+            this.panelControl2.Size = new System.Drawing.Size(560, 538);
             this.panelControl2.TabIndex = 33;
+            // 
+            // cbChucVu
+            // 
+            this.cbChucVu.Location = new System.Drawing.Point(110, 70);
+            this.cbChucVu.Name = "cbChucVu";
+            this.cbChucVu.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbChucVu.Properties.NullText = "";
+            this.cbChucVu.Size = new System.Drawing.Size(125, 22);
+            this.cbChucVu.TabIndex = 29;
+            // 
+            // txtRole
+            // 
+            this.txtRole.Enabled = false;
+            this.txtRole.Location = new System.Drawing.Point(131, 71);
+            this.txtRole.Name = "txtRole";
+            this.txtRole.Size = new System.Drawing.Size(166, 22);
+            this.txtRole.TabIndex = 35;
             // 
             // frStaff
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1142, 547);
+            this.ClientSize = new System.Drawing.Size(1005, 557);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.panelControl3);
             this.Controls.Add(this.label8);
@@ -453,22 +433,21 @@
             ((System.ComponentModel.ISupportInitialize)(this.pnlTaiKhoan)).EndInit();
             this.pnlTaiKhoan.ResumeLayout(false);
             this.pnlTaiKhoan.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cbLoaiTaiKhoan.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenTaiKhoan.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMatKhau.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtEmail.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCMND.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSDT.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtQueQuan.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtHoTen.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtChucVu.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcNhanVien)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvNhanVien)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.cbChucVu.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRole.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -487,13 +466,11 @@
         private System.Windows.Forms.Label label7;
         private DevExpress.XtraEditors.PanelControl pnlTaiKhoan;
         private System.Windows.Forms.Label label10;
-        private DevExpress.XtraEditors.ComboBoxEdit cbLoaiTaiKhoan;
         private System.Windows.Forms.Label label11;
         private DevExpress.XtraEditors.TextEdit txtTenTaiKhoan;
         private System.Windows.Forms.Label label12;
         private DevExpress.XtraEditors.TextEdit txtMatKhau;
         private DevExpress.XtraEditors.PanelControl panelControl1;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
@@ -501,15 +478,15 @@
         private System.Windows.Forms.DateTimePicker dtpNgaySinh;
         private System.Windows.Forms.Label lbNgayVaoLam;
         private System.Windows.Forms.Label lbNgaySinh;
-        private DevExpress.XtraEditors.TextEdit txtCMND;
         private DevExpress.XtraEditors.TextEdit txtSDT;
         private DevExpress.XtraEditors.TextEdit txtQueQuan;
         private DevExpress.XtraEditors.TextEdit txtHoTen;
-        private DevExpress.XtraEditors.ComboBoxEdit txtChucVu;
         private DevExpress.XtraGrid.GridControl gcNhanVien;
         private DevExpress.XtraGrid.Views.Grid.GridView gvNhanVien;
         private System.Windows.Forms.Label label9;
         private DevExpress.XtraEditors.PanelControl panelControl2;
         private DevExpress.XtraEditors.TextEdit txtEmail;
+        private DevExpress.XtraEditors.LookUpEdit cbChucVu;
+        private DevExpress.XtraEditors.TextEdit txtRole;
     }
 }

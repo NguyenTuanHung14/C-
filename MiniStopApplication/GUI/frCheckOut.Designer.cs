@@ -36,8 +36,9 @@
             this.btnSearch = new DevExpress.XtraEditors.SimpleButton();
             this.txtTenSanPham = new DevExpress.XtraEditors.TextEdit();
             this.cbDanhMuc = new DevExpress.XtraEditors.LookUpEdit();
-            this.btnReset = new DevExpress.XtraEditors.SimpleButton();
-            this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
+            this.rdTieuChuanf = new DevExpress.XtraEditors.PanelControl();
+            this.rdMember = new System.Windows.Forms.RadioButton();
+            this.rdTieuChuan = new System.Windows.Forms.RadioButton();
             this.btnThanhToan = new DevExpress.XtraEditors.SimpleButton();
             this.txtTongCong = new DevExpress.XtraEditors.TextEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
@@ -47,23 +48,26 @@
             this.txtThanhTien = new DevExpress.XtraEditors.TextEdit();
             this.label4 = new System.Windows.Forms.Label();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.btnExit = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.btnHuyHoaDon = new DevExpress.XtraEditors.SimpleButton();
             this.btnThemMon = new DevExpress.XtraEditors.SimpleButton();
-            this.btnSuDungDiem = new DevExpress.XtraEditors.SimpleButton();
             this.label2 = new System.Windows.Forms.Label();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.panel1 = new System.Windows.Forms.Panel();
             this.gcBill = new DevExpress.XtraGrid.GridControl();
             this.gvBill = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
+            this.btnSearchMember = new DevExpress.XtraEditors.SimpleButton();
+            this.txtEmail = new DevExpress.XtraEditors.TextEdit();
             this.txtNgayBan = new DevExpress.XtraEditors.TextEdit();
             this.txtMaHoaDon = new DevExpress.XtraEditors.TextEdit();
             this.label11 = new System.Windows.Forms.Label();
             this.txtDiem = new DevExpress.XtraEditors.TextEdit();
             this.label10 = new System.Windows.Forms.Label();
-            this.textEdit5 = new DevExpress.XtraEditors.TextEdit();
+            this.txtMaTheTichDiem = new DevExpress.XtraEditors.TextEdit();
             this.label9 = new System.Windows.Forms.Label();
-            this.textEdit3 = new DevExpress.XtraEditors.TextEdit();
+            this.txtTenKhachHang = new DevExpress.XtraEditors.TextEdit();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
@@ -72,15 +76,14 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.cbMember = new DevExpress.XtraEditors.LookUpEdit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcProduct)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvProduct)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenSanPham.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbDanhMuc.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
-            this.panelControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.rdTieuChuanf)).BeginInit();
+            this.rdTieuChuanf.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtTongCong.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spDiscount.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtThanhTien.Properties)).BeginInit();
@@ -93,14 +96,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.gvBill)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
             this.panelControl4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEmail.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNgayBan.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaHoaDon.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDiem.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit5.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMaTheTichDiem.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTenKhachHang.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaNhanVien.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbMember.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -190,33 +193,44 @@
             this.cbDanhMuc.TabIndex = 31;
             this.cbDanhMuc.EditValueChanged += new System.EventHandler(this.cbDanhMuc_EditValueChanged);
             // 
-            // btnReset
+            // rdTieuChuanf
             // 
-            this.btnReset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnReset.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReset.Appearance.Options.UseFont = true;
-            this.btnReset.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnReset.ImageOptions.Image")));
-            this.btnReset.Location = new System.Drawing.Point(717, 326);
-            this.btnReset.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(108, 31);
-            this.btnReset.TabIndex = 44;
-            this.btnReset.Text = "Reset";
+            this.rdTieuChuanf.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.rdTieuChuanf.Controls.Add(this.rdMember);
+            this.rdTieuChuanf.Controls.Add(this.rdTieuChuan);
+            this.rdTieuChuanf.Controls.Add(this.btnThanhToan);
+            this.rdTieuChuanf.Controls.Add(this.txtTongCong);
+            this.rdTieuChuanf.Controls.Add(this.labelControl3);
+            this.rdTieuChuanf.Controls.Add(this.labelControl2);
+            this.rdTieuChuanf.Controls.Add(this.labelControl1);
+            this.rdTieuChuanf.Controls.Add(this.spDiscount);
+            this.rdTieuChuanf.Controls.Add(this.txtThanhTien);
+            this.rdTieuChuanf.Location = new System.Drawing.Point(12, 425);
+            this.rdTieuChuanf.Name = "rdTieuChuanf";
+            this.rdTieuChuanf.Size = new System.Drawing.Size(492, 140);
+            this.rdTieuChuanf.TabIndex = 51;
             // 
-            // panelControl3
+            // rdMember
             // 
-            this.panelControl3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.panelControl3.Controls.Add(this.btnThanhToan);
-            this.panelControl3.Controls.Add(this.txtTongCong);
-            this.panelControl3.Controls.Add(this.labelControl3);
-            this.panelControl3.Controls.Add(this.labelControl2);
-            this.panelControl3.Controls.Add(this.labelControl1);
-            this.panelControl3.Controls.Add(this.spDiscount);
-            this.panelControl3.Controls.Add(this.txtThanhTien);
-            this.panelControl3.Location = new System.Drawing.Point(12, 452);
-            this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(492, 113);
-            this.panelControl3.TabIndex = 51;
+            this.rdMember.AutoSize = true;
+            this.rdMember.Location = new System.Drawing.Point(300, 5);
+            this.rdMember.Name = "rdMember";
+            this.rdMember.Size = new System.Drawing.Size(169, 21);
+            this.rdMember.TabIndex = 48;
+            this.rdMember.TabStop = true;
+            this.rdMember.Text = "Thanh toán thành viên";
+            this.rdMember.UseVisualStyleBackColor = true;
+            // 
+            // rdTieuChuan
+            // 
+            this.rdTieuChuan.AutoSize = true;
+            this.rdTieuChuan.Location = new System.Drawing.Point(126, 6);
+            this.rdTieuChuan.Name = "rdTieuChuan";
+            this.rdTieuChuan.Size = new System.Drawing.Size(168, 21);
+            this.rdTieuChuan.TabIndex = 47;
+            this.rdTieuChuan.TabStop = true;
+            this.rdTieuChuan.Text = "Thanh toán tiêu chuẩn";
+            this.rdTieuChuan.UseVisualStyleBackColor = true;
             // 
             // btnThanhToan
             // 
@@ -225,7 +239,7 @@
             this.btnThanhToan.Appearance.Options.UseFont = true;
             this.btnThanhToan.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.TopCenter;
             this.btnThanhToan.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnThanhToan.ImageOptions.SvgImage")));
-            this.btnThanhToan.Location = new System.Drawing.Point(347, 10);
+            this.btnThanhToan.Location = new System.Drawing.Point(347, 37);
             this.btnThanhToan.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnThanhToan.Name = "btnThanhToan";
             this.btnThanhToan.Size = new System.Drawing.Size(133, 91);
@@ -237,7 +251,7 @@
             // 
             this.txtTongCong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.txtTongCong.Enabled = false;
-            this.txtTongCong.Location = new System.Drawing.Point(126, 74);
+            this.txtTongCong.Location = new System.Drawing.Point(126, 101);
             this.txtTongCong.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtTongCong.Name = "txtTongCong";
             this.txtTongCong.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -253,7 +267,7 @@
             this.labelControl3.Appearance.ForeColor = System.Drawing.Color.Red;
             this.labelControl3.Appearance.Options.UseFont = true;
             this.labelControl3.Appearance.Options.UseForeColor = true;
-            this.labelControl3.Location = new System.Drawing.Point(19, 74);
+            this.labelControl3.Location = new System.Drawing.Point(19, 101);
             this.labelControl3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(100, 23);
@@ -265,7 +279,7 @@
             this.labelControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl2.Appearance.Options.UseFont = true;
-            this.labelControl2.Location = new System.Drawing.Point(26, 10);
+            this.labelControl2.Location = new System.Drawing.Point(26, 37);
             this.labelControl2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(93, 21);
@@ -279,7 +293,7 @@
             this.labelControl1.Appearance.ForeColor = System.Drawing.Color.Black;
             this.labelControl1.Appearance.Options.UseFont = true;
             this.labelControl1.Appearance.Options.UseForeColor = true;
-            this.labelControl1.Location = new System.Drawing.Point(42, 43);
+            this.labelControl1.Location = new System.Drawing.Point(42, 70);
             this.labelControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(78, 23);
@@ -294,7 +308,7 @@
             0,
             0,
             0});
-            this.spDiscount.Location = new System.Drawing.Point(126, 45);
+            this.spDiscount.Location = new System.Drawing.Point(126, 72);
             this.spDiscount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.spDiscount.Name = "spDiscount";
             this.spDiscount.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -320,7 +334,7 @@
             // 
             this.txtThanhTien.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.txtThanhTien.Enabled = false;
-            this.txtThanhTien.Location = new System.Drawing.Point(127, 10);
+            this.txtThanhTien.Location = new System.Drawing.Point(127, 37);
             this.txtThanhTien.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtThanhTien.Name = "txtThanhTien";
             this.txtThanhTien.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -347,15 +361,42 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelControl2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
+            this.panelControl2.Controls.Add(this.btnExit);
+            this.panelControl2.Controls.Add(this.simpleButton1);
             this.panelControl2.Controls.Add(this.panel2);
-            this.panelControl2.Controls.Add(this.btnReset);
             this.panelControl2.Controls.Add(this.btnHuyHoaDon);
             this.panelControl2.Controls.Add(this.btnThemMon);
-            this.panelControl2.Controls.Add(this.btnSuDungDiem);
             this.panelControl2.Location = new System.Drawing.Point(510, 199);
             this.panelControl2.Name = "panelControl2";
             this.panelControl2.Size = new System.Drawing.Size(836, 366);
             this.panelControl2.TabIndex = 49;
+            // 
+            // btnExit
+            // 
+            this.btnExit.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.Appearance.Options.UseFont = true;
+            this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnExit.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.ImageOptions.Image")));
+            this.btnExit.Location = new System.Drawing.Point(693, 327);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(132, 31);
+            this.btnExit.TabIndex = 71;
+            this.btnExit.Text = "Thoát";
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.simpleButton1.Appearance.Options.UseFont = true;
+            this.simpleButton1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage")));
+            this.simpleButton1.Location = new System.Drawing.Point(508, 327);
+            this.simpleButton1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(179, 31);
+            this.simpleButton1.TabIndex = 70;
+            this.simpleButton1.Text = "Thêm member";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // btnHuyHoaDon
             // 
@@ -363,10 +404,10 @@
             this.btnHuyHoaDon.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHuyHoaDon.Appearance.Options.UseFont = true;
             this.btnHuyHoaDon.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnHuyHoaDon.ImageOptions.SvgImage")));
-            this.btnHuyHoaDon.Location = new System.Drawing.Point(240, 327);
+            this.btnHuyHoaDon.Location = new System.Drawing.Point(180, 327);
             this.btnHuyHoaDon.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnHuyHoaDon.Name = "btnHuyHoaDon";
-            this.btnHuyHoaDon.Size = new System.Drawing.Size(196, 31);
+            this.btnHuyHoaDon.Size = new System.Drawing.Size(163, 31);
             this.btnHuyHoaDon.TabIndex = 68;
             this.btnHuyHoaDon.Text = "Hủy hóa đơn";
             this.btnHuyHoaDon.Click += new System.EventHandler(this.btnHuyHoaDon_Click);
@@ -377,27 +418,13 @@
             this.btnThemMon.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThemMon.Appearance.Options.UseFont = true;
             this.btnThemMon.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnThemMon.ImageOptions.SvgImage")));
-            this.btnThemMon.Location = new System.Drawing.Point(16, 326);
+            this.btnThemMon.Location = new System.Drawing.Point(16, 327);
             this.btnThemMon.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnThemMon.Name = "btnThemMon";
-            this.btnThemMon.Size = new System.Drawing.Size(196, 31);
+            this.btnThemMon.Size = new System.Drawing.Size(153, 31);
             this.btnThemMon.TabIndex = 67;
             this.btnThemMon.Text = "Thêm món";
             this.btnThemMon.Click += new System.EventHandler(this.btnThemMon_Click_1);
-            // 
-            // btnSuDungDiem
-            // 
-            this.btnSuDungDiem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSuDungDiem.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSuDungDiem.Appearance.Options.UseFont = true;
-            this.btnSuDungDiem.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnSuDungDiem.ImageOptions.SvgImage")));
-            this.btnSuDungDiem.Location = new System.Drawing.Point(536, 326);
-            this.btnSuDungDiem.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnSuDungDiem.Name = "btnSuDungDiem";
-            this.btnSuDungDiem.Size = new System.Drawing.Size(175, 31);
-            this.btnSuDungDiem.TabIndex = 69;
-            this.btnSuDungDiem.Text = "Sử dụng điểm";
-            this.btnSuDungDiem.Click += new System.EventHandler(this.btnSuDungDiem_Click);
             // 
             // label2
             // 
@@ -418,7 +445,7 @@
             this.panelControl1.Controls.Add(this.panel1);
             this.panelControl1.Location = new System.Drawing.Point(12, 24);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(492, 417);
+            this.panelControl1.Size = new System.Drawing.Size(492, 395);
             this.panelControl1.TabIndex = 52;
             this.panelControl1.TabStop = true;
             // 
@@ -431,7 +458,7 @@
             this.panel1.Location = new System.Drawing.Point(7, 6);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(480, 403);
+            this.panel1.Size = new System.Drawing.Size(480, 381);
             this.panel1.TabIndex = 31;
             // 
             // gcBill
@@ -443,7 +470,7 @@
             this.gcBill.Location = new System.Drawing.Point(3, 3);
             this.gcBill.MainView = this.gvBill;
             this.gcBill.Name = "gcBill";
-            this.gcBill.Size = new System.Drawing.Size(474, 397);
+            this.gcBill.Size = new System.Drawing.Size(474, 375);
             this.gcBill.TabIndex = 44;
             this.gcBill.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvBill});
@@ -458,15 +485,16 @@
             // 
             this.panelControl4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelControl4.Controls.Add(this.cbMember);
+            this.panelControl4.Controls.Add(this.btnSearchMember);
+            this.panelControl4.Controls.Add(this.txtEmail);
             this.panelControl4.Controls.Add(this.txtNgayBan);
             this.panelControl4.Controls.Add(this.txtMaHoaDon);
             this.panelControl4.Controls.Add(this.label11);
             this.panelControl4.Controls.Add(this.txtDiem);
             this.panelControl4.Controls.Add(this.label10);
-            this.panelControl4.Controls.Add(this.textEdit5);
+            this.panelControl4.Controls.Add(this.txtMaTheTichDiem);
             this.panelControl4.Controls.Add(this.label9);
-            this.panelControl4.Controls.Add(this.textEdit3);
+            this.panelControl4.Controls.Add(this.txtTenKhachHang);
             this.panelControl4.Controls.Add(this.label7);
             this.panelControl4.Controls.Add(this.label8);
             this.panelControl4.Controls.Add(this.textEdit2);
@@ -478,6 +506,31 @@
             this.panelControl4.Name = "panelControl4";
             this.panelControl4.Size = new System.Drawing.Size(835, 160);
             this.panelControl4.TabIndex = 54;
+            // 
+            // btnSearchMember
+            // 
+            this.btnSearchMember.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSearchMember.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearchMember.Appearance.Options.UseFont = true;
+            this.btnSearchMember.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSearchMember.ImageOptions.Image")));
+            this.btnSearchMember.Location = new System.Drawing.Point(688, 113);
+            this.btnSearchMember.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnSearchMember.Name = "btnSearchMember";
+            this.btnSearchMember.Size = new System.Drawing.Size(109, 33);
+            this.btnSearchMember.TabIndex = 74;
+            this.btnSearchMember.Text = "Tìm";
+            this.btnSearchMember.Click += new System.EventHandler(this.btnSearchMember_Click);
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.Location = new System.Drawing.Point(592, 13);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmail.Properties.Appearance.Options.UseFont = true;
+            this.txtEmail.Properties.AutoHeight = false;
+            this.txtEmail.Size = new System.Drawing.Size(205, 26);
+            this.txtEmail.TabIndex = 73;
             // 
             // txtNgayBan
             // 
@@ -515,41 +568,40 @@
             this.label11.Size = new System.Drawing.Size(103, 21);
             this.label11.TabIndex = 70;
             this.label11.Text = "Mã hóa đơn:";
-            this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
             // txtDiem
             // 
             this.txtDiem.Enabled = false;
-            this.txtDiem.Location = new System.Drawing.Point(592, 113);
+            this.txtDiem.Location = new System.Drawing.Point(592, 115);
             this.txtDiem.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtDiem.Name = "txtDiem";
             this.txtDiem.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDiem.Properties.Appearance.Options.UseFont = true;
             this.txtDiem.Properties.AutoHeight = false;
-            this.txtDiem.Size = new System.Drawing.Size(205, 26);
+            this.txtDiem.Size = new System.Drawing.Size(81, 26);
             this.txtDiem.TabIndex = 66;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.label10.Location = new System.Drawing.Point(537, 116);
+            this.label10.Location = new System.Drawing.Point(537, 118);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(55, 21);
             this.label10.TabIndex = 65;
             this.label10.Text = "Điểm:";
             // 
-            // textEdit5
+            // txtMaTheTichDiem
             // 
-            this.textEdit5.Enabled = false;
-            this.textEdit5.Location = new System.Drawing.Point(592, 79);
-            this.textEdit5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textEdit5.Name = "textEdit5";
-            this.textEdit5.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textEdit5.Properties.Appearance.Options.UseFont = true;
-            this.textEdit5.Properties.AutoHeight = false;
-            this.textEdit5.Size = new System.Drawing.Size(205, 26);
-            this.textEdit5.TabIndex = 64;
+            this.txtMaTheTichDiem.Enabled = false;
+            this.txtMaTheTichDiem.Location = new System.Drawing.Point(592, 79);
+            this.txtMaTheTichDiem.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtMaTheTichDiem.Name = "txtMaTheTichDiem";
+            this.txtMaTheTichDiem.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMaTheTichDiem.Properties.Appearance.Options.UseFont = true;
+            this.txtMaTheTichDiem.Properties.AutoHeight = false;
+            this.txtMaTheTichDiem.Size = new System.Drawing.Size(205, 26);
+            this.txtMaTheTichDiem.TabIndex = 64;
             // 
             // label9
             // 
@@ -561,17 +613,17 @@
             this.label9.TabIndex = 63;
             this.label9.Text = "Mã thẻ tích điểm:";
             // 
-            // textEdit3
+            // txtTenKhachHang
             // 
-            this.textEdit3.Enabled = false;
-            this.textEdit3.Location = new System.Drawing.Point(592, 45);
-            this.textEdit3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textEdit3.Name = "textEdit3";
-            this.textEdit3.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textEdit3.Properties.Appearance.Options.UseFont = true;
-            this.textEdit3.Properties.AutoHeight = false;
-            this.textEdit3.Size = new System.Drawing.Size(205, 26);
-            this.textEdit3.TabIndex = 62;
+            this.txtTenKhachHang.Enabled = false;
+            this.txtTenKhachHang.Location = new System.Drawing.Point(592, 45);
+            this.txtTenKhachHang.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtTenKhachHang.Name = "txtTenKhachHang";
+            this.txtTenKhachHang.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTenKhachHang.Properties.Appearance.Options.UseFont = true;
+            this.txtTenKhachHang.Properties.AutoHeight = false;
+            this.txtTenKhachHang.Size = new System.Drawing.Size(205, 26);
+            this.txtTenKhachHang.TabIndex = 62;
             // 
             // label7
             // 
@@ -587,11 +639,11 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.label8.Location = new System.Drawing.Point(465, 14);
+            this.label8.Location = new System.Drawing.Point(445, 14);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(127, 21);
+            this.label8.Size = new System.Drawing.Size(146, 21);
             this.label8.TabIndex = 59;
-            this.label8.Text = "Mã khách hàng:";
+            this.label8.Text = "Email khách hàng:";
             // 
             // textEdit2
             // 
@@ -605,7 +657,6 @@
             this.textEdit2.Properties.AutoHeight = false;
             this.textEdit2.Size = new System.Drawing.Size(205, 26);
             this.textEdit2.TabIndex = 58;
-            this.textEdit2.EditValueChanged += new System.EventHandler(this.textEdit2_EditValueChanged);
             // 
             // txtMaNhanVien
             // 
@@ -619,7 +670,6 @@
             this.txtMaNhanVien.Properties.AutoHeight = false;
             this.txtMaNhanVien.Size = new System.Drawing.Size(205, 26);
             this.txtMaNhanVien.TabIndex = 57;
-            this.txtMaNhanVien.EditValueChanged += new System.EventHandler(this.textEdit1_EditValueChanged);
             // 
             // label6
             // 
@@ -663,16 +713,6 @@
             this.label1.TabIndex = 54;
             this.label1.Text = "Thông tin chung";
             // 
-            // cbMember
-            // 
-            this.cbMember.Location = new System.Drawing.Point(592, 11);
-            this.cbMember.Name = "cbMember";
-            this.cbMember.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbMember.Properties.NullText = "";
-            this.cbMember.Size = new System.Drawing.Size(205, 22);
-            this.cbMember.TabIndex = 73;
-            // 
             // frCheckOut
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -683,20 +723,19 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.panelControl1);
-            this.Controls.Add(this.panelControl3);
+            this.Controls.Add(this.rdTieuChuanf);
             this.Controls.Add(this.panelControl2);
             this.Name = "frCheckOut";
             this.Text = "Trang bán hàng";
-            this.Load += new System.EventHandler(this.frCheckOut_Load);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcProduct)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvProduct)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTenSanPham.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbDanhMuc.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
-            this.panelControl3.ResumeLayout(false);
-            this.panelControl3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.rdTieuChuanf)).EndInit();
+            this.rdTieuChuanf.ResumeLayout(false);
+            this.rdTieuChuanf.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtTongCong.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spDiscount.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtThanhTien.Properties)).EndInit();
@@ -710,14 +749,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();
             this.panelControl4.ResumeLayout(false);
             this.panelControl4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEmail.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNgayBan.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaHoaDon.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDiem.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit5.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMaTheTichDiem.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTenKhachHang.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaNhanVien.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbMember.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -726,11 +765,10 @@
         #endregion
 
         private System.Windows.Forms.Panel panel2;
-        private DevExpress.XtraEditors.SimpleButton btnReset;
         private DevExpress.XtraEditors.SimpleButton btnSearch;
         private DevExpress.XtraEditors.TextEdit txtTenSanPham;
         private DevExpress.XtraEditors.LookUpEdit cbDanhMuc;
-        private DevExpress.XtraEditors.PanelControl panelControl3;
+        private DevExpress.XtraEditors.PanelControl rdTieuChuanf;
         private DevExpress.XtraEditors.SimpleButton btnThanhToan;
         private DevExpress.XtraEditors.TextEdit txtTongCong;
         private DevExpress.XtraEditors.LabelControl labelControl3;
@@ -751,9 +789,9 @@
         private DevExpress.XtraEditors.PanelControl panelControl4;
         private DevExpress.XtraEditors.TextEdit txtDiem;
         private System.Windows.Forms.Label label10;
-        private DevExpress.XtraEditors.TextEdit textEdit5;
+        private DevExpress.XtraEditors.TextEdit txtMaTheTichDiem;
         private System.Windows.Forms.Label label9;
-        private DevExpress.XtraEditors.TextEdit textEdit3;
+        private DevExpress.XtraEditors.TextEdit txtTenKhachHang;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private DevExpress.XtraEditors.TextEdit textEdit2;
@@ -762,12 +800,16 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
-        private DevExpress.XtraEditors.SimpleButton btnSuDungDiem;
         private DevExpress.XtraEditors.SimpleButton btnHuyHoaDon;
         private DevExpress.XtraEditors.SimpleButton btnThemMon;
         private System.Windows.Forms.Label label11;
         private DevExpress.XtraEditors.TextEdit txtMaHoaDon;
         private DevExpress.XtraEditors.TextEdit txtNgayBan;
-        private DevExpress.XtraEditors.LookUpEdit cbMember;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.SimpleButton btnSearchMember;
+        private DevExpress.XtraEditors.TextEdit txtEmail;
+        private DevExpress.XtraEditors.SimpleButton btnExit;
+        private System.Windows.Forms.RadioButton rdMember;
+        private System.Windows.Forms.RadioButton rdTieuChuan;
     }
 }

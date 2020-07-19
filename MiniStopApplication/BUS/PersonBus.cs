@@ -23,7 +23,28 @@ namespace MiniStopApplication.BUS
             }
         }
 
-
+        public DataTable GetAccount(int id_emp)
+        {
+            try
+            {
+                return ProccessPerson.Instance.GetAccount(id_emp);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public DataTable getPosition()
+        {
+            try
+            {
+                return ProccessPerson.Instance.getPosition();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public DataTable GetAllPerson()
         {
             try

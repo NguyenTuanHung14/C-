@@ -33,6 +33,7 @@ namespace MiniStopApplication.GUI
             try
             {
                 Load_cbTenHangHoa();
+
                 idPhieuNhap = GoodReceiptNoteBus.Instance.getGoodsReceiptNoteByDate();
                 gcNhapKho.DataSource = ReceiptNoteDetailBus.Instance.getListByIdReceiptNodeDetail(idPhieuNhap);
                 
@@ -51,9 +52,7 @@ namespace MiniStopApplication.GUI
                 gvNhapKho.Columns[10].Caption = "Mã phiếu nhập";
 
 
-                gcNhapKhoTrongNgay.DataSource = ReceiptNoteDetailBus.Instance.getListByIdReceiptNodeDetail(idPhieuNhap);
-
-
+                gcNhapKhoTrongNgay.DataSource = ReceiptNoteDetailBus.Instance.getListReceiptNodeDetail();
 
                 gvNhapKhoTrongNgay.Columns[0].Caption = "Mã chi tiết phiếu nhập";
                 gvNhapKhoTrongNgay.Columns[1].Caption = "Tên hàng hóa";
@@ -80,7 +79,12 @@ namespace MiniStopApplication.GUI
             cbTenHangHoa.Properties.DisplayMember = "Name_product";
             cbTenHangHoa.Properties.ValueMember = "Id_Product";
         }
-
+        private void Load_cbNhaCungCap() {
+        
+            cbNhaCungCap.Properties.DataSource = SupplierBus.Instance.GetAllSupplier();
+            cbNhaCungCap.Properties.DisplayMember = "Name";
+            cbNhaCungCap.Properties.ValueMember = "Id_Supplier";
+        }
         private void btnLuuLai_Click(object sender, EventArgs e)
         {
             try
@@ -145,6 +149,18 @@ namespace MiniStopApplication.GUI
         private void btnThoat_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+   
+
+        private void cbNhaCungCap_MouseHover(object sender, EventArgs e)
+        {
+            Load_cbNhaCungCap();
+        }
+
+        private void cbTenHangHoa_MouseHover(object sender, EventArgs e)
+        {
+            Load_cbTenHangHoa();
         }
 
         private void cbTenHangHoa_EditValueChanged(object sender, EventArgs e)

@@ -56,13 +56,13 @@
             this.gvProduct = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.cbTimKiem = new DevExpress.XtraEditors.LookUpEdit();
+            this.txtSearchCategory = new DevExpress.XtraEditors.TextEdit();
             this.btnXem = new DevExpress.XtraEditors.SimpleButton();
             this.radioXemTheoDanhMuc = new System.Windows.Forms.RadioButton();
             this.btnSearch = new DevExpress.XtraEditors.SimpleButton();
             this.radioXemTatCa = new System.Windows.Forms.RadioButton();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
-            this.cbTimKiem = new DevExpress.XtraEditors.LookUpEdit();
-            this.txtSearchCategory = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.picImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbDanhMuc.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
@@ -72,10 +72,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
-            this.panelControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cbTimKiem.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSearchCategory.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
+            this.panelControl3.SuspendLayout();
             this.SuspendLayout();
             // 
             // label3
@@ -265,6 +265,7 @@
             this.cbDanhMuc.Properties.NullText = "";
             this.cbDanhMuc.Size = new System.Drawing.Size(160, 22);
             this.cbDanhMuc.TabIndex = 2;
+            this.cbDanhMuc.MouseHover += new System.EventHandler(this.cbDanhMuc_MouseHover);
             // 
             // txtGia
             // 
@@ -331,6 +332,35 @@
             this.panelControl1.Size = new System.Drawing.Size(306, 226);
             this.panelControl1.TabIndex = 73;
             // 
+            // cbTimKiem
+            // 
+            this.cbTimKiem.Location = new System.Drawing.Point(122, 61);
+            this.cbTimKiem.Name = "cbTimKiem";
+            this.cbTimKiem.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.cbTimKiem.Properties.Appearance.Options.UseFont = true;
+            this.cbTimKiem.Properties.AutoHeight = false;
+            this.cbTimKiem.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbTimKiem.Properties.NullText = "";
+            this.cbTimKiem.Size = new System.Drawing.Size(174, 24);
+            this.cbTimKiem.TabIndex = 32;
+            this.cbTimKiem.MouseHover += new System.EventHandler(this.cbTimKiem_MouseHover);
+            // 
+            // txtSearchCategory
+            // 
+            this.txtSearchCategory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtSearchCategory.EditValue = "";
+            this.txtSearchCategory.Location = new System.Drawing.Point(122, 20);
+            this.txtSearchCategory.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtSearchCategory.Name = "txtSearchCategory";
+            this.txtSearchCategory.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearchCategory.Properties.Appearance.Options.UseFont = true;
+            this.txtSearchCategory.Properties.AutoHeight = false;
+            this.txtSearchCategory.Properties.NullText = "-- Tìm tên món ăn --";
+            this.txtSearchCategory.Properties.NullValuePrompt = "-- Tìm tên món ăn --";
+            this.txtSearchCategory.Size = new System.Drawing.Size(174, 23);
+            this.txtSearchCategory.TabIndex = 33;
+            // 
             // btnXem
             // 
             this.btnXem.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
@@ -369,6 +399,7 @@
             this.btnSearch.Size = new System.Drawing.Size(85, 33);
             this.btnSearch.TabIndex = 28;
             this.btnSearch.Text = "Tìm";
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // radioXemTatCa
             // 
@@ -409,34 +440,6 @@
             this.panelControl3.Size = new System.Drawing.Size(964, 226);
             this.panelControl3.TabIndex = 75;
             // 
-            // cbTimKiem
-            // 
-            this.cbTimKiem.Location = new System.Drawing.Point(122, 61);
-            this.cbTimKiem.Name = "cbTimKiem";
-            this.cbTimKiem.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.cbTimKiem.Properties.Appearance.Options.UseFont = true;
-            this.cbTimKiem.Properties.AutoHeight = false;
-            this.cbTimKiem.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbTimKiem.Properties.NullText = "";
-            this.cbTimKiem.Size = new System.Drawing.Size(174, 24);
-            this.cbTimKiem.TabIndex = 32;
-            // 
-            // txtSearchCategory
-            // 
-            this.txtSearchCategory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSearchCategory.EditValue = "";
-            this.txtSearchCategory.Location = new System.Drawing.Point(122, 20);
-            this.txtSearchCategory.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtSearchCategory.Name = "txtSearchCategory";
-            this.txtSearchCategory.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearchCategory.Properties.Appearance.Options.UseFont = true;
-            this.txtSearchCategory.Properties.AutoHeight = false;
-            this.txtSearchCategory.Properties.NullText = "-- Tìm tên món ăn --";
-            this.txtSearchCategory.Properties.NullValuePrompt = "-- Tìm tên món ăn --";
-            this.txtSearchCategory.Size = new System.Drawing.Size(174, 23);
-            this.txtSearchCategory.TabIndex = 33;
-            // 
             // frProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -460,11 +463,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbTimKiem.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSearchCategory.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             this.panelControl3.ResumeLayout(false);
             this.panelControl3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cbTimKiem.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSearchCategory.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

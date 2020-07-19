@@ -32,9 +32,9 @@ DROP PROCEDURE IF EXISTS SP_GetAll_ProductType;
 go
 create proc SP_GetAll_ProductType
 as
-	SELECT * from ProductType
+	SELECT ProductType.Id_ProductType AS MaLoaiHangHoa, ProductType.Name_Type AS TenLoaiHangHoa from ProductType
 
-
+EXEC SP_GetAll_ProductType
 ------------
 DROP PROCEDURE IF EXISTS SP_GetByID_ProductType;
 go

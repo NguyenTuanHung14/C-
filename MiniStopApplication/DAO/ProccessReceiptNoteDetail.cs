@@ -24,7 +24,7 @@ namespace MiniStopApplication.DAO
         {
             try
             {
-                return DataProvider.Instance.ExecuteQuery("SP_GetAll_DeliveryNoteDetail");
+                return DataProvider.Instance.ExecuteQuery("SP_GetAll_ReceiptNoteDetail");
             }
             catch (Exception ex)
             {

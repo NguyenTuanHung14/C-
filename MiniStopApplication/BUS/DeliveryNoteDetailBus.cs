@@ -43,7 +43,6 @@ namespace MiniStopApplication.BUS
             }
 
         }
-
         public DataTable getListByIdDeliveryNodeDetail(int id)
         {
             try

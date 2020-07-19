@@ -32,7 +32,28 @@ namespace MiniStopApplication.DAO
                 throw ex;
             }
         }
-
+        public DataTable GetAccount(int id_emp)
+        {
+            try
+            {
+                return DataProvider.Instance.ExecuteQuery("SP_GetByEmp_Account @Id_Employee",new object[] { id_emp});
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public DataTable getPosition()
+        {
+            try
+            {
+                return DataProvider.Instance.ExecuteQuery("SP_GetAll_Position");
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public bool InsertPerson(Person person)
         {
             string query = string.Format("SP_Insert_Employee @Last_name , @Phone , @Birth_day , @Address , @Email , @Id_Position ");

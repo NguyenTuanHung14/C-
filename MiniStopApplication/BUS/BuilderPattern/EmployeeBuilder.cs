@@ -12,7 +12,7 @@ namespace MiniStopApplication.BUS
         public EmployeeBuilder()
         {
             instance = new Person("Employee");
-           
+            instance.Position = 2;
         }  
 
         public override PersonBuilder BuildAddress(string Address)
@@ -45,12 +45,7 @@ namespace MiniStopApplication.BUS
             return this;
         }
 
-        public override PersonBuilder BuildPosition(int position)
-        {
-            instance.Position = position;
-            return this;
-        }
-
+     
         public override Person getPerson()
         {
             return this.instance;

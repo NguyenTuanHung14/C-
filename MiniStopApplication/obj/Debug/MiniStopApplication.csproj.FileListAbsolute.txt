@@ -233,4 +233,6 @@ F:\N3\II\ThietKeAppOOP\ProjectGroup\MiniStopApplication\MiniStopApplication\obj\
 F:\N3\II\ThietKeAppOOP\ProjectGroup\MiniStopApplication\MiniStopApplication\obj\Debug\MiniStopApplication.GUI.frWareHourse.resources
 F:\N3\II\ThietKeAppOOP\ProjectGroup\MiniStopApplication\MiniStopApplication\obj\Debug\MiniStopApplication.GUI.InfoEmployee.resources
 F:\N3\II\ThietKeAppOOP\ProjectGroup\MiniStopApplication\MiniStopApplication\obj\Debug\MiniStopApplication.GUI.frChoiceProduct.resources
-F:\N3\II\ThietKeAppOOP\ProjectGroup\MiniStopApplication\MiniStopApplication\obj\Debug\MiniStopApplication.GUI.frDoanhThu.resources
+F:\N3\II\ThietKeAppOOP\ProjectGroup\MiniStopApplication\MiniStopApplication\obj\Debug\MiniStopApplication.GUI.frListBill.resources
+F:\N3\II\ThietKeAppOOP\ProjectGroup\MiniStopApplication\MiniStopApplication\obj\Debug\MiniStopApplication.GUI.frStatistical.resources
+F:\N3\II\ThietKeAppOOP\ProjectGroup\MiniStopApplication\MiniStopApplication\obj\Debug\MiniStopApplication.GUI.frAddMember.resources

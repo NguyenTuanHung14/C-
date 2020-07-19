@@ -69,7 +69,7 @@ namespace MiniStopApplication.GUI
                     DateTime.Now,
                     DateTime.Now,
                     0,
-                    2
+                   (int)(cbDanhMuc.EditValue)
                 );
                 ProductBus.Instance.InsertProduct(product);
                 LoadAllProduct();
@@ -83,7 +83,12 @@ namespace MiniStopApplication.GUI
 
         private void btnXem_Click(object sender, EventArgs e)
         {
-
+            if (radioXemTatCa.Checked == true) {
+                LoadAllProduct();
+            }
+            if (radioXemTheoDanhMuc.Checked == true) {
+                XemProductTheoDanhMuc((int)(cbTimKiem.EditValue));
+            }
         }
 
         private void btnSua_Click(object sender, EventArgs e)
@@ -190,6 +195,45 @@ namespace MiniStopApplication.GUI
         private void btnThoat_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+        private void XemProductTheoDanhMuc(int id_danhmua) {
+            try
+            {
+                gcProduct.DataSource = ProductBus.Instance.GetAllProductByType(id_danhmua);
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show("Error: " + ex.Message);
+            }
+        }
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                gcProduct.DataSource = ProductBus.Instance.seacrhProduct(txtSearchCategory.Text);
+            }
+            catch (Exception ex) {
+                XtraMessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        private void cbTimKiem_MouseHover(object sender, EventArgs e)
+        {
+            Load_ProductType();
+        }
+        private void Load_ProductType() {
+            cbDanhMuc.Properties.DataSource = CategoryBus.Instance.GetAllProductType();
+            cbDanhMuc.Properties.DisplayMember = "TenLoaiHangHoa";
+            cbDanhMuc.Properties.ValueMember = "MaLoaiHangHoa";
+
+            cbTimKiem.Properties.DataSource = CategoryBus.Instance.GetAllProductType();
+            cbTimKiem.Properties.DisplayMember = "TenLoaiHangHoa";
+            cbTimKiem.Properties.ValueMember = "MaLoaiHangHoa";
+        }
+
+        private void cbDanhMuc_MouseHover(object sender, EventArgs e)
+        {
+            Load_ProductType();
         }
 
         private void ResetInput() {

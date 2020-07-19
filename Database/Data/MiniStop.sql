@@ -42,6 +42,7 @@ if not exists (select * from sysobjects where name='Employee')
 		Address nvarchar(50),
 		Email nvarchar(50),
 		Id_Position int,
+		Tinhtrang nvarchar(20)
 		Primary Key (Id_Employee),
 		FOREIGN KEY (Id_Position) REFERENCES Position(Id_Position)
 
@@ -67,10 +68,8 @@ if not exists (select * from sysobjects where name='Card')
         Date_create date,
 		Score int, 
 		Id_Customer int,
-		Id_Employee int,
 		Primary Key (Id_Card),
-		FOREIGN KEY (Id_Customer) REFERENCES Customer(Id_Customer),
-		FOREIGN KEY (Id_Employee) REFERENCES Employee(Id_Employee)
+		FOREIGN KEY (Id_Customer) REFERENCES Customer(Id_Customer)
     )
 go
 
@@ -93,6 +92,7 @@ if not exists (select * from sysobjects where name='Product')
 		EXP_date date,
 		Discount float,
 		Id_ProductType int,
+		TinhTrang nvarchar(20),
 		Primary Key (Id_Product),
 		FOREIGN KEY (Id_ProductType) REFERENCES ProductType(Id_ProductType)
     )
@@ -187,3 +187,4 @@ if not exists (select * from sysobjects where name='BillDetail')
 		FOREIGN KEY (Id_Product) REFERENCES Product(Id_Product)
     )
 go
+

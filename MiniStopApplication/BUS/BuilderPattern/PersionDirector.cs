@@ -15,7 +15,6 @@ namespace MiniStopApplication.BUS.BuilderPattern
             personBuilder.BuildEamil(email);
             personBuilder.BuildFullName(fullName);
             personBuilder.BuildPhone(phone);
-            personBuilder.BuildPosition(posision);
         }
     }
 }

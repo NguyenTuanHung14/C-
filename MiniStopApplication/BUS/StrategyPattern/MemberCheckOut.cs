@@ -1,4 +1,6 @@
-﻿using DevExpress.XtraReports.UI;
+﻿using DevExpress.XtraGrid;
+using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraReports.UI;
 using MiniStopApplication.GUI;
 using System;
 using System.Collections.Generic;
@@ -14,17 +16,25 @@ namespace MiniStopApplication.BUS.StrategyPattern
         {
           
             //1000 điểm giảm 10%
-            float price = finalPrice - (usingPoint / 100) % finalPrice;
+         
             CheckoutReport report = new CheckoutReport();
             report.DataSource = BillDetailBus.Instance.getListBillDetailByBill(id_bill);
             report.Parameters["Discount"].Value = discount;
             report.Parameters["CreateDate"].Value = DateTime.Now;
-            report.Parameters["TotalPrice"].Value = price;
+            report.Parameters["TotalPrice"].Value = finalPrice;
             ReportPrintTool tool = new ReportPrintTool(report);
             tool.ShowPreview();
 
             //Cập nhật lại điểm của Member
-            MemberBus.Instance.UpdateMemberPoint(id_member, usingPoint);
+            MemberBus.Instance.UpdateMemberPoint(id_member, -usingPoint);
+            if (finalPrice >= 100000) {
+                MemberBus.Instance.UpdateMemberPoint(id_member, 200);
+            }
+        }
+
+        public void Statistical(GridControl gc, GridView gv)
+        {
+            throw new NotImplementedException();
         }
     }
 }

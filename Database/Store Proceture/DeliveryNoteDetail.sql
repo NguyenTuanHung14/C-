@@ -65,12 +65,13 @@ DROP PROCEDURE IF EXISTS SP_GetAll_DeliveryNoteDetail;
 go
 create proc SP_GetAll_DeliveryNoteDetail
 AS 
-	SELECT * FROM DeliveryNoteDetail
+	SELECT DeliveryNoteDetail.Id_DeliveryNoteDetail, Product.Name_product, DeliveryNoteDetail.Amount, Product.Price,Product.MFG_date,Product.EXP_date,
+	GoodsDeliveryNote.Date_create, DeliveryNoteDetail.Time, Employee.Last_name,Employee.Id_Employee,GoodsDeliveryNote.Id_GoodsDeliveryNote
+	FROM DeliveryNoteDetail,GoodsDeliveryNote, Product , Employee WHERE GoodsDeliveryNote.Id_GoodsDeliveryNote = DeliveryNoteDetail.Id_GoodsDeliveryNote 
+	AND GoodsDeliveryNote.Id_Employee = Employee.Id_Employee AND
+	Product.Id_Product = DeliveryNoteDetail.Id_Product
 
-DROP PROCEDURE IF EXISTS SP_GetAllByID_DeliveryNoteDetail;
-go
-
-
+EXEC SP_GetAll_DeliveryNoteDetail
 --Get all by ID
 
 DROP PROCEDURE IF EXISTS SP_GetAllByID_DeliveryNoteDetail;

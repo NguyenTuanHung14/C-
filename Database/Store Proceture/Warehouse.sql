@@ -34,3 +34,40 @@ as
 	AND Employee.Id_Employee = GoodsReceiptNote.Id_Employee
 
 EXEC SP_GetAll_WarehouseProduct
+
+
+--Search HangHoa
+DROP PROCEDURE IF EXISTS SP_GetAllByName_WarehouseProduct;
+go
+create proc SP_GetAllByName_WarehouseProduct 
+@Name nvarchar(20)
+as
+	SELECT Product.Id_Product, Product.Name_product,Product.Amount, WareHouse.Inventory, Product.MFG_date, Product.EXP_date,GoodsReceiptNote.Date_create, Employee.Last_name,
+	Supplier.Name
+	FROM WareHouse, Product, Supplier, ReceiptNoteDetail, GoodsReceiptNote, Employee
+	WHERE Product.Id_Product = WareHouse.Id_Product AND 
+	Supplier.Id_Supplier = ReceiptNoteDetail.Id_Supplier
+	AND ReceiptNoteDetail.Id_Product = Product.Id_Product
+	AND GoodsReceiptNote.Id_GoodsReceiptNote = ReceiptNoteDetail.Id_GoodsReceiptNote
+	AND Employee.Id_Employee = GoodsReceiptNote.Id_Employee
+	AND Product.Name_product like '%'+ @Name+ '%'
+	
+exec SP_GetAllByName_WarehouseProduct N'Thịt'
+
+
+--Xem hàng hóa sắp hết hàng
+DROP PROCEDURE IF EXISTS SP_GetAllExpire_WarehouseProduct;
+go
+create proc SP_GetAllExpire_WarehouseProduct 
+as
+	SELECT Product.Id_Product, Product.Name_product,Product.Amount, WareHouse.Inventory, Product.MFG_date, Product.EXP_date,GoodsReceiptNote.Date_create, Employee.Last_name,
+	Supplier.Name
+	FROM WareHouse, Product, Supplier, ReceiptNoteDetail, GoodsReceiptNote, Employee
+	WHERE Product.Id_Product = WareHouse.Id_Product AND 
+	Supplier.Id_Supplier = ReceiptNoteDetail.Id_Supplier
+	AND ReceiptNoteDetail.Id_Product = Product.Id_Product
+	AND GoodsReceiptNote.Id_GoodsReceiptNote = ReceiptNoteDetail.Id_GoodsReceiptNote
+	AND Employee.Id_Employee = GoodsReceiptNote.Id_Employee
+	AND WareHouse.Inventory <=5
+
+EXEC SP_GetAllExpire_WarehouseProduct

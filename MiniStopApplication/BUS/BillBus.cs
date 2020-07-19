@@ -61,5 +61,32 @@ namespace MiniStopApplication.BUS
             }
 
         }
+
+        public DataTable getAllBill()
+        {
+           
+            try
+            {
+                return ProccessBill.Instance.getAllBill();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+        public DataTable getAllBillByDate(DateTime fromDate, DateTime toDate)
+        {
+
+            try
+            {
+                return ProccessBill.Instance.getAllBillByDate(fromDate, toDate);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
     }
 }

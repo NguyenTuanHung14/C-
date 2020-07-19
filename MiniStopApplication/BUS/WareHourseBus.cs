@@ -32,6 +32,27 @@ namespace MiniStopApplication.BUS
                 throw ex;
             }
         }
-
+        public DataTable GetAllExpire_WarehouseProduct()
+        {
+            try
+            {
+                return ProccessWareHourse.Instance.GetAllExpire_WarehouseProduct();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public DataTable GetAllByName_WarehouseProduct(string name)
+        {
+            try
+            {
+                return ProccessWareHourse.Instance.GetAllByName_WarehouseProduct(name);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

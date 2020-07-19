@@ -49,7 +49,7 @@ namespace MiniStopApplication.GUI
                 gvXuatKho.Columns[10].Caption = "Mã phiếu xuất";
 
 
-                gcXuatKhoTrongNgay.DataSource = DeliveryNoteDetailBus.Instance.getListByIdDeliveryNodeDetail(idPhieuNhap);
+                gcXuatKhoTrongNgay.DataSource = DeliveryNoteDetailBus.Instance.getListDeliveryNodeDetail();
                 gvXuatKhoTrongNgay.Columns[0].Caption = "Mã chi tiết phiếu xuất";
                 gvXuatKhoTrongNgay.Columns[1].Caption = "Tên hàng hóa";
                 gvXuatKhoTrongNgay.Columns[2].Caption = "Số lượng xuất kho";

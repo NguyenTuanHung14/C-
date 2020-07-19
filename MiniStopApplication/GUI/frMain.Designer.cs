@@ -205,6 +205,7 @@
             this.btnStatistic.LargeWidth = 75;
             this.btnStatistic.Name = "btnStatistic";
             this.btnStatistic.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnStatistic.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnStatistic_ItemClick);
             // 
             // bsTextDate
             // 

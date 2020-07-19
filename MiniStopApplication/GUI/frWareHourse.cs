@@ -46,5 +46,40 @@ namespace MiniStopApplication.GUI
             }
 
         }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txtSearchCategory.Text ==null)
+                {
+                    XtraMessageBox.Show("Vui lòng nhập thông tin!");
+                    return;
+                }
+               gcWare.DataSource = WareHourseBus.Instance.GetAllByName_WarehouseProduct(txtSearchCategory.Text);
+            }
+            catch (Exception ex) {
+                XtraMessageBox.Show("Error: " + ex);
+
+            }
+        }
+
+        private void btnXem_Click(object sender, EventArgs e)
+        {
+            if (rdAll.Checked == true)
+            {
+
+                load();
+            }
+            else {
+                try
+                {
+                    gcWare.DataSource = WareHourseBus.Instance.GetAllExpire_WarehouseProduct();
+                }
+                catch (Exception ex) {
+                    XtraMessageBox.Show("Error: " + ex);
+                }
+            }
+        }
     }
 }
