@@ -41,7 +41,7 @@ namespace MiniStopApplication.GUI
                 gvSupplier.Columns[2].Caption = "Số điện thoại";
                 gvSupplier.Columns[3].Caption = "Địa chỉ";
                 gvSupplier.Columns[4].Caption = "Hình ảnh";
-                gvSupplier.RowHeight = 120;
+                gvSupplier.RowHeight = 60;
 
                 btnSua.Enabled = true;
                 btnXoa.Enabled = true;

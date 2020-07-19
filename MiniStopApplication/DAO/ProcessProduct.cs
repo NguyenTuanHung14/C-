@@ -33,7 +33,39 @@ namespace MiniStopApplication.DAO
                 throw ex;
             }
         }
-  
+        public DataTable GetAllProductForCheckOut()
+        {
+            try
+            {
+                return DataProvider.Instance.ExecuteQuery("SP_GetAll_ProductForCheckOut");
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public DataTable GetAllProductByType(int id_productType)
+        {
+            try
+            {
+                return DataProvider.Instance.ExecuteQuery("SP_GetByType_Product @Id_productType", new object[] { id_productType });
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public DataTable SearchProduct(string text)
+        {
+            try
+            {
+                return DataProvider.Instance.ExecuteQuery("SP_GetByName_Product @name_product", new object[] { text });
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public bool InsertProduct(Product product) {
             string query = string.Format("SP_Insert_Product @name_product , @price , @amount , @image , @mFG_date , @eXP_date , @discount , @id_ProductType");
             int result;

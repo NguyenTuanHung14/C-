@@ -76,21 +76,45 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BUS\BuilderPattern\AdminBuilder.cs" />
+    <Compile Include="BUS\BillBus.cs" />
+    <Compile Include="BUS\BillDetailBus.cs" />
+    <Compile Include="BUS\BuilderPattern\PersionDirector.cs" />
+    <Compile Include="BUS\BuilderPattern\Person.cs" />
+    <Compile Include="BUS\BuilderPattern\PersonBuilder.cs" />
     <Compile Include="BUS\CategoryBus.cs" />
     <Compile Include="BUS\DeliveryNoteDetailBus.cs" />
     <Compile Include="BUS\GoodReceiptNoteBus.cs" />
     <Compile Include="BUS\GoodsDeliveryNoteBus.cs" />
+    <Compile Include="BUS\MemberBus.cs" />
+    <Compile Include="BUS\PersonBus.cs" />
     <Compile Include="BUS\ReceiptNoteDetailBus.cs" />
+    <Compile Include="BUS\BuilderPattern\EmployeeBuilder.cs" />
+    <Compile Include="BUS\StrategyPattern\CheckOutContext.cs" />
+    <Compile Include="BUS\StrategyPattern\IStrategy.cs" />
+    <Compile Include="BUS\StrategyPattern\MemberCheckOut.cs" />
+    <Compile Include="BUS\StrategyPattern\StandardCheckOut.cs" />
     <Compile Include="BUS\SupplierBus.cs" />
     <Compile Include="BUS\WareHourseBus.cs" />
+    <Compile Include="Component1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Component1.Designer.cs">
+      <DependentUpon>Component1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DAO\ProccessBill.cs" />
+    <Compile Include="DAO\ProccessBillDetail.cs" />
     <Compile Include="DAO\ProccessDeliveryNoteDetail.cs" />
     <Compile Include="DAO\ProccessGoodsDeliveryNote.cs" />
+    <Compile Include="DAO\ProccessPerson.cs" />
     <Compile Include="DAO\ProccessReceiptNoteDetail.cs" />
     <Compile Include="DAO\ProccessWareHourse.cs" />
     <Compile Include="DAO\ProcessCategories.cs" />
     <Compile Include="DAO\ProcessGoodReceiptNote.cs" />
     <Compile Include="DAO\ProcessProduct.cs" />
     <Compile Include="DAO\ProcessSupplier.cs" />
+    <Compile Include="DTO\Bill.cs" />
+    <Compile Include="DTO\BillDetail.cs" />
     <Compile Include="DTO\Categories.cs" />
     <Compile Include="DTO\DeliveryNoteDetail.cs" />
     <Compile Include="DTO\GoodDeliveryNote.cs" />
@@ -119,6 +143,18 @@
     <Compile Include="GUI\frCategory.Designer.cs">
       <DependentUpon>frCategory.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\frChoiceProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frChoiceProduct.Designer.cs">
+      <DependentUpon>frChoiceProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frDoanhThu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frDoanhThu.Designer.cs">
+      <DependentUpon>frDoanhThu.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\frExportWareHouse.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,6 +178,12 @@
     </Compile>
     <Compile Include="GUI\frProduct.Designer.cs">
       <DependentUpon>frProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frSelectProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frSelectProduct.Designer.cs">
+      <DependentUpon>frSelectProduct.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\frStaff.cs">
       <SubType>Form</SubType>
@@ -167,11 +209,23 @@
     <Compile Include="GUI\frSupplier.Designer.cs">
       <DependentUpon>frSupplier.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\frWareHourse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frWareHourse.Designer.cs">
+      <DependentUpon>frWareHourse.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\ImportWareHorseReport.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="GUI\ImportWareHorseReport.Designer.cs">
       <DependentUpon>ImportWareHorseReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\InfoEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\InfoEmployee.Designer.cs">
+      <DependentUpon>InfoEmployee.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\WaitForm1.cs">
       <SubType>Form</SubType>
@@ -196,6 +250,12 @@
     <EmbeddedResource Include="GUI\frCategory.resx">
       <DependentUpon>frCategory.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frChoiceProduct.resx">
+      <DependentUpon>frChoiceProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frDoanhThu.resx">
+      <DependentUpon>frDoanhThu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\frExportWareHouse.resx">
       <DependentUpon>frExportWareHouse.cs</DependentUpon>
     </EmbeddedResource>
@@ -211,6 +271,9 @@
     <EmbeddedResource Include="GUI\frProduct.resx">
       <DependentUpon>frProduct.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frSelectProduct.resx">
+      <DependentUpon>frSelectProduct.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\frStaff.resx">
       <DependentUpon>frStaff.cs</DependentUpon>
     </EmbeddedResource>
@@ -220,8 +283,14 @@
     <EmbeddedResource Include="GUI\frSupplier.resx">
       <DependentUpon>frSupplier.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frWareHourse.resx">
+      <DependentUpon>frWareHourse.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\ImportWareHorseReport.resx">
       <DependentUpon>ImportWareHorseReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\InfoEmployee.resx">
+      <DependentUpon>InfoEmployee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\WaitForm1.resx">
       <DependentUpon>WaitForm1.cs</DependentUpon>
@@ -229,13 +298,9 @@
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="GUI\SplashScreen1.resx">
       <DependentUpon>SplashScreen1.cs</DependentUpon>
     </EmbeddedResource>
@@ -244,6 +309,11 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>

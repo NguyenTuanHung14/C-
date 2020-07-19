@@ -82,7 +82,7 @@ namespace MiniStopApplication.DAO
 
         public object ExecuteScalar(string query, object[] parameter = null)
         {
-            object data = 0;
+            object data;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
@@ -103,6 +103,9 @@ namespace MiniStopApplication.DAO
                 }
                 data = command.ExecuteScalar();
                 connection.Close();
+            }
+            if (data == null) {
+                data = 0;
             }
             return data;
         }

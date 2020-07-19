@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.Utils;
+using MiniStopApplication.BUS.BuilderPattern;
 
 namespace MiniStopApplication
 {
@@ -15,7 +16,7 @@ namespace MiniStopApplication
         /// </summary>
         [STAThread]
         static void Main()
-        {
+        { 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new frLogin());

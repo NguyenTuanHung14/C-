@@ -12,6 +12,7 @@ using MiniStopApplication.DAO;
 using MiniStopApplication.BUS;
 using DevExpress.DataProcessing;
 using MiniStopApplication.DTO;
+using DevExpress.XtraReports.UI;
 
 namespace MiniStopApplication.GUI
 {
@@ -26,6 +27,7 @@ namespace MiniStopApplication.GUI
         int idPhieuNhap = 0;
         DataTable dt;
         DataRow[] dr;
+        ExportWareHourseReport report = new ExportWareHourseReport();
         private void loadPhieuXuatTheoNgay()
         {
         
@@ -45,7 +47,21 @@ namespace MiniStopApplication.GUI
                 gvXuatKho.Columns[8].Caption = "Tên nhân viên xuất kho";
                 gvXuatKho.Columns[9].Caption = "Mã nhân viên";
                 gvXuatKho.Columns[10].Caption = "Mã phiếu xuất";
-                
+
+
+                gcXuatKhoTrongNgay.DataSource = DeliveryNoteDetailBus.Instance.getListByIdDeliveryNodeDetail(idPhieuNhap);
+                gvXuatKhoTrongNgay.Columns[0].Caption = "Mã chi tiết phiếu xuất";
+                gvXuatKhoTrongNgay.Columns[1].Caption = "Tên hàng hóa";
+                gvXuatKhoTrongNgay.Columns[2].Caption = "Số lượng xuất kho";
+                gvXuatKhoTrongNgay.Columns[3].Caption = "Giá cả";
+                gvXuatKhoTrongNgay.Columns[4].Caption = "Ngày sản xuất";
+                gvXuatKhoTrongNgay.Columns[5].Caption = "Ngày hết hạn";
+                gvXuatKhoTrongNgay.Columns[6].Caption = "Ngày xuất kho";
+                gvXuatKhoTrongNgay.Columns[7].Caption = "Thời gian xuất kho";
+                gvXuatKhoTrongNgay.Columns[8].Caption = "Tên nhân viên xuất kho";
+                gvXuatKhoTrongNgay.Columns[9].Caption = "Mã nhân viên";
+                gvXuatKhoTrongNgay.Columns[10].Caption = "Mã phiếu xuất";
+
             }
             catch (Exception ex)
             {
@@ -85,10 +101,12 @@ namespace MiniStopApplication.GUI
             try
             {
                 int soLuongXuat = int.Parse(txtSoLuongXuat.Text);
+               idPhieuNhap =  GoodsDeliveryNoteBus.Instance.getGoodsDeliveryNoteByDate();
                 if (idPhieuNhap == 0) {
                     int id_employee = 1;
-                    idPhieuNhap = GoodsDeliveryNoteBus.Instance.InsertDeliveryNote(id_employee);
+                    GoodsDeliveryNoteBus.Instance.InsertDeliveryNote(id_employee);
                 }
+                idPhieuNhap = GoodsDeliveryNoteBus.Instance.getGoodsDeliveryNoteByDate();
                 DeliveryNoteDetail deliveryNoteDetail = new DeliveryNoteDetail(
                        idPhieuNhap,
                        id_product,
@@ -111,6 +129,21 @@ namespace MiniStopApplication.GUI
             txtSoLuongTon.Text = null;
             txtSoLuongXuat.Text = null;
             cbTenHangHoa.EditValue = null;
+        }
+
+        private void btnXuatPhieuNhap_Click(object sender, EventArgs e)
+        {
+            if (XtraMessageBox.Show(string.Format("Bạn có chắc xuất báo cáo doanh thu này chứ?"),
+                 "Thông báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+                ReportPrintTool tool = new ReportPrintTool(report);
+
+                report.DataSource = gcXuatKho.DataSource;
+                report.Parameters["CreateDate"].Value = DateTime.Now.Date;
+                report.Parameters["NguoiLap"].Value = "Tuấn Hùng";
+                report.Parameters["TotalPrice"].Value = 20000;
+                tool.ShowPreview();
+            }
         }
     }
 

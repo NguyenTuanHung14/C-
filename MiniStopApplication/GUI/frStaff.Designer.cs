@@ -46,12 +46,12 @@
             this.label12 = new System.Windows.Forms.Label();
             this.txtMatKhau = new DevExpress.XtraEditors.TextEdit();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.txtEmail = new DevExpress.XtraEditors.TextEdit();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.dtpNgayVaoLam = new System.Windows.Forms.DateTimePicker();
             this.dtpNgaySinh = new System.Windows.Forms.DateTimePicker();
             this.lbNgayVaoLam = new System.Windows.Forms.Label();
             this.lbNgaySinh = new System.Windows.Forms.Label();
@@ -73,6 +73,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtMatKhau.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEmail.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCMND.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSDT.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtQueQuan.Properties)).BeginInit();
@@ -148,6 +149,7 @@
             this.btnThem.Size = new System.Drawing.Size(94, 48);
             this.btnThem.TabIndex = 3;
             this.btnThem.Text = "Thêm";
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click_1);
             // 
             // btnSua
             // 
@@ -249,12 +251,12 @@
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.txtEmail);
             this.panelControl1.Controls.Add(this.label5);
             this.panelControl1.Controls.Add(this.label4);
             this.panelControl1.Controls.Add(this.label3);
             this.panelControl1.Controls.Add(this.label2);
             this.panelControl1.Controls.Add(this.label1);
-            this.panelControl1.Controls.Add(this.dtpNgayVaoLam);
             this.panelControl1.Controls.Add(this.dtpNgaySinh);
             this.panelControl1.Controls.Add(this.lbNgayVaoLam);
             this.panelControl1.Controls.Add(this.lbNgaySinh);
@@ -267,6 +269,13 @@
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(319, 225);
             this.panelControl1.TabIndex = 32;
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.Location = new System.Drawing.Point(110, 182);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(187, 22);
+            this.txtEmail.TabIndex = 28;
             // 
             // label5
             // 
@@ -313,13 +322,6 @@
             this.label1.TabIndex = 23;
             this.label1.Text = "Họ tên:";
             // 
-            // dtpNgayVaoLam
-            // 
-            this.dtpNgayVaoLam.Location = new System.Drawing.Point(110, 182);
-            this.dtpNgayVaoLam.Name = "dtpNgayVaoLam";
-            this.dtpNgayVaoLam.Size = new System.Drawing.Size(187, 23);
-            this.dtpNgayVaoLam.TabIndex = 21;
-            // 
             // dtpNgaySinh
             // 
             this.dtpNgaySinh.Location = new System.Drawing.Point(111, 153);
@@ -332,9 +334,9 @@
             this.lbNgayVaoLam.AutoSize = true;
             this.lbNgayVaoLam.Location = new System.Drawing.Point(8, 182);
             this.lbNgayVaoLam.Name = "lbNgayVaoLam";
-            this.lbNgayVaoLam.Size = new System.Drawing.Size(97, 17);
+            this.lbNgayVaoLam.Size = new System.Drawing.Size(44, 17);
             this.lbNgayVaoLam.TabIndex = 19;
-            this.lbNgayVaoLam.Text = "Ngày vào làm:";
+            this.lbNgayVaoLam.Text = "Email:";
             // 
             // lbNgaySinh
             // 
@@ -398,6 +400,7 @@
             this.gcNhanVien.TabIndex = 0;
             this.gcNhanVien.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvNhanVien});
+            this.gcNhanVien.Click += new System.EventHandler(this.gcNhanVien_Click_1);
             // 
             // gvNhanVien
             // 
@@ -443,7 +446,8 @@
             this.Controls.Add(this.label9);
             this.Controls.Add(this.panelControl2);
             this.Name = "frStaff";
-            this.Text = "frStaff";
+            this.Text = "Trang quản lý hàng hóa";
+            this.Load += new System.EventHandler(this.frStaff_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             this.panelControl3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pnlTaiKhoan)).EndInit();
@@ -455,6 +459,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEmail.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCMND.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSDT.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtQueQuan.Properties)).EndInit();
@@ -493,7 +498,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DateTimePicker dtpNgayVaoLam;
         private System.Windows.Forms.DateTimePicker dtpNgaySinh;
         private System.Windows.Forms.Label lbNgayVaoLam;
         private System.Windows.Forms.Label lbNgaySinh;
@@ -506,5 +510,6 @@
         private DevExpress.XtraGrid.Views.Grid.GridView gvNhanVien;
         private System.Windows.Forms.Label label9;
         private DevExpress.XtraEditors.PanelControl panelControl2;
+        private DevExpress.XtraEditors.TextEdit txtEmail;
     }
 }

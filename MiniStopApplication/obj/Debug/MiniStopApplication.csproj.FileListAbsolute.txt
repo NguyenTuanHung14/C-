@@ -229,3 +229,8 @@ D:\Thiết kế phần mền hướng đối tượng\Đồ án\MinistopApplicat
 D:\Thiết kế phần mền hướng đối tượng\Đồ án\MinistopApplication\MiniStopApplication\obj\Debug\MiniStopApplication.exe
 D:\Thiết kế phần mền hướng đối tượng\Đồ án\MinistopApplication\MiniStopApplication\obj\Debug\MiniStopApplication.pdb
 F:\N3\II\ThietKeAppOOP\ProjectGroup\MiniStopApplication\MiniStopApplication\obj\Debug\MiniStopApplication.GUI.frSupplier.resources
+F:\N3\II\ThietKeAppOOP\ProjectGroup\MiniStopApplication\MiniStopApplication\obj\Debug\MiniStopApplication.GUI.frSelectProduct.resources
+F:\N3\II\ThietKeAppOOP\ProjectGroup\MiniStopApplication\MiniStopApplication\obj\Debug\MiniStopApplication.GUI.frWareHourse.resources
+F:\N3\II\ThietKeAppOOP\ProjectGroup\MiniStopApplication\MiniStopApplication\obj\Debug\MiniStopApplication.GUI.InfoEmployee.resources
+F:\N3\II\ThietKeAppOOP\ProjectGroup\MiniStopApplication\MiniStopApplication\obj\Debug\MiniStopApplication.GUI.frChoiceProduct.resources
+F:\N3\II\ThietKeAppOOP\ProjectGroup\MiniStopApplication\MiniStopApplication\obj\Debug\MiniStopApplication.GUI.frDoanhThu.resources

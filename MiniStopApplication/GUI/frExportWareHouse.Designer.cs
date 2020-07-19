@@ -104,9 +104,9 @@
             this.label10.Font = new System.Drawing.Font("Tahoma", 10F);
             this.label10.Location = new System.Drawing.Point(356, 300);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(313, 21);
+            this.label10.Size = new System.Drawing.Size(229, 21);
             this.label10.TabIndex = 26;
-            this.label10.Text = "Danh sách hàng hóa xuất kho trong ngày";
+            this.label10.Text = "Danh sách hàng hóa xuất kho";
             // 
             // panelControl4
             // 
@@ -278,7 +278,7 @@
             this.gcXuatKho.Location = new System.Drawing.Point(5, 15);
             this.gcXuatKho.MainView = this.gvXuatKho;
             this.gcXuatKho.Name = "gcXuatKho";
-            this.gcXuatKho.Size = new System.Drawing.Size(823, 260);
+            this.gcXuatKho.Size = new System.Drawing.Size(823, 247);
             this.gcXuatKho.TabIndex = 0;
             this.gcXuatKho.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvXuatKho});
@@ -315,6 +315,7 @@
             this.btnXuatPhieuNhap.Size = new System.Drawing.Size(168, 43);
             this.btnXuatPhieuNhap.TabIndex = 21;
             this.btnXuatPhieuNhap.Text = "Xuất phiếu xuất";
+            this.btnXuatPhieuNhap.Click += new System.EventHandler(this.btnXuatPhieuNhap_Click);
             // 
             // dateEditTimKiem
             // 
@@ -370,9 +371,9 @@
             this.label2.Font = new System.Drawing.Font("Tahoma", 10F);
             this.label2.Location = new System.Drawing.Point(356, 3);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(229, 21);
+            this.label2.Size = new System.Drawing.Size(313, 21);
             this.label2.TabIndex = 23;
-            this.label2.Text = "Danh sách hàng hóa xuất kho";
+            this.label2.Text = "Danh sách hàng hóa xuất kho trong ngày";
             // 
             // label1
             // 
@@ -400,7 +401,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "frExportWareHouse";
-            this.Text = "exportWareHouse";
+            this.Text = "Trang quản lý xuất kho";
             ((System.ComponentModel.ISupportInitialize)(this.gvXuatKhoTrongNgay)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcXuatKhoTrongNgay)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();

@@ -22,8 +22,7 @@ AS
 		THROW 50001, N'Tên hàng hóa không được bỏ trống',1
 		BEGIN TRY	
 				INSERT INTO Product
-				VALUES (@name_product,@price,@amount,@image,@mFG_date,@eXP_date,@discount,@id_ProductType)
-				COMMIT
+				VALUES (@name_product,@price,@amount,@image,@mFG_date,@eXP_date,@discount,@id_ProductType,N'Đang hoạt động')
 		END TRY
 		BEGIN CATCH
 			DECLARE @ErrorMessage NVARCHAR(2000)
@@ -33,7 +32,7 @@ AS
 
 
 SELECT * FROM Product
-EXEC SP_Insert_Product N'Thịt heo', '',0,'','',0,'1'
+EXEC SP_Insert_Product N'Thịt hefjkgho bò', 0,0,'','','',0,2
 
 --Delete a product
 
@@ -47,7 +46,9 @@ AS
 		IF NOT EXISTS (SELECT Id_Product FROM Product WHERE Id_Product = @Id_product)
 		THROW 50001, N'Hàng hóa không tồn tại!',1
 		BEGIN TRY	
-			DELETE FROM Product WHERE Id_Product = @Id_product 
+			UPDATE Product 
+			SET Status = N'Ngưng hoạt động'
+			WHERE Id_Product = @Id_product
 		END TRY
 		BEGIN CATCH
 			DECLARE @ErrorMessage NVARCHAR(2000)
@@ -59,7 +60,7 @@ AS
 
 SELECT * FROM Product
 
-EXEC SP_Delete_Product 4
+EXEC SP_Delete_Product 15
 
 
 --Update Product
@@ -118,6 +119,7 @@ AS
 BEGIN
 	SELECT *
 	FROM  Product 
+	WHERE Status !=N'Ngưng hoạt động'
 END
 
 EXEC SP_GetAll_Product
@@ -135,7 +137,7 @@ BEGIN
 	THROW 50001, N'Hàng hóa không tồn tại',1
 	SELECT *
 	FROM  Product 
-	WHERE Id_product=@Id_product
+	WHERE Id_product=@Id_product AND  Status !=N'Ngưng hoạt động'
 END
 EXEC SP_GetByID_Product 3
 
@@ -149,12 +151,53 @@ CREATE PROC  SP_GetByName_Product
 (@name_product NVARCHAR(20))
 AS
 BEGIN
-	IF NOT EXISTS (SELECT Id_Product FROM Product WHERE Name_product = @name_product) or @name_product=''
+	IF NOT EXISTS (SELECT Id_Product FROM Product WHERE Name_product like '%' + @name_product + '%') or @name_product=''
 	THROW 50001, N'Hàng hóa không tồn tại',1
 	SELECT *
 	FROM  Product 
-	WHERE Name_product=@name_product
+	WHERE Name_product like '%' + @name_product + '%'
 END
 
 select * from Product
-EXEC SP_GetByName_Product N'Thịt bò'
+EXEC SP_GetByName_Product N'q9'
+
+----get product by loại product
+
+IF OBJECT_ID ('SP_GetByType_Product') IS NOT NULL
+	DROP PROC SP_GetByType_Product
+GO
+CREATE PROC  SP_GetByType_Product
+(@Id_productType INT)
+AS
+BEGIN
+	IF NOT EXISTS (SELECT Id_ProductType FROM ProductType WHERE Id_ProductType = @Id_productType)
+	THROW 50001, N'Loại hàng hóa không tồn tại',1
+	SELECT *
+	FROM  Product 
+	WHERE Id_ProductType=@Id_productType
+	AND  Status !=N'Ngưng hoạt động'
+END
+EXEC SP_GetByType_Product 2
+
+
+---get product > 0
+IF OBJECT_ID ('SP_GetAll_ProductForCheckOut') IS NOT NULL
+	DROP PROC SP_GetAll_ProductForCheckOut
+GO
+CREATE PROC  SP_GetAll_ProductForCheckOut
+AS
+BEGIN
+	SELECT Product.Id_Product,Product.Name_product,Product.Price,Product.Amount,Product.Images,Product.MFG_date,Product.EXP_date,Product.Discount,ProductType.Name_Type,Product.Status
+	FROM  Product, ProductType WHERE Amount >= 0 AND EXP_date >= CONVERT(date, GETDATE()) AND Product.Id_ProductType = ProductType.Id_ProductType
+	AND  Status !=N'Ngưng hoạt động'
+
+END
+
+ALTER Table Product
+ADD Status nvarchar(20)
+EXEC SP_GetAll_ProductForCheckOut
+
+select * From Bill
+
+select * from Product
+select * from Employee

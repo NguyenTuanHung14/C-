@@ -30,6 +30,7 @@ go
 create proc SP_Get_GoodsReceiptNote
 AS
 	SELECT Id_GoodsReceiptNote FROM GoodsReceiptNote WHERE Date_create = CONVERT(date, GETDATE())
-select * from GoodsDeliveryNote
+select * from GoodsReceiptNote
 exec SP_Insert_GoodsDeliveryNote 1
 EXEC SP_Get_GoodsReceiptNote
+

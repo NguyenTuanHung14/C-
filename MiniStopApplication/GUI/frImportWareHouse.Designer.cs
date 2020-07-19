@@ -54,14 +54,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.cbNhaCungCap = new DevExpress.XtraEditors.LookUpEdit();
+            this.label12 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.dpkNgayHetHan = new System.Windows.Forms.DateTimePicker();
             this.dpkNgaySanXuat = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.cbNhaCungCap = new DevExpress.XtraEditors.LookUpEdit();
-            this.label12 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gvNhapKho)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcNhapKho)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
@@ -107,9 +107,9 @@
             this.label10.Font = new System.Drawing.Font("Tahoma", 10F);
             this.label10.Location = new System.Drawing.Point(357, 3);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(233, 21);
+            this.label10.Size = new System.Drawing.Size(317, 21);
             this.label10.TabIndex = 20;
-            this.label10.Text = "Danh sách hàng hóa nhập kho";
+            this.label10.Text = "Danh sách hàng hóa nhập kho trong ngày";
             // 
             // panelControl4
             // 
@@ -140,6 +140,7 @@
             this.btnXuatPhieuNhap.Size = new System.Drawing.Size(168, 45);
             this.btnXuatPhieuNhap.TabIndex = 21;
             this.btnXuatPhieuNhap.Text = "Xuất phiếu nhập";
+            this.btnXuatPhieuNhap.Click += new System.EventHandler(this.btnXuatPhieuNhap_Click);
             // 
             // dateEditTimKiem
             // 
@@ -207,6 +208,7 @@
             this.btnThoat.Size = new System.Drawing.Size(129, 45);
             this.btnThoat.TabIndex = 16;
             this.btnThoat.Text = "Thoát";
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // btnLuuLai
             // 
@@ -305,9 +307,9 @@
             this.label2.Font = new System.Drawing.Font("Tahoma", 10F);
             this.label2.Location = new System.Drawing.Point(357, 299);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(317, 21);
+            this.label2.Size = new System.Drawing.Size(233, 21);
             this.label2.TabIndex = 17;
-            this.label2.Text = "Danh sách hàng hóa nhập kho trong ngày";
+            this.label2.Text = "Danh sách hàng hóa nhập kho";
             // 
             // label1
             // 
@@ -356,6 +358,43 @@
             this.panelControl1.Size = new System.Drawing.Size(325, 414);
             this.panelControl1.TabIndex = 13;
             // 
+            // cbNhaCungCap
+            // 
+            this.cbNhaCungCap.Location = new System.Drawing.Point(140, 61);
+            this.cbNhaCungCap.Name = "cbNhaCungCap";
+            this.cbNhaCungCap.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbNhaCungCap.Properties.NullText = "";
+            this.cbNhaCungCap.Size = new System.Drawing.Size(164, 22);
+            this.cbNhaCungCap.TabIndex = 30;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.label12.Location = new System.Drawing.Point(13, 60);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(116, 21);
+            this.label12.TabIndex = 29;
+            this.label12.Text = "Nhà cung cấp:";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(140, 177);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(164, 23);
+            this.textBox1.TabIndex = 28;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.label7.Location = new System.Drawing.Point(33, 177);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(101, 21);
+            this.label7.TabIndex = 27;
+            this.label7.Text = "Đơn vị tính: ";
+            // 
             // dpkNgayHetHan
             // 
             this.dpkNgayHetHan.Location = new System.Drawing.Point(140, 257);
@@ -390,43 +429,6 @@
             this.label4.TabIndex = 23;
             this.label4.Text = "Ngày sản xuất: ";
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(140, 177);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(164, 23);
-            this.textBox1.TabIndex = 28;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.label7.Location = new System.Drawing.Point(33, 177);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(101, 21);
-            this.label7.TabIndex = 27;
-            this.label7.Text = "Đơn vị tính: ";
-            // 
-            // cbNhaCungCap
-            // 
-            this.cbNhaCungCap.Location = new System.Drawing.Point(140, 61);
-            this.cbNhaCungCap.Name = "cbNhaCungCap";
-            this.cbNhaCungCap.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbNhaCungCap.Properties.NullText = "";
-            this.cbNhaCungCap.Size = new System.Drawing.Size(164, 22);
-            this.cbNhaCungCap.TabIndex = 30;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.label12.Location = new System.Drawing.Point(13, 60);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(116, 21);
-            this.label12.TabIndex = 29;
-            this.label12.Text = "Nhà cung cấp:";
-            // 
             // frImportWareHouse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -441,7 +443,7 @@
             this.Controls.Add(this.panelControl2);
             this.Controls.Add(this.panelControl1);
             this.Name = "frImportWareHouse";
-            this.Text = "importWareHouse";
+            this.Text = "Trang quản lý nhập kho";
             ((System.ComponentModel.ISupportInitialize)(this.gvNhapKho)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcNhapKho)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();

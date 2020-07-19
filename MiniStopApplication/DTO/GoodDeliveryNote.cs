@@ -2,6 +2,7 @@
 using DevExpress.XtraRichEdit.Layout.Engine;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,11 +33,21 @@ namespace MiniStopApplication.DTO
             this.total = total;
             this.id_employee = id_employee;
         }
+        public GoodDeliveryNote(DataRow row)
+        {
+            this.id_goodDeliveryNote = (int)row["Id_GoodsDeliveryNote"];
+            this.date_create = (Date)row["Date_create"];
 
+            this.total = (int)row["Total"];
+            this.Id_employee = (int)row["Id_Employee"];
+        }
         public int Id_goodDeliveryNote { get => id_goodDeliveryNote; set => id_goodDeliveryNote = value; }
         public Date Date_create { get => date_create; set => date_create = value; }
         public DateTime Time { get => time; set => time = value; }
         public int Total { get => total; set => total = value; }
         public int Id_employee { get => id_employee; set => id_employee = value; }
+
+
+   
     }
 }

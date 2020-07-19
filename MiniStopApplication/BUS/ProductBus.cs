@@ -37,7 +37,39 @@ namespace MiniStopApplication.BUS
                 throw ex;
             }
         }
-
+        public DataTable GetAllProductForCheckOut()
+        {
+            try
+            {
+                return ProcessProduct.Instance.GetAllProductForCheckOut();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public DataTable GetAllProductByType(int id_type)
+        {
+            try
+            {
+                return ProcessProduct.Instance.GetAllProductByType(id_type);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public DataTable seacrhProduct(string text)
+        {
+            try
+            {
+                return ProcessProduct.Instance.SearchProduct(text);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public bool InsertProduct(Product product)
         {
             try

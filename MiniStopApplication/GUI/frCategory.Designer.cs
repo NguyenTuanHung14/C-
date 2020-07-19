@@ -155,7 +155,7 @@
             this.panelControl1.Controls.Add(this.btnXem);
             this.panelControl1.Controls.Add(this.txtSearchCategory);
             this.panelControl1.Controls.Add(this.btnSearch);
-            this.panelControl1.Location = new System.Drawing.Point(12, 18);
+            this.panelControl1.Location = new System.Drawing.Point(12, 29);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(306, 124);
             this.panelControl1.TabIndex = 77;
@@ -218,9 +218,9 @@
             this.panelControl3.Controls.Add(this.btnThem);
             this.panelControl3.Controls.Add(this.t);
             this.panelControl3.Controls.Add(this.txtTen);
-            this.panelControl3.Location = new System.Drawing.Point(12, 148);
+            this.panelControl3.Location = new System.Drawing.Point(12, 164);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(306, 382);
+            this.panelControl3.Size = new System.Drawing.Size(306, 361);
             this.panelControl3.TabIndex = 76;
             // 
             // label1
@@ -265,7 +265,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.panelControl2);
             this.Name = "frCategory";
-            this.Text = "Category";
+            this.Text = "Trang quản lý loại hàng hóa";
             ((System.ComponentModel.ISupportInitialize)(this.txtSearchCategory.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbTimKiem.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();

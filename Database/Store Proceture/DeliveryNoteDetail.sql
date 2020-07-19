@@ -73,16 +73,16 @@ go
 
 --Get all by ID
 
-DROP PROCEDURE IF EXISTS SP_GetAll_DeliveryNoteDetail;
+DROP PROCEDURE IF EXISTS SP_GetAllByID_DeliveryNoteDetail;
 go
-create proc SP_GetAll_DeliveryNoteDetail
+create proc SP_GetAllByID_DeliveryNoteDetail
 @Id int
 AS 
 	IF NOT EXISTS (SELECT Id_GoodsDeliveryNote FROM GoodsDeliveryNote WHERE Id_GoodsDeliveryNote = @Id) or @Id =''
 		THROW 50001, N'Phiếu nhập không tồn tại',1
 BEGIN TRY
 	SELECT DeliveryNoteDetail.Id_DeliveryNoteDetail, Product.Name_product, DeliveryNoteDetail.Amount, Product.Price,Product.MFG_date,Product.EXP_date,
-	GoodsDeliveryNote.Date_create, DeliveryNoteDetail.Time, Employee.First_name,Employee.Id_Employee,GoodsDeliveryNote.Id_GoodsDeliveryNote
+	GoodsDeliveryNote.Date_create, DeliveryNoteDetail.Time, Employee.Last_name,Employee.Id_Employee,GoodsDeliveryNote.Id_GoodsDeliveryNote
 	FROM DeliveryNoteDetail,GoodsDeliveryNote, Product , Employee WHERE DeliveryNoteDetail.Id_GoodsDeliveryNote = @Id
 	AND GoodsDeliveryNote.Id_GoodsDeliveryNote = DeliveryNoteDetail.Id_GoodsDeliveryNote 
 	AND GoodsDeliveryNote.Id_Employee = Employee.Id_Employee AND
@@ -94,4 +94,9 @@ BEGIN CATCH
 	RAISERROR(@ErrorMessage, 16, 1)
 END CATCH
 
-exec SP_GetAllByID_DeliveryNoteDetail 1
+exec SP_GetAllByID_DeliveryNoteDetail 9
+
+select * from GoodsDeliveryNote
+
+
+SElect * from DeliveryNoteDetail

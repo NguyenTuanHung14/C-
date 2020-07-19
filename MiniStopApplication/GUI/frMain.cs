@@ -8,6 +8,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using DevExpress.UserSkins;
+using DevExpress.LookAndFeel;
 using DevExpress.XtraSplashScreen;
 
 namespace MiniStopApplication.GUI
@@ -17,8 +19,10 @@ namespace MiniStopApplication.GUI
         public frMain()
         {
             InitializeComponent();
-            WindowState = FormWindowState.Maximized;
+            StartPosition = FormStartPosition.CenterScreen;
+         //   ribbonPageManager.Visible = false;
         }
+     
         private Form CheckFormExist(Type fType)
         {
             foreach (Form f in MdiChildren)
@@ -157,6 +161,50 @@ namespace MiniStopApplication.GUI
             else
             {
                 frSupplier f = new frSupplier();
+                f.MdiParent = this;
+                f.Show();
+            }
+            SplashScreenManager.CloseForm();
+        }
+
+        private void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            SplashScreenManager.ShowForm(typeof(WaitForm1));
+
+            Form frm = this.CheckFormExist(typeof(frWareHourse));
+            if (frm != null)
+            {
+
+                frm.Activate();
+            }
+            else
+            {
+                frWareHourse f = new frWareHourse();
+                f.MdiParent = this;
+                f.Show();
+            }
+            SplashScreenManager.CloseForm();
+        }
+
+        private void btnAccountInfo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+                InfoEmployee f = new InfoEmployee();
+                f.Show();
+        }
+
+        private void btnViewBill_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            SplashScreenManager.ShowForm(typeof(WaitForm1));
+
+            Form frm = this.CheckFormExist(typeof(frDoanhThu));
+            if (frm != null)
+            {
+
+                frm.Activate();
+            }
+            else
+            {
+                frDoanhThu f = new frDoanhThu();
                 f.MdiParent = this;
                 f.Show();
             }

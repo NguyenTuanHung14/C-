@@ -42,7 +42,7 @@ namespace MiniStopApplication.GUI
                 gvProduct.Columns[7].Caption = "Khuyến mãi";
                 gvProduct.Columns[8].Caption = "Mã loại hàng hóa";
 
-                gvProduct.RowHeight = 120;
+                gvProduct.RowHeight = 100;
                 txtSoLuong.Enabled = false;
                 dpkNgayHetHan.Enabled = false;
                 dpkNgaySanXuat.Enabled = false;

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frMain));
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btnShowForm = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
@@ -54,6 +55,7 @@
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
             this.txtCaption = new DevExpress.XtraBars.BarStaticItem();
+            this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroupSystem = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -65,7 +67,6 @@
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
-            this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
@@ -111,13 +112,14 @@
             this.ribbonPageManager});
             this.ribbon.QuickToolbarItemLinks.Add(this.txtCaption);
             this.ribbon.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2013;
-            this.ribbon.Size = new System.Drawing.Size(1580, 176);
+            this.ribbon.Size = new System.Drawing.Size(1367, 176);
             this.ribbon.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Above;
             // 
             // btnShowForm
             // 
             this.btnShowForm.Caption = "Tác vụ";
             this.btnShowForm.Id = 2;
+            this.btnShowForm.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnShowForm.ImageOptions.SvgImage")));
             this.btnShowForm.LargeWidth = 75;
             this.btnShowForm.Name = "btnShowForm";
             this.btnShowForm.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
@@ -133,6 +135,7 @@
             // 
             this.btnViewFood.Caption = "Hàng hóa";
             this.btnViewFood.Id = 4;
+            this.btnViewFood.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnViewFood.ImageOptions.SvgImage")));
             this.btnViewFood.LargeWidth = 75;
             this.btnViewFood.Name = "btnViewFood";
             this.btnViewFood.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
@@ -142,6 +145,7 @@
             // 
             this.btnViewCategoryFood.Caption = "Danh mục";
             this.btnViewCategoryFood.Id = 5;
+            this.btnViewCategoryFood.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnViewCategoryFood.ImageOptions.SvgImage")));
             this.btnViewCategoryFood.LargeWidth = 75;
             this.btnViewCategoryFood.Name = "btnViewCategoryFood";
             this.btnViewCategoryFood.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
@@ -159,14 +163,17 @@
             // 
             this.btnAccountInfo.Caption = "Thông tin tài khoản";
             this.btnAccountInfo.Id = 7;
+            this.btnAccountInfo.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnAccountInfo.ImageOptions.SvgImage")));
             this.btnAccountInfo.LargeWidth = 75;
             this.btnAccountInfo.Name = "btnAccountInfo";
             this.btnAccountInfo.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnAccountInfo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnAccountInfo_ItemClick);
             // 
             // btnLogOut
             // 
             this.btnLogOut.Caption = "Đăng xuất";
             this.btnLogOut.Id = 8;
+            this.btnLogOut.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnLogOut.ImageOptions.SvgImage")));
             this.btnLogOut.Name = "btnLogOut";
             this.btnLogOut.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             // 
@@ -174,6 +181,7 @@
             // 
             this.btnViewAccount.Caption = "Nhân viên";
             this.btnViewAccount.Id = 9;
+            this.btnViewAccount.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnViewAccount.ImageOptions.SvgImage")));
             this.btnViewAccount.LargeWidth = 75;
             this.btnViewAccount.Name = "btnViewAccount";
             this.btnViewAccount.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
@@ -183,14 +191,17 @@
             // 
             this.btnViewBill.Caption = "Doanh thu";
             this.btnViewBill.Id = 10;
+            this.btnViewBill.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnViewBill.ImageOptions.SvgImage")));
             this.btnViewBill.LargeWidth = 75;
             this.btnViewBill.Name = "btnViewBill";
             this.btnViewBill.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnViewBill.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnViewBill_ItemClick);
             // 
             // btnStatistic
             // 
             this.btnStatistic.Caption = "Thống kê";
             this.btnStatistic.Id = 11;
+            this.btnStatistic.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnStatistic.ImageOptions.SvgImage")));
             this.btnStatistic.LargeWidth = 75;
             this.btnStatistic.Name = "btnStatistic";
             this.btnStatistic.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
@@ -260,14 +271,17 @@
             // 
             this.barButtonItem2.Caption = "Kho";
             this.barButtonItem2.Id = 21;
+            this.barButtonItem2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem2.ImageOptions.SvgImage")));
             this.barButtonItem2.LargeWidth = 75;
             this.barButtonItem2.Name = "barButtonItem2";
             this.barButtonItem2.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.barButtonItem2.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem2_ItemClick);
             // 
             // barButtonItem3
             // 
             this.barButtonItem3.Caption = "Nhập Kho";
             this.barButtonItem3.Id = 22;
+            this.barButtonItem3.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem3.ImageOptions.SvgImage")));
             this.barButtonItem3.LargeWidth = 75;
             this.barButtonItem3.Name = "barButtonItem3";
             this.barButtonItem3.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
@@ -283,6 +297,7 @@
             // 
             this.barButtonItem5.Caption = "Xuất Kho";
             this.barButtonItem5.Id = 24;
+            this.barButtonItem5.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem5.ImageOptions.SvgImage")));
             this.barButtonItem5.LargeWidth = 75;
             this.barButtonItem5.Name = "barButtonItem5";
             this.barButtonItem5.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
@@ -293,6 +308,15 @@
             this.txtCaption.Caption = "Chào Quản lý!";
             this.txtCaption.Id = 25;
             this.txtCaption.Name = "txtCaption";
+            // 
+            // barButtonItem6
+            // 
+            this.barButtonItem6.Caption = "Nhà cung cấp";
+            this.barButtonItem6.Id = 26;
+            this.barButtonItem6.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem6.ImageOptions.SvgImage")));
+            this.barButtonItem6.Name = "barButtonItem6";
+            this.barButtonItem6.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText)));
+            this.barButtonItem6.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem6_ItemClick);
             // 
             // ribbonPage
             // 
@@ -370,19 +394,11 @@
             this.fileSystemWatcher1.EnableRaisingEvents = true;
             this.fileSystemWatcher1.SynchronizingObject = this;
             // 
-            // barButtonItem6
-            // 
-            this.barButtonItem6.Caption = "Nhà cung cấp";
-            this.barButtonItem6.Id = 26;
-            this.barButtonItem6.Name = "barButtonItem6";
-            this.barButtonItem6.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText)));
-            this.barButtonItem6.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem6_ItemClick);
-            // 
             // frMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1580, 982);
+            this.ClientSize = new System.Drawing.Size(1367, 857);
             this.Controls.Add(this.ribbon);
             this.IsMdiContainer = true;
             this.Name = "frMain";

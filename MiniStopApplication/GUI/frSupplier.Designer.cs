@@ -41,18 +41,18 @@
             this.gvSupplier = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
+            this.btnUpload = new DevExpress.XtraEditors.SimpleButton();
+            this.picImage = new System.Windows.Forms.PictureBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtDiaChi = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtSDT = new System.Windows.Forms.TextBox();
             this.btnSua = new DevExpress.XtraEditors.SimpleButton();
             this.btnXoa = new DevExpress.XtraEditors.SimpleButton();
             this.btnThoat = new DevExpress.XtraEditors.SimpleButton();
             this.btnThem = new DevExpress.XtraEditors.SimpleButton();
             this.t = new System.Windows.Forms.Label();
             this.txtTen = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtSDT = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtDiaChi = new System.Windows.Forms.TextBox();
-            this.picImage = new System.Windows.Forms.PictureBox();
-            this.btnUpload = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cbTimKiem.Properties)).BeginInit();
@@ -84,7 +84,7 @@
             this.btnSearch.Appearance.Options.UseFont = true;
             this.btnSearch.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.ImageOptions.Image")));
             this.btnSearch.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
-            this.btnSearch.Location = new System.Drawing.Point(24, 16);
+            this.btnSearch.Location = new System.Drawing.Point(24, 20);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(85, 33);
@@ -104,7 +104,7 @@
             // 
             // cbTimKiem
             // 
-            this.cbTimKiem.Location = new System.Drawing.Point(132, 54);
+            this.cbTimKiem.Location = new System.Drawing.Point(132, 67);
             this.cbTimKiem.Name = "cbTimKiem";
             this.cbTimKiem.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F);
             this.cbTimKiem.Properties.Appearance.Options.UseFont = true;
@@ -112,7 +112,7 @@
             this.cbTimKiem.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cbTimKiem.Properties.NullText = "";
-            this.cbTimKiem.Size = new System.Drawing.Size(199, 32);
+            this.cbTimKiem.Size = new System.Drawing.Size(199, 24);
             this.cbTimKiem.TabIndex = 27;
             // 
             // btnXem
@@ -121,7 +121,7 @@
             this.btnXem.Appearance.Options.UseFont = true;
             this.btnXem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnXem.ImageOptions.Image")));
             this.btnXem.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
-            this.btnXem.Location = new System.Drawing.Point(24, 56);
+            this.btnXem.Location = new System.Drawing.Point(24, 60);
             this.btnXem.Name = "btnXem";
             this.btnXem.Size = new System.Drawing.Size(85, 35);
             this.btnXem.TabIndex = 31;
@@ -131,7 +131,7 @@
             // 
             this.txtSearchCategory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSearchCategory.EditValue = "";
-            this.txtSearchCategory.Location = new System.Drawing.Point(132, 14);
+            this.txtSearchCategory.Location = new System.Drawing.Point(132, 26);
             this.txtSearchCategory.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtSearchCategory.Name = "txtSearchCategory";
             this.txtSearchCategory.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -139,7 +139,7 @@
             this.txtSearchCategory.Properties.AutoHeight = false;
             this.txtSearchCategory.Properties.NullText = "-- Tìm tên món ăn --";
             this.txtSearchCategory.Properties.NullValuePrompt = "-- Tìm tên món ăn --";
-            this.txtSearchCategory.Size = new System.Drawing.Size(199, 33);
+            this.txtSearchCategory.Size = new System.Drawing.Size(199, 23);
             this.txtSearchCategory.TabIndex = 27;
             // 
             // label1
@@ -160,7 +160,7 @@
             this.panelControl2.Controls.Add(this.gcSupplier);
             this.panelControl2.Location = new System.Drawing.Point(364, 19);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(695, 629);
+            this.panelControl2.Size = new System.Drawing.Size(705, 618);
             this.panelControl2.TabIndex = 83;
             // 
             // gcSupplier
@@ -172,7 +172,7 @@
             this.gcSupplier.Location = new System.Drawing.Point(5, 16);
             this.gcSupplier.MainView = this.gvSupplier;
             this.gcSupplier.Name = "gcSupplier";
-            this.gcSupplier.Size = new System.Drawing.Size(685, 608);
+            this.gcSupplier.Size = new System.Drawing.Size(695, 597);
             this.gcSupplier.TabIndex = 27;
             this.gcSupplier.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvSupplier,
@@ -208,8 +208,62 @@
             this.panelControl3.Controls.Add(this.txtTen);
             this.panelControl3.Location = new System.Drawing.Point(12, 149);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(346, 499);
+            this.panelControl3.Size = new System.Drawing.Size(346, 488);
             this.panelControl3.TabIndex = 81;
+            // 
+            // btnUpload
+            // 
+            this.btnUpload.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnUpload.ImageOptions.Image")));
+            this.btnUpload.Location = new System.Drawing.Point(93, 294);
+            this.btnUpload.Name = "btnUpload";
+            this.btnUpload.Size = new System.Drawing.Size(157, 44);
+            this.btnUpload.TabIndex = 15;
+            this.btnUpload.Text = "Upload hình ảnh";
+            this.btnUpload.Click += new System.EventHandler(this.btnUpload_Click);
+            // 
+            // picImage
+            // 
+            this.picImage.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.picImage.Location = new System.Drawing.Point(13, 128);
+            this.picImage.Name = "picImage";
+            this.picImage.Size = new System.Drawing.Size(309, 160);
+            this.picImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picImage.TabIndex = 14;
+            this.picImage.TabStop = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.label4.Location = new System.Drawing.Point(89, 94);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(67, 21);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "Địa chỉ:";
+            // 
+            // txtDiaChi
+            // 
+            this.txtDiaChi.Location = new System.Drawing.Point(162, 94);
+            this.txtDiaChi.Name = "txtDiaChi";
+            this.txtDiaChi.Size = new System.Drawing.Size(160, 23);
+            this.txtDiaChi.TabIndex = 12;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.label2.Location = new System.Drawing.Point(43, 54);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(113, 21);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Số điện thoại:";
+            // 
+            // txtSDT
+            // 
+            this.txtSDT.Location = new System.Drawing.Point(162, 54);
+            this.txtSDT.Name = "txtSDT";
+            this.txtSDT.Size = new System.Drawing.Size(160, 23);
+            this.txtSDT.TabIndex = 10;
             // 
             // btnSua
             // 
@@ -268,74 +322,18 @@
             this.txtTen.Size = new System.Drawing.Size(160, 23);
             this.txtTen.TabIndex = 0;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.label2.Location = new System.Drawing.Point(43, 54);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(113, 21);
-            this.label2.TabIndex = 11;
-            this.label2.Text = "Số điện thoại:";
-       
-            // 
-            // txtSDT
-            // 
-            this.txtSDT.Location = new System.Drawing.Point(162, 54);
-            this.txtSDT.Name = "txtSDT";
-            this.txtSDT.Size = new System.Drawing.Size(160, 23);
-            this.txtSDT.TabIndex = 10;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.label4.Location = new System.Drawing.Point(89, 94);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(67, 21);
-            this.label4.TabIndex = 13;
-            this.label4.Text = "Địa chỉ:";
-            // 
-            // txtDiaChi
-            // 
-            this.txtDiaChi.Location = new System.Drawing.Point(162, 94);
-            this.txtDiaChi.Name = "txtDiaChi";
-            this.txtDiaChi.Size = new System.Drawing.Size(160, 23);
-            this.txtDiaChi.TabIndex = 12;
-            // 
-            // picImage
-            // 
-            this.picImage.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.picImage.Location = new System.Drawing.Point(13, 128);
-            this.picImage.Name = "picImage";
-            this.picImage.Size = new System.Drawing.Size(309, 160);
-            this.picImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picImage.TabIndex = 14;
-            this.picImage.TabStop = false;
-            // 
-            // btnUpload
-            // 
-            this.btnUpload.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.btnUpload.Location = new System.Drawing.Point(93, 294);
-            this.btnUpload.Name = "btnUpload";
-            this.btnUpload.Size = new System.Drawing.Size(157, 44);
-            this.btnUpload.TabIndex = 15;
-            this.btnUpload.Text = "Upload hình ảnh";
-            this.btnUpload.Click += new System.EventHandler(this.btnUpload_Click);
-            // 
             // frSupplier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1066, 660);
+            this.ClientSize = new System.Drawing.Size(1076, 649);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.panelControl2);
             this.Controls.Add(this.panelControl3);
             this.Name = "frSupplier";
-            this.Text = "frSupplier";
-    
+            this.Text = "Trang quản lý nhà cung cấp";
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cbTimKiem.Properties)).EndInit();
